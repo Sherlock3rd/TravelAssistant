@@ -87,3 +87,25 @@
     *   **节点：** 圆圈+描边，集散中心 (Hub) 用大圈，普通景点用小圈。
     *   **方向：** 箭头清晰指示流向。
 
+## 4. 项目维护与展望 (Maintenance & Roadmap)
+
+### 📦 仓库信息 (Repository)
+*   **Git地址:** `git@github.com:Sherlock3rd/TravelAssistant.git`
+*   **在线访问:** `https://Sherlock3rd.github.io/TravelAssistant/` (需开启GitHub Pages)
+
+### 🔧 更新维护 (How to Update)
+1.  **提交更改:**
+    ```bash
+    git add .
+    git commit -m "描述更新内容"
+    git push origin main
+    ```
+2.  **强制推送 (如遇冲突):** `git push -f origin main`
+
+### 🚀 后续开发计划 (Roadmap)
+*   **在线评论 (Comments):** 增加用户对行程的反馈和讨论功能。
+*   **排序功能 (Sorting):** 
+    *   按价格 (Price: Low-High)
+    *   按天数 (Duration: Short-Long)
+    *   按季节 (Season)
+*   **热度计算 (Popularity):** 基于点击量和停留时间计算热门行程。
