@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Plan Detail</title>
+    <style>
+        :root {
+            --bg-color: #f4f1ea;
+            --paper-color: #fffbe6;
+            --ink-color: #2c3e50;
+            --highlight-color: #e74c3c;
+            --accent-color: #f1c40f;
+            --border-width: 3px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--ink-color);
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: 
+                linear-gradient(#e0e0e0 1px, transparent 1px),
+                linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--paper-color);
+            border: var(--border-width) solid var(--ink-color);
+            padding: 30px;
+            box-shadow: 10px 10px 0px var(--ink-color);
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: var(--border-width) dashed var(--ink-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            text-shadow: 2px 2px 0px var(--accent-color);
+        }
+
+        .back-btn {
+            background: var(--ink-color);
+            color: var(--paper-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: transform 0.2s, background 0.2s;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+            background: var(--highlight-color);
+        }
+
+        .plan-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .plan-content h3 {
+            color: var(--highlight-color);
+            margin-top: 30px;
+            border-bottom: 2px dashed var(--ink-color);
+            padding-bottom: 5px;
+            font-size: 1.5rem;
+        }
+        
+        /* Module Containers */
+        .module-box {
+            border: 2px solid var(--ink-color);
+            padding: 20px;
+            margin-bottom: 25px;
+            background: white;
+            box-shadow: 5px 5px 0px #ccc;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .module-title {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--accent-color);
+            padding: 5px 15px;
+            border: 2px solid var(--ink-color);
+            border-radius: 20px;
+            font-weight: bold;
+            transform: rotate(-2deg);
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+        }
+
+        /* Briefing Section */
+        .briefing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .atmosphere-text {
+            grid-column: 1 / -1;
+            font-style: italic;
+            background: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid var(--highlight-color);
+        }
+
+        /* Map Section */
+        .map-container {
+            text-align: center;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        /* Timeline Section */
+        .day-block {
+            margin-bottom: 20px;
+            border-left: 3px solid var(--ink-color);
+            padding-left: 15px;
+        }
+        .time-slot {
+            margin-bottom: 10px;
+        }
+        .lodging-tag {
+            display: inline-block;
+            background: var(--ink-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transform: rotate(1deg);
+        }
+
+        /* Cost Section */
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cost-table th, .cost-table td {
+            border: 1px solid var(--ink-color);
+            padding: 8px;
+            text-align: left;
+        }
+        .cost-table th {
+            background: var(--bg-color);
+        }
+
+        /* Loadout Section */
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .pros { color: green; }
+        .cons { color: red; }
+
+        @media (max-width: 600px) {
+            .container { padding: 15px; }
+            h1 { font-size: 1.5rem; }
+            .briefing-grid, .pros-cons { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="plan-container">
+        <div class="header">
+            <div>
+                <h1 id="plan-title">Quest Title</h1>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div id="season-tag" style="display: none; background: #e0f7fa; color: #006064; padding: 2px 10px; border-radius: 15px; font-size: 0.9rem; margin-top: 5px; border: 1px dashed #0097a7; display: inline-block;">
+                        SEASON
+                    </div>
+                    <div id="season-switcher" style="display: none; margin-top: 5px;">
+                        <!-- Buttons injected here -->
+                    </div>
+                </div>
+            </div>
+            <a href="index.html" class="back-btn">⬅️ Back to Hub</a>
+        </div>
+        <div class="plan-content" id="plan-body">
+            <!-- Plan content will be injected here -->
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        // Get ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const questId = urlParams.get('id');
+
+        if (questId && questData[questId]) {
+            const data = questData[questId];
+            document.title = data.title + " - Plan";
+            document.getElementById('plan-title').innerText = data.title;
+            
+            // Season Tag Logic
+            const seasonTag = document.getElementById('season-tag');
+            const seasonSwitcher = document.getElementById('season-switcher');
+
+            if (data.season) {
+                seasonTag.innerText = data.season;
+                seasonTag.style.display = 'inline-block';
+                // Dynamic styling based on season
+                if (data.season.includes('Winter') || data.season.includes('冬')) {
+                    seasonTag.style.background = '#e1f5fe'; seasonTag.style.color = '#01579b'; seasonTag.style.borderColor = '#0288d1';
+                } else if (data.season.includes('Summer') || data.season.includes('夏')) {
+                    seasonTag.style.background = '#fff3e0'; seasonTag.style.color = '#e65100'; seasonTag.style.borderColor = '#ef6c00';
+                } else if (data.season.includes('Spring') || data.season.includes('春')) {
+                    seasonTag.style.background = '#f1f8e9'; seasonTag.style.color = '#33691e'; seasonTag.style.borderColor = '#558b2f';
+                } else if (data.season.includes('Autumn') || data.season.includes('秋')) {
+                    seasonTag.style.background = '#fbe9e7'; seasonTag.style.color = '#bf360c'; seasonTag.style.borderColor = '#d84315';
+                }
+            } else {
+                seasonTag.style.display = 'none';
+            }
+
+            // Seasonal Switcher Logic
+            if (data.seasonal_variants) {
+                seasonSwitcher.style.display = 'inline-block';
+                let switchHtml = '';
+                for (const [key, variantId] of Object.entries(data.seasonal_variants)) {
+                    if (variantId !== questId) { // Only show other seasons
+                        let btnText = key.charAt(0).toUpperCase() + key.slice(1);
+                        let icon = '🔄';
+                        if (key === 'winter') icon = '❄️';
+                        if (key === 'summer') icon = '🌿';
+                        
+                        switchHtml += `<button onclick="window.location.search='?id=${variantId}'" style="
+                            background: white; 
+                            border: 1px solid var(--ink-color); 
+                            border-radius: 15px; 
+                            padding: 2px 10px; 
+                            font-size: 0.8rem; 
+                            cursor: pointer; 
+                            margin-left: 5px;
+                            font-family: inherit;
+                        ">${icon} Switch to ${btnText}</button>`;
+                    }
+                }
+                seasonSwitcher.innerHTML = switchHtml;
+            } else {
+                seasonSwitcher.style.display = 'none';
+            }
+
+
+            if (data.hasPlan) {
+                document.getElementById('plan-body').innerHTML = data.plan;
+            } else {
+                document.getElementById('plan-body').innerHTML = `
+                    <div style="text-align: center; padding: 50px;">
+                        <h2>🚧 施工中 (Under Construction)</h2>
+                        <p>该目的地的详细攻略正在绘制中，请稍后再来！</p>
+                        <p>Detailed plan is being drawn by our comic artists...</p>
+                    </div>
+                `;
+            }
+        } else {
+            document.getElementById('plan-body').innerHTML = `
+                <div style="text-align: center; color: red;">
+                    <h2>❌ Error 404</h2>
+                    <p>Quest not found!</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

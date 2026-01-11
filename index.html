@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Quest Log | 旅游任务日志</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --paper-color: #ffffff;
+            --ink-color: #2c2c2c;
+            --highlight-color: #ffd700; /* Marker Yellow */
+            --accent-color: #00bcd4; /* Cyan for Tech/Ice */
+            --border-width: 3px;
+        }
+
+        body {
+            font-family: 'Patrick Hand', 'ZCOOL KuaiLe', cursive, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--ink-color);
+            margin: 0;
+            padding: 20px;
+            background-image: radial-gradient(#ddd 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Comic Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            text-shadow: 3px 3px 0px var(--highlight-color);
+            transform: rotate(-2deg);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            background: var(--ink-color);
+            color: var(--paper-color);
+            display: inline-block;
+            padding: 5px 15px;
+            transform: rotate(1deg);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        /* Navigation / Hub Area */
+        .hub-section {
+            background: var(--paper-color);
+            border: var(--border-width) solid var(--ink-color);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+            display: flex;
+            min-height: 600px;
+        }
+
+        .sidebar {
+            width: 250px;
+            border-right: 2px dashed var(--ink-color);
+            padding-right: 20px;
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: 2px solid var(--ink-color);
+            padding: 15px 10px;
+            text-align: left;
+            font-family: inherit;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            background-color: #eee;
+            transform: translate(-2px, -2px);
+            box-shadow: 2px 2px 0px var(--ink-color);
+        }
+
+        .tab-btn.active {
+            background-color: var(--highlight-color);
+            font-weight: bold;
+            transform: translate(-2px, -2px);
+            box-shadow: 3px 3px 0px var(--ink-color);
+        }
+
+        .content-area {
+            flex: 1;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            border-bottom: var(--border-width) solid var(--ink-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            display: inline-block;
+        }
+
+        .section-title {
+            background: var(--highlight-color);
+            padding: 5px 15px;
+            transform: rotate(-1deg);
+            display: inline-block;
+            border: 2px solid var(--ink-color);
+            border-bottom: 2px solid var(--ink-color); /* Ensure full border */
+            margin-bottom: 15px;
+        }
+
+        h3.category-header {
+            margin-top: 0;
+            color: var(--ink-color);
+            border-left: 5px solid var(--highlight-color);
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Gachapon Grid */
+        .gacha-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card Style */
+        .card {
+            background: var(--paper-color);
+            border: var(--border-width) solid var(--ink-color);
+            /* Hand-drawn effect borders */
+            border-radius: 5px;
+            padding: 15px;
+            position: relative;
+            transition: transform 0.2s;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 5px 5px 0px var(--ink-color);
+            background-color: #fffef0;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border: 2px solid var(--ink-color);
+            font-weight: bold;
+        }
+
+        .tag-short { background-color: #a8e6cf; } /* Pastel Green */
+        .tag-med { background-color: #ffd3b6; } /* Pastel Orange */
+        .tag-long { background-color: #ffaaa5; } /* Pastel Red */
+
+        .card-title {
+            font-size: 1.3rem;
+            margin: 10px 0 5px 0;
+            font-weight: bold;
+        }
+
+        .location-text {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        .card-highlight {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--highlight-color);
+            padding-left: 8px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            border-top: 1px dashed var(--ink-color);
+            padding-top: 10px;
+        }
+
+        .icon-box {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* Stick Figure SVGs */
+        svg {
+            stroke: var(--ink-color);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px dashed #ddd;
+        }
+
+        .page-btn {
+            background: var(--paper-color);
+            border: 2px solid var(--ink-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-btn:hover {
+            transform: scale(1.1);
+            background: #eee;
+        }
+
+        .page-btn.active {
+            background: var(--highlight-color);
+            box-shadow: 2px 2px 0 var(--ink-color);
+            font-weight: bold;
+        }
+
+        /* Details Modal (Hidden by default) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--paper-color);
+            border: var(--border-width) solid var(--ink-color);
+            width: 90%;
+            max-width: 900px;
+            padding: 0;
+            position: relative;
+            box-shadow: 10px 10px 0px var(--highlight-color);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Mobile responsive for modal */
+        @media (max-width: 768px) {
+            .modal-content {
+                flex-direction: column;
+                height: 90vh;
+            }
+            .modal-left {
+                width: 100%;
+                height: 200px;
+                border-right: none;
+                border-bottom: var(--border-width) solid var(--ink-color);
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+                border-bottom-left-radius: 0;
+            }
+            .modal-right {
+                width: 100%;
+                padding: 20px;
+                flex: 1;
+                overflow-y: auto;
+            }
+            .close-btn {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        .modal-left {
+            width: 40%;
+            background: #f0f0f0;
+            border-right: var(--border-width) solid var(--ink-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
+
+        .modal-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-right {
+            width: 60%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--paper-color);
+            border: var(--border-width) solid var(--ink-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.1) rotate(90deg);
+            background: var(--highlight-color);
+        }
+
+        .modal-body p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .action-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: var(--ink-color);
+            color: var(--paper-color);
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .action-btn:hover {
+            background: var(--accent-color);
+            color: var(--ink-color);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>TRAVEL QUEST LOG</h1>
+        <div class="subtitle">Design by Charlie</div>
+    </header>
+
+    <div class="featured-section" style="margin-bottom: 40px;">
+        <h2 class="section-title">⭐ 精选详细攻略 (Featured Plans)</h2>
+        <p style="margin-bottom: 20px;">Detailed guides with day-by-day itinerary.</p>
+        <div class="gacha-grid" id="featured-grid">
+            <!-- JS will fill this -->
+        </div>
+    </div>
+
+    <div class="hub-section">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div style="margin-bottom: 20px;">
+                <h2 class="section-title">💡 灵感岛</h2>
+                <p style="font-size: 0.9rem;">Select Type:</p>
+            </div>
+            <button class="tab-btn active" onclick="switchTab(1)">🚗 单日往返 (1d)</button>
+            <button class="tab-btn" onclick="switchTab(2)">🚙 周末短途 (2d)</button>
+            <button class="tab-btn" onclick="switchTab(3)">🏎️ 假期自驾 (2-5d)</button>
+            <button class="tab-btn" onclick="switchTab(4)">🚄 假期高铁/飞 (2-5d)</button>
+            <button class="tab-btn" onclick="switchTab(5)">✈️ 长假远途 (5d+)</button>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+
+            <!-- Category 1: Single Day (1d) -->
+            <div id="tab-1" class="tab-content active">
+                <h3 class="category-header">🚗 单日往返 (Single Day | 1d)</h3>
+                <div class="gacha-grid">
+                    <div class="card" onclick="openModal('quest4')"><div class="card-tag tag-short">单日 (1d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M20 60 Q50 80 80 60 L70 80 H30 Z" /><line x1="50" y1="60" x2="50" y2="30" /><path d="M50 30 L80 45 L50 45 Z" fill="var(--ink-color)"/></svg></div><div class="card-title">麓湖 (Luxelakes)</div><div class="location-text">🇨🇳 成都 · 天府新区</div><div class="card-highlight">家门口的开船体验，现代建筑群好出片。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥200-500</span></div></div>
+                    <div class="card" onclick="openModal('quest27')"><div class="card-tag tag-short">单日 (1d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M10 50 Q50 30 90 50" stroke="blue" /><rect x="40" y="30" width="20" height="40" /></svg></div><div class="card-title">都江堰 (Dujiangyan)</div><div class="location-text">🇨🇳 成都 · 都江堰</div><div class="card-highlight">拜水都江堰，南桥夜景赛博朋克蓝。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥100-300</span></div></div>
+                    <div class="card" onclick="openModal('quest28')"><div class="card-tag tag-short">单日 (1d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M50 20 L20 80 H80 Z" /><circle cx="50" cy="35" r="5" /></svg></div><div class="card-title">青城山 (Qingcheng)</div><div class="location-text">🇨🇳 成都 · 都江堰</div><div class="card-highlight">问道青城山，月城湖坐船，幽静洗肺。</div><div class="card-meta"><span>📅 春/夏</span><span>💰 ¥200-400</span></div></div>
+                    <div class="card" onclick="openModal('quest29')"><div class="card-tag tag-short">单日 (1d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="30" cy="40" r="10" /><circle cx="70" cy="40" r="10" /><path d="M30 60 Q50 80 70 60" /></svg></div><div class="card-title">三星堆 (Sanxingdui)</div><div class="location-text">🇨🇳 四川 · 广汉</div><div class="card-highlight">沉睡数千年，一醒惊天下。新馆极具现代感。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥100-300</span></div></div>
+                    <div class="card" onclick="openModal('quest30')"><div class="card-tag tag-short">单日 (1d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="35" cy="35" r="5" fill="black" /><circle cx="65" cy="35" r="5" fill="black" /><circle cx="50" cy="50" r="20" /></svg></div><div class="card-title">熊猫基地 (Panda Base)</div><div class="location-text">🇨🇳 成都 · 成华</div><div class="card-highlight">早起看花花，顶流女明星。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥100-200</span></div></div>
+                    <div class="card" onclick="openModal('quest31')"><div class="card-tag tag-short">单日 (1d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M10 80 Q50 20 90 80" /><circle cx="50" cy="30" r="5" /></svg></div><div class="card-title">龙泉山 (Longquan)</div><div class="location-text">🇨🇳 成都 · 龙泉驿</div><div class="card-highlight">城市之眼，看成都夜景，喝茶晒太阳。</div><div class="card-meta"><span>📅 春/秋</span><span>💰 ¥100-300</span></div></div>
+                    <div class="card" onclick="openModal('quest32')"><div class="card-tag tag-short">单日 (1d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><rect x="30" y="40" width="40" height="40" /><path d="M30 40 L50 20 L70 40" /></svg></div><div class="card-title">街子古镇 (Jiezi)</div><div class="location-text">🇨🇳 成都 · 崇州</div><div class="card-highlight">青城后花园，爬凤栖山，吃叶儿粑。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥100-200</span></div></div>
+                    <div class="card" onclick="openModal('quest33')"><div class="card-tag tag-short">单日 (1d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M20 50 Q50 20 80 50" stroke="blue" /><path d="M20 60 Q50 30 80 60" stroke="blue" /></svg></div><div class="card-title">黄龙溪 (Huanglongxi)</div><div class="location-text">🇨🇳 成都 · 双流</div><div class="card-highlight">玩水胜地，一根面，古镇风情。</div><div class="card-meta"><span>📅 夏季</span><span>💰 ¥100-200</span></div></div>
+                    <div class="card" onclick="openModal('quest34')"><div class="card-tag tag-short">单日 (1d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" /><path d="M50 50 L50 20" /><path d="M50 50 L80 50" /><path d="M50 50 L50 80" /><path d="M50 50 L20 50" /></svg></div><div class="card-title">三圣乡 (Sansheng)</div><div class="location-text">🇨🇳 成都 · 锦江</div><div class="card-highlight">鲜花市场，露营烧烤，就在三环边。</div><div class="card-meta"><span>📅 春季</span><span>💰 ¥100-300</span></div></div>
+                </div>
+            </div>
+
+            <!-- Category 2: Weekend (2d) -->
+            <div id="tab-2" class="tab-content">
+                <h3 class="category-header">🚙 周末短途 (Weekend | 2d)</h3>
+                <div class="gacha-grid">
+                    <div class="card" onclick="openModal('quest1')"><div class="card-tag tag-short">周末 (2d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="50" cy="20" r="10" /><line x1="50" y1="30" x2="50" y2="60" /><line x1="50" y1="60" x2="30" y2="80" /><line x1="50" y1="60" x2="70" y2="80" /><line x1="50" y1="40" x2="20" y2="30" /><line x1="50" y1="40" x2="80" y2="30" /><line x1="20" y1="90" x2="80" y2="90" stroke-width="4" /></svg></div><div class="card-title">毕棚沟 (Bipenggou)</div><div class="location-text">🇨🇳 四川 · 阿坝</div><div class="card-highlight">不用爬山的雪景，新手友好滑雪场。</div><div class="card-meta"><span>📅 12月-2月</span><span>💰 ¥800-1500</span></div></div>
+                    <div class="card" onclick="openModal('quest2')"><div class="card-tag tag-short">周末 (2d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M10 90 L50 20 L90 90" /><circle cx="50" cy="15" r="5" fill="var(--paper-color)"/></svg></div><div class="card-title">达古冰川 (Dagu)</div><div class="location-text">🇨🇳 四川 · 阿坝</div><div class="card-highlight">全球海拔最高的咖啡厅，缆车直达山顶。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥1200-2000</span></div></div>
+                    <div class="card" onclick="openModal('quest5')"><div class="card-tag tag-short">周末 (2d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><rect x="30" y="40" width="40" height="30" rx="5" /><circle cx="50" cy="55" r="10" /><rect x="60" y="35" width="10" height="5" /></svg></div><div class="card-title">王岗坪 (Wanggangping)</div><div class="location-text">🇨🇳 四川 · 雅安</div><div class="card-highlight">直面贡嘎雪山的滑雪场，日照金山概率高。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥1000-1800</span></div></div>
+                    <div class="card" onclick="openModal('quest11')"><div class="card-tag tag-short">周末 (2d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M50 20 L10 90 H90 Z" /><path d="M50 20 L50 90" stroke-dasharray="5,5" /></svg></div><div class="card-title">四姑娘山 (Siguniang)</div><div class="location-text">🇨🇳 四川 · 阿坝</div><div class="card-highlight">双桥沟全程观光车，零徒步看雪山。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥800-1500</span></div></div>
+                    <div class="card" onclick="openModal('quest13')"><div class="card-tag tag-short">周末 (2d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><rect x="20" y="40" width="60" height="50" /><line x1="20" y1="40" x2="80" y2="40" stroke-width="4"/><circle cx="50" cy="30" r="5"/></svg></div><div class="card-title">瓦屋山 (Wawu Shan)</div><div class="location-text">🇨🇳 四川 · 洪雅</div><div class="card-highlight">桌山奇观，索道直达，冬季冰雪森林。</div><div class="card-meta"><span>📅 12月-2月</span><span>💰 ¥1000-1600</span></div></div>
+                    <div class="card" onclick="openModal('quest35')"><div class="card-tag tag-short">周末 (2d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M50 20 L10 90 H90 Z" /><circle cx="50" cy="20" r="5" fill="gold" /></svg></div><div class="card-title">峨眉山 (Emei Shan)</div><div class="location-text">🇨🇳 四川 · 乐山</div><div class="card-highlight">金顶看云海，雷洞坪滑雪，猴子(小心)。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥1000-1800</span></div></div>
+                    <div class="card" onclick="openModal('quest36')"><div class="card-tag tag-short">周末 (2d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><rect x="30" y="20" width="40" height="60" /><circle cx="50" cy="40" r="10" /></svg></div><div class="card-title">乐山大佛 (Leshan)</div><div class="location-text">🇨🇳 四川 · 乐山</div><div class="card-highlight">坐船看大佛全景，钵钵鸡吃到饱。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥600-1200</span></div></div>
+                    <div class="card" onclick="openModal('quest37')"><div class="card-tag tag-short">周末 (2d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M30 60 Q50 80 70 60" fill="green" /><line x1="50" y1="60" x2="50" y2="40" /></svg></div><div class="card-title">蒙顶山 (Mengding)</div><div class="location-text">🇨🇳 四川 · 雅安</div><div class="card-highlight">世界茶文化圣山，树冠漫步，空气极佳。</div><div class="card-meta"><span>📅 春/夏</span><span>💰 ¥600-1000</span></div></div>
+                    <div class="card" onclick="openModal('quest38')"><div class="card-tag tag-short">周末 (2d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="yellow" box-shadow="0 0 10px yellow" /><path d="M50 20 L20 80 H80 Z" /></svg></div><div class="card-title">天台山 (Tiantai)</div><div class="location-text">🇨🇳 四川 · 邛崃</div><div class="card-highlight">萤火虫之森(季节性)，夏季玩水避暑。</div><div class="card-meta"><span>📅 夏季</span><span>💰 ¥600-1000</span></div></div>
+                </div>
+            </div>
+
+            <!-- Category 3: Holiday Drive (2-5d) -->
+            <div id="tab-3" class="tab-content">
+                <h3 class="category-header">🏎️ 假期自驾 (Holiday Drive | 2-5d)</h3>
+                <div class="gacha-grid">
+                    <div class="card" onclick="openModal('quest3')"><div class="card-tag tag-med">假期 (3d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" /><circle cx="40" cy="45" r="2" fill="black"/><circle cx="60" cy="45" r="2" fill="black"/><path d="M45 55 Q50 60 55 55" /></svg></div><div class="card-title">莫斯卡 (Mosca)</div><div class="location-text">🇨🇳 四川 · 丹巴</div><div class="card-highlight">与野生土拨鼠(NPC)互动，避世村落。</div><div class="card-meta"><span>📅 6月-9月</span><span>💰 ¥1000-1800</span></div></div>
+                    <div class="card" onclick="openModal('quest15')"><div class="card-tag tag-med">假期 (3d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><rect x="20" y="20" width="20" height="60"/><rect x="50" y="10" width="30" height="80"/><line x1="20" y1="40" x2="50" y2="30"/></svg></div><div class="card-title">重庆 (Chongqing)</div><div class="location-text">🇨🇳 重庆</div><div class="card-highlight">8D魔幻地形，长江索道，两江游船。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥1200-2000</span></div></div>
+                    <div class="card" onclick="openModal('quest17')"><div class="card-tag tag-med">假期 (3d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><rect x="30" y="40" width="40" height="30"/><circle cx="50" cy="55" r="10"/></svg></div><div class="card-title">塔公/新都桥 (Tagong)</div><div class="location-text">🇨🇳 四川 · 甘孜</div><div class="card-highlight">摄影家的天堂，雅拉雪山下的寺庙。</div><div class="card-meta"><span>📅 秋季</span><span>💰 ¥1500-2500</span></div></div>
+                    <div class="card" onclick="openModal('quest18')"><div class="card-tag tag-med">假期 (3d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M20 40 L50 20 L80 40 V80 H20 Z"/><rect x="40" y="60" width="20" height="20"/></svg></div><div class="card-title">阆中古城 (Langzhong)</div><div class="location-text">🇨🇳 四川 · 南充</div><div class="card-highlight">风水古城，春节发源地，适合汉服Cosplay。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥1000-1800</span></div></div>
+                    <div class="card" onclick="openModal('quest14')"><div class="card-tag tag-med">假期 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M10 60 Q50 80 90 60" fill="none" /><circle cx="80" cy="20" r="10" /><line x1="50" y1="50" x2="50" y2="30"/></svg></div><div class="card-title">西昌邛海 (Qionghai)</div><div class="location-text">🇨🇳 四川 · 凉山</div><div class="card-highlight">冬日暖阳，泛舟邛海，参观卫星发射中心。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥1500-2500</span></div></div>
+                    <div class="card" onclick="openModal('quest16')"><div class="card-tag tag-med">假期 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M10 50 Q30 40 50 50 T90 50" stroke="blue"/><path d="M10 60 Q30 50 50 60 T90 60" stroke="cyan"/></svg></div><div class="card-title">九寨沟 (Jiuzhaigou)</div><div class="location-text">🇨🇳 四川 · 阿坝</div><div class="card-highlight">水景渲染的天花板，现实版“光追”演示。</div><div class="card-meta"><span>📅 秋季</span><span>💰 ¥2000-3500</span></div></div>
+                    <div class="card" onclick="openModal('quest40')"><div class="card-tag tag-med">假期 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M10 60 Q30 40 50 60 T90 60" fill="none" stroke="green" /><circle cx="80" cy="30" r="5" /></svg></div><div class="card-title">若尔盖草原 (Ruoergai)</div><div class="location-text">🇨🇳 四川 · 阿坝</div><div class="card-highlight">九曲黄河第一湾，花湖，大草原骑马。</div><div class="card-meta"><span>📅 夏季</span><span>💰 ¥2000-3500</span></div></div>
+                    <div class="card" onclick="openModal('quest41')"><div class="card-tag tag-med">假期 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><rect x="20" y="40" width="10" height="10" fill="red" /><rect x="35" y="40" width="10" height="10" fill="red" /><rect x="50" y="40" width="10" height="10" fill="red" /><rect x="65" y="40" width="10" height="10" fill="red" /></svg></div><div class="card-title">色达 (Seda)</div><div class="location-text">🇨🇳 四川 · 甘孜</div><div class="card-highlight">红色佛国，五明佛学院，震撼心灵。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥2000-3000</span></div></div>
+                    <div class="card" onclick="openModal('quest39')"><div class="card-tag tag-med">假期 (5d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M50 20 L20 80 H80 Z" /><path d="M50 20 L35 80" /><path d="M50 20 L65 80" /></svg></div><div class="card-title">稻城亚丁 (Yading)</div><div class="location-text">🇨🇳 四川 · 甘孜</div><div class="card-highlight">蓝色星球上的最后一片净土，看三神山。</div><div class="card-meta"><span>📅 秋季</span><span>💰 ¥2500-4000</span></div></div>
+                    <div class="card" onclick="openModal('quest46')"><div class="card-tag tag-med">假期 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M50 20 L20 80 H80 Z" fill="none" stroke="black" stroke-width="2"/><circle cx="50" cy="35" r="5" fill="black"/></svg></div><div class="card-title">川西小环线 (Loop)</div><div class="location-text">🇨🇳 四川 · 甘孜/阿坝</div><div class="card-highlight">雪山蓝冰，藏寨碉楼，冬季秘境。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥2600-4500</span></div></div>
+                </div>
+            </div>
+
+            <!-- Category 4: Holiday Fly/Rail (2-5d) -->
+            <div id="tab-4" class="tab-content">
+                <h3 class="category-header">🚄 假期高铁/飞 (Holiday Fly/Rail | 2-5d)</h3>
+                <div class="gacha-grid">
+                    <div class="card" onclick="openModal('quest22')"><div class="card-tag tag-med">小长假 (3d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><rect x="30" y="20" width="40" height="60" rx="5"/><circle cx="50" cy="50" r="10"/><text x="45" y="55" font-size="20">$</text></svg></div><div class="card-title">澳门 (Macau)</div><div class="location-text">🇨🇳 中国 · 澳门</div><div class="card-highlight">奢华酒店群，赛车博物馆，出片率极高。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥4000-8000</span></div></div>
+                    <div class="card" onclick="openModal('quest10')"><div class="card-tag tag-med">小长假 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="80" cy="20" r="10" /><path d="M10 70 Q30 60 50 70 T90 70" /><path d="M10 80 Q30 70 50 80 T90 80" /></svg></div><div class="card-title">涠洲岛 (Weizhou)</div><div class="location-text">🇨🇳 广西 · 北海</div><div class="card-highlight">骑小电驴环岛，看火山地貌，船票需抢。</div><div class="card-meta"><span>📅 4月-5月</span><span>💰 ¥3000-5000</span></div></div>
+                    <div class="card" onclick="openModal('quest12')"><div class="card-tag tag-med">小长假 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><line x1="50" y1="50" x2="50" y2="90" /><line x1="50" y1="50" x2="20" y2="20" /><line x1="50" y1="50" x2="80" y2="20" /><line x1="50" y1="50" x2="50" y2="10" /><circle cx="50" cy="50" r="5" fill="var(--paper-color)"/></svg></div><div class="card-title">平潭岛 (Pingtan)</div><div class="location-text">🇨🇳 福建 · 福州</div><div class="card-highlight">巨型风车田，蓝眼泪奇观，适合公路片Vlog。</div><div class="card-meta"><span>📅 4月-8月</span><span>💰 ¥3000-4500</span></div></div>
+                    <div class="card" onclick="openModal('quest19')"><div class="card-tag tag-med">小长假 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M30 70 L50 30 L70 70 Z" fill="none" stroke="black"/><path d="M30 70 H70" /></svg></div><div class="card-title">青岛 (Qingdao)</div><div class="location-text">🇨🇳 山东 · 青岛</div><div class="card-highlight">帆船之都，德式建筑(德语区)，啤酒海鲜。</div><div class="card-meta"><span>📅 夏季</span><span>💰 ¥2500-4000</span></div></div>
+                    <div class="card" onclick="openModal('quest20')"><div class="card-tag tag-med">小长假 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M10 60 Q50 40 90 60" /><circle cx="30" cy="55" r="5"/><circle cx="70" cy="55" r="5"/></svg></div><div class="card-title">大理 (Dali)</div><div class="location-text">🇨🇳 云南 · 大理</div><div class="card-highlight">洱海骑行/游船，去有风的地方发呆。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥3000-5000</span></div></div>
+                    <div class="card" onclick="openModal('quest21')"><div class="card-tag tag-med">小长假 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M10 70 Q30 50 50 70 T90 70" /><path d="M40 60 L60 40 L50 65" /></svg></div><div class="card-title">万宁 (Wanning)</div><div class="location-text">🇨🇳 海南 · 万宁</div><div class="card-highlight">冲浪胜地，年轻人的海岛，沿海公路。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥4000-7000</span></div></div>
+                    <div class="card" onclick="openModal('quest25')"><div class="card-tag tag-med">小长假 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="30" cy="30" r="5" fill="red"/><circle cx="70" cy="30" r="5" fill="red"/><path d="M20 70 Q50 90 80 70" /><line x1="50" y1="50" x2="50" y2="80" /></svg></div><div class="card-title">腾冲 (Tengchong)</div><div class="location-text">🇨🇳 云南 · 保山</div><div class="card-highlight">极边第一城，火山热海，银杏村。</div><div class="card-meta"><span>📅 秋/冬</span><span>💰 ¥2500-4000</span></div></div>
+                    <div class="card" onclick="openModal('quest26')"><div class="card-tag tag-med">小长假 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M50 20 Q80 10 90 40 Q80 70 50 90 Q20 70 10 40 Q20 10 50 20" fill="none" stroke="green"/><circle cx="50" cy="50" r="10" /></svg></div><div class="card-title">西双版纳 (Banna)</div><div class="location-text">🇨🇳 云南 · 版纳</div><div class="card-highlight">热带雨林，傣族风情，星光夜市。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥3000-5000</span></div></div>
+                    <div class="card" onclick="openModal('quest42')"><div class="card-tag tag-med">小长假 (4d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M20 50 Q50 30 80 50" /><rect x="30" y="50" width="40" height="30" /></svg></div><div class="card-title">厦门 (Xiamen)</div><div class="location-text">🇨🇳 福建 · 厦门</div><div class="card-highlight">鼓浪屿漫步，最美大学，文艺小资。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥3000-5000</span></div></div>
+                </div>
+            </div>
+
+            <!-- Category 5: Long Holiday (5d+) -->
+            <div id="tab-5" class="tab-content">
+                <h3 class="category-header">✈️ 长假远途 (Long Holiday | 5d+)</h3>
+                <div class="gacha-grid">
+                    <div class="card" onclick="openModal('quest8')"><div class="card-tag tag-long">长假 (5d+)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M20 90 V40 Q50 10 80 40 V90" /><rect x="40" y="50" width="20" height="40" /></svg></div><div class="card-title">南疆喀什 (Kashgar)</div><div class="location-text">🇨🇳 新疆 · 喀什</div><div class="card-highlight">中世纪风情古城，刺客信条既视感，人文扫街。</div><div class="card-meta"><span>📅 秋季</span><span>💰 ¥6000-1w</span></div></div>
+                    <div class="card" onclick="openModal('quest7')"><div class="card-tag tag-long">长假 (6d+)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M50 10 L20 40 H40 L15 70 H85 L60 40 H80 Z" /><rect x="45" y="70" width="10" height="20" fill="var(--ink-color)" /></svg></div><div class="card-title">北疆喀纳斯 (Kanas)</div><div class="location-text">🇨🇳 新疆 · 阿勒泰</div><div class="card-highlight">神的自留地，晨雾中的木屋，如入奇幻游戏。</div><div class="card-meta"><span>📅 秋/冬</span><span>💰 ¥8000-1.2w</span></div></div>
+                    <div class="card" onclick="openModal('quest45')"><div class="card-tag tag-long">长假 (6d+)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="20" cy="50" r="5" /><circle cx="50" cy="50" r="5" /><circle cx="80" cy="50" r="5" /><path d="M10 70 Q50 90 90 70" /></svg></div><div class="card-title">马尔代夫 (Maldives)</div><div class="location-text">🇲🇻 马尔代夫</div><div class="card-highlight">一岛一酒店，拖尾沙滩，深潜看鱼。</div><div class="card-meta"><span>📅 全年</span><span>💰 ¥2w-4w</span></div></div>
+                    <div class="card" onclick="openModal('quest6')"><div class="card-tag tag-long">长假 (7d+)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><line x1="50" y1="10" x2="50" y2="90" /><line x1="15" y1="30" x2="85" y2="70" /><line x1="15" y1="70" x2="85" y2="30" /></svg></div><div class="card-title">北海道 (Hokkaido)</div><div class="location-text">🇯🇵 日本 · 北海道</div><div class="card-highlight">小樽运河(Cosplay) + 网走破冰船 + 粉雪。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥1.5w-2.5w</span></div></div>
+                    <div class="card" onclick="openModal('quest47')"><div class="card-tag tag-long">长假 (8d)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M20 80 L50 30 L80 80" fill="none" stroke="black" stroke-width="2"/><circle cx="50" cy="55" r="35" fill="none" stroke="orange" stroke-width="2" stroke-dasharray="5,3"/><circle cx="50" cy="30" r="5" fill="white" stroke="black" stroke-width="2"/></svg></div><div class="card-title">川西大环线 (Big Loop)</div><div class="location-text">🇨🇳 四川 · 甘孜/阿坝</div><div class="card-highlight">亚丁三神山，理塘天空之城，色达佛学院。</div><div class="card-meta"><span>📅 秋季</span><span>💰 ¥5500-8300</span></div></div>
+                    <div class="card" onclick="openModal('quest23')"><div class="card-tag tag-long">长假 (8d+)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M20 80 L50 30 L80 80" /><path d="M40 80 L60 50 L80 80" fill="none"/><circle cx="80" cy="20" r="5" fill="var(--paper-color)"/></svg></div><div class="card-title">瑞士 (Switzerland)</div><div class="location-text">🇨🇭 瑞士</div><div class="card-highlight">顶级滑雪体验，布里恩茨湖游船，德法双语。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥3w-5w</span></div></div>
+                    <div class="card" onclick="openModal('quest44')"><div class="card-tag tag-long">长假 (8d+)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><circle cx="50" cy="40" r="15" /><line x1="50" y1="55" x2="50" y2="70" /><rect x="45" y="70" width="10" height="10" /></svg></div><div class="card-title">土耳其 (Turkey)</div><div class="location-text">🇹🇷 土耳其</div><div class="card-highlight">热气球，棉花堡，横跨欧亚大陆。</div><div class="card-meta"><span>📅 春/秋</span><span>💰 ¥1.5w-2.5w</span></div></div>
+                    <div class="card" onclick="openModal('quest9')"><div class="card-tag tag-long">长假 (10d+)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><rect x="20" y="40" width="20" height="40" /><rect x="60" y="40" width="20" height="40" /><path d="M20 40 L30 20 L40 40" /><path d="M60 40 L70 20 L80 40" /><rect x="40" y="60" width="20" height="20" /></svg></div><div class="card-title">莱茵河游轮 (Rhine)</div><div class="location-text">🇩🇪 🇫🇷 德/法</div><div class="card-highlight">全程住船上，两岸城堡，德语区深度游。</div><div class="card-meta"><span>📅 夏季</span><span>💰 ¥2.5w-4w</span></div></div>
+                    <div class="card" onclick="openModal('quest24')"><div class="card-tag tag-long">长假 (10d+)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M10 50 Q30 30 50 50 T90 50" /><path d="M30 60 L40 30 L50 60" /></svg></div><div class="card-title">新西兰 (NZ)</div><div class="location-text">🇳🇿 新西兰 · 南岛</div><div class="card-highlight">中土世界巡礼，喷射快艇，房车自驾。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥3.5w-6w</span></div></div>
+                    <div class="card" onclick="openModal('quest43')"><div class="card-tag tag-long">长假 (10d+)</div><div class="icon-box"><svg width="60" height="60" viewBox="0 0 100 100"><path d="M20 80 L40 40 L60 80 L80 40" stroke="cyan" /><circle cx="50" cy="20" r="5" fill="cyan" /></svg></div><div class="card-title">冰岛 (Iceland)</div><div class="location-text">🇮🇸 冰岛</div><div class="card-highlight">权力的游戏取景地，极光，蓝冰洞。</div><div class="card-meta"><span>📅 冬季</span><span>💰 ¥3w-5w</span></div></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal Template -->
+<div id="modal-template" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-left">
+            <div id="modal-visual" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; overflow: hidden; border-right: var(--border-width) solid var(--ink-color);">
+                <!-- SVG will be injected here -->
+            </div>
+        </div>
+        <div class="modal-right">
+            <h2 id="modal-title" style="margin-top: 0;">Quest Title</h2>
+            <div class="modal-body">
+                <p id="modal-desc">Description goes here.</p>
+                <div style="background: #e8f4f8; padding: 10px; border-radius: 5px; margin-top: 15px;">
+                    <strong>🗺️ 路线概览 (Route):</strong>
+                    <p id="modal-route" style="margin: 5px 0 0 0; font-family: monospace; font-size: 0.95rem;">Loading...</p>
+                </div>
+                <div style="background: #eee; padding: 10px; border-radius: 5px; margin-top: 15px;">
+                    <strong>🎮 核心体验 (Core Gameplay):</strong>
+                    <ul id="modal-features">
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                    </ul>
+                </div>
+                <button class="action-btn" onclick="togglePlan()">📜 生成详细攻略 (Generate Plan)</button>
+                <div id="modal-plan" style="display: none; background: #fffbe6; padding: 15px; border: 2px dashed #333; margin-top: 15px; border-radius: 5px; color: #333;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        
+        document.getElementById('tab-' + tabId).classList.add('active');
+        // tabId is 1-based, array is 0-based
+        document.querySelectorAll('.tab-btn')[tabId - 1].classList.add('active');
+    }
+
+    // Populate Featured Tab
+    window.onload = function() {
+        const featuredGrid = document.getElementById('featured-grid');
+        Object.keys(questData).forEach(key => {
+            // Skip variants (they are accessed via the primary plan)
+            if (questData[key].hasPlan && !questData[key].isVariant) {
+                const data = questData[key];
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.onclick = function() {
+                    window.location.href = `detail.html?id=${key}`;
+                };
+                
+                // Re-use SVG generation logic or simplified icon
+                let iconSvg = '<svg width="60" height="60" viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="none" stroke="black" stroke-width="2"/><text x="30" y="60" font-size="40">⭐</text></svg>';
+                
+                let seasonHtml = '';
+                
+                const getSeasonTag = (s) => {
+                    let color = '#e0f7fa', text = '#006064', border = '#0097a7', label = s;
+                    if (s.match(/Winter|冬/i)) { color='#e1f5fe'; text='#01579b'; border='#0288d1'; label='❄️ 冬季'; }
+                    else if (s.match(/Summer|夏/i)) { color='#fff3e0'; text='#e65100'; border='#ef6c00'; label='🌿 夏季'; }
+                    else if (s.match(/Spring|春/i)) { color='#f1f8e9'; text='#33691e'; border='#558b2f'; label='🌸 春季'; }
+                    else if (s.match(/Autumn|秋/i)) { color='#fbe9e7'; text='#bf360c'; border='#d84315'; label='🍂 秋季'; }
+                    
+                    // Fallback for simple display if no match but data exists
+                    if (label === s && s.includes(' ')) label = s.split(' ')[0]; 
+
+                    return `<span style="background:${color};color:${text};border:1px dashed ${border};padding:2px 6px;border-radius:4px;font-size:0.8rem;margin-left:5px;">${label}</span>`;
+                };
+
+                if (data.seasonal_variants) {
+                    Object.keys(data.seasonal_variants).forEach(k => seasonHtml += getSeasonTag(k));
+                } else if (data.season) {
+                    seasonHtml = getSeasonTag(data.season);
+                }
+
+                card.innerHTML = `
+                    <div class="card-tag tag-long" style="background:gold;">${data.days || 'Detailed Plan'}</div>
+                    <div class="icon-box">${iconSvg}</div>
+                    <div class="card-title">${data.title}</div>
+                    <div class="location-text">📍 点击查看详细攻略</div>
+                    <div class="card-highlight">${data.desc}</div>
+                    <div class="card-meta"><span>📜 含详细行程${seasonHtml}</span></div>
+                `;
+                featuredGrid.appendChild(card);
+            }
+        });
+    };
+
+    function generateScene(title, desc) {
+        let hash = 0;
+        for (let i = 0; i < title.length; i++) {
+            hash = title.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        
+        const colors = ['#FFD700', '#FF6347', '#87CEEB', '#90EE90', '#DDA0DD', '#F0E68C'];
+        const skyColor = colors[Math.abs(hash) % colors.length];
+
+        let svgContent = `<rect width="100%" height="100%" fill="${skyColor}" fill-opacity="0.3"/>`;
+        
+        const t = (title + desc).toLowerCase();
+        
+        if (t.includes('雪') || t.includes('snow') || t.includes('winter') || t.includes('ice') || t.includes('北海道') || t.includes('冰岛') || t.includes('冷') || t.includes('川西') || t.includes('mountain') || t.includes('glacier') || t.includes('冰川')) {
+            // Snow/Mountain theme
+            svgContent = `<rect width="100%" height="100%" fill="#E0F7FA"/>`;
+            svgContent += `<path d="M0 900 L300 400 L600 900" fill="white" stroke="#90A4AE" stroke-width="2"/>`;
+            svgContent += `<path d="M-100 900 L200 500 L500 900" fill="#F5F5F5" stroke="#90A4AE" stroke-width="2"/>`;
+            // Sun
+            svgContent += `<circle cx="500" cy="100" r="40" fill="#FFEB3B" stroke="black" stroke-width="2"/>`;
+        } else if (t.includes('海') || t.includes('sea') || t.includes('beach') || t.includes('island') || t.includes('ocean') || t.includes('水') || t.includes('湖')) {
+            // Ocean theme
+            svgContent = `<rect width="100%" height="100%" fill="#E1F5FE"/>`;
+            svgContent += `<rect x="0" y="500" width="100%" height="400" fill="#4FC3F7"/>`;
+            // Waves
+            svgContent += `<path d="M0 500 Q 150 450, 300 500 T 600 500" fill="none" stroke="white" stroke-width="5"/>`;
+            svgContent += `<path d="M0 600 Q 150 550, 300 600 T 600 600" fill="none" stroke="white" stroke-width="5"/>`;
+            // Sun
+            svgContent += `<circle cx="100" cy="100" r="50" fill="#FFEB3B" stroke="black" stroke-width="2"/>`;
+        } else if (t.includes('草') || t.includes('forest') || t.includes('tree') || t.includes('park') || t.includes('林') || t.includes('自然')) {
+            // Nature theme
+            svgContent = `<rect width="100%" height="100%" fill="#F1F8E9"/>`;
+            svgContent += `<path d="M0 900 Q 300 600, 600 900" fill="#C5E1A5" stroke="black" stroke-width="2"/>`;
+            // Trees
+            svgContent += `<path d="M100 700 L150 600 L200 700 Z" fill="#558B2F" stroke="black" stroke-width="2"/>`;
+            svgContent += `<rect x="140" y="700" width="20" height="40" fill="#795548" stroke="black" stroke-width="2"/>`;
+            svgContent += `<path d="M400 800 L450 700 L500 800 Z" fill="#558B2F" stroke="black" stroke-width="2"/>`;
+            svgContent += `<rect x="440" y="800" width="20" height="40" fill="#795548" stroke="black" stroke-width="2"/>`;
+        } else {
+            // City/Generic theme
+            svgContent = `<rect width="100%" height="100%" fill="${skyColor}" fill-opacity="0.2"/>`;
+            // Buildings
+            svgContent += `<rect x="50" y="400" width="150" height="500" fill="#B0BEC5" stroke="black" stroke-width="2"/>`;
+            svgContent += `<rect x="250" y="300" width="200" height="600" fill="#CFD8DC" stroke="black" stroke-width="2"/>`;
+            svgContent += `<rect x="500" y="500" width="100" height="400" fill="#B0BEC5" stroke="black" stroke-width="2"/>`;
+        }
+
+        // Add a simple character (Stick figure)
+        svgContent += `<g transform="translate(300, 700) scale(1.5)">
+            <circle cx="0" cy="0" r="15" fill="white" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="15" x2="0" y2="60" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="30" x2="-20" y2="50" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="30" x2="20" y2="10" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="60" x2="-15" y2="100" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="60" x2="15" y2="100" stroke="black" stroke-width="2"/>
+        </g>`;
+
+        return `<svg width="100%" height="100%" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice">${svgContent}</svg>`;
+    }
+
+    function openModal(questId) {
+        const modal = document.getElementById('modal-template');
+        const data = questData[questId];
+        
+        document.getElementById('modal-title').innerText = data.title;
+        document.getElementById('modal-desc').innerText = data.desc;
+        document.getElementById('modal-route').innerText = data.route || "暂无路线信息 (Route info not available)";
+        
+        const visualContainer = document.getElementById('modal-visual');
+        visualContainer.innerHTML = generateScene(data.title, data.desc);
+        
+        const featureList = document.getElementById('modal-features');
+        featureList.innerHTML = "";
+        (data.features || []).forEach(f => {
+            let li = document.createElement('li');
+            li.innerText = f;
+            featureList.appendChild(li);
+        });
+
+        // Hide plan related elements if any exist
+        const planDiv = document.getElementById('modal-plan');
+        if (planDiv) {
+             planDiv.innerHTML = "";
+             planDiv.style.display = "none";
+        }
+        
+        const planBtn = document.querySelector('.action-btn');
+        if (planBtn) {
+            if (data.hasPlan) {
+                planBtn.style.display = 'block';
+                planBtn.innerText = '📜 查看详细方案 (View Detailed Plan)';
+                planBtn.onclick = function() {
+                    window.location.href = `detail.html?id=${questId}`;
+                };
+            } else {
+                planBtn.style.display = 'none';
+            }
+        }
+
+        modal.style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById('modal-template').style.display = "none";
+    }
+
+    // Pagination Logic
+    const ITEMS_PER_PAGE = 6;
+    
+    function initPagination() {
+        const tabs = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach((tab, tabIndex) => {
+            const grid = tab.querySelector('.gacha-grid');
+            if (!grid) return;
+            
+            const cards = Array.from(grid.querySelectorAll('.card'));
+            const totalItems = cards.length;
+            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+            
+            // Only add pagination if we have more items than limit
+            if (totalPages <= 1) return;
+            
+            // Create pagination container
+            let paginationDiv = document.createElement('div');
+            paginationDiv.className = 'pagination';
+            tab.appendChild(paginationDiv);
+            
+            // State for this tab
+            let currentPage = 1;
+            
+            function showPage(page) {
+                currentPage = page;
+                
+                // Hide all cards first
+                cards.forEach(card => card.style.display = 'none');
+                
+                // Show cards for current page
+                const start = (page - 1) * ITEMS_PER_PAGE;
+                const end = start + ITEMS_PER_PAGE;
+                
+                for (let i = start; i < end && i < totalItems; i++) {
+                    cards[i].style.display = ''; // Restore display (default block)
+                    // Force animation reset? Optional.
+                    cards[i].style.animation = 'none';
+                    cards[i].offsetHeight; /* trigger reflow */
+                    cards[i].style.animation = 'fadeIn 0.5s';
+                }
+                
+                renderControls();
+            }
+            
+            function renderControls() {
+                paginationDiv.innerHTML = '';
+                
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                    btn.innerText = i;
+                    btn.onclick = (e) => {
+                        // Prevent tab switching if bubbling? No, it's a button.
+                        e.stopPropagation();
+                        showPage(i);
+                    };
+                    paginationDiv.appendChild(btn);
+                }
+            }
+            
+            // Initial render
+            showPage(1);
+        });
+    }
+
+    // Call initPagination when page loads, but after DOM is ready
+    // We can append to the existing window.onload if strictly necessary, 
+    // or just use addEventListener which is safer.
+    window.addEventListener('load', initPagination);
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('modal-template');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
