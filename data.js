@@ -1,35 +1,36 @@
 const questData = {
-    'quest1': { title: "毕棚沟 (Bipenggou)", desc: "位于理县，距离成都极近的高原雪景。虽然被称为'小瑞士'，但其实更有东方水墨感。适合想要看雪又不想太累的周末。", features: ["滑雪场坡度平缓，适合复健", "龙王海/磐羊湖景色无需滤镜", "全程大巴+电瓶车，徒步极少"], route: "成都 -> 汶川 -> 理县 -> 毕棚沟景区 -> 娜姆湖酒店 -> 成都" },
-    'quest2': { title: "达古冰川 (Dagu Glacier)", desc: "黑水县境内，拥有全球海拔最高的索道和咖啡厅(4860m)。有一种孤寂的科幻感。", features: ["缆车直冲云霄，视觉冲击强", "山顶咖啡厅适合发呆/装X拍照", "注意高反，行动要慢"], route: "成都 -> 汶川 -> 黑水 -> 达古冰川景区 -> 羊茸哈德 -> 成都" },
-    'quest3': { title: "莫斯卡 (Mosca)", desc: "丹巴县深处的村落，这里的土拨鼠被僧人喂养得不怕人。是一场治愈系的'动物森友会'之旅。", features: ["与野生动物零距离互动", "极其安静，没有商业化喧嚣", "路况一般，考验驾驶技术"], route: "成都 -> 丹巴 -> 莫斯卡村 -> 丹巴甲居藏寨 -> 泸定桥 -> 成都" },
-    'quest4': { title: "麓湖 (Luxelakes)", desc: "成都南门的富人区水域，拥有极高密度的现代建筑设计。不用出城就能体验开船。", features: ["各类皮划艇、帆船体验", "建筑摄影圣地", "周末遛弯首选"], route: "成都 -> 麓湖水城 -> 麓客岛 -> 红石公园 -> 成都" },
-    'quest5': { title: "王岗坪 (Wanggangping)", desc: "雅安石棉县，这里是直面贡嘎主峰最近的观景平台之一。一边滑雪一边看7556m的雪山。", features: ["贡嘎雪山C位观景台", "滑雪场设施新", "云海日出概率高"], route: "成都 -> 雅安 -> 石棉 -> 王岗坪景区 -> 观景平台 -> 成都" },
-    'quest6': { title: "北海道 (Hokkaido)", desc: "日本最北端，冬天的北海道是纯白的世界。对于熟悉日语的你，这里是第二主场。", features: ["网走破冰船 (Aurora) 体验极佳", "小樽运河夜景是Vlog神机位", "粉雪世界第一"], route: "札幌 -> 小樽 -> 旭川动物园 -> 网走破冰船 -> 知床半岛 -> 札幌" },
-    'quest7': { 
+    'quest1': { title: "毕棚沟 (Bipenggou)", season: "❄️ 冬季 (Winter)", desc: "位于理县，距离成都极近的高原雪景。虽然被称为'小瑞士'，但其实更有东方水墨感。适合想要看雪又不想太累的周末。", features: ["滑雪场坡度平缓，适合复健", "龙王海/磐羊湖景色无需滤镜", "全程大巴+电瓶车，徒步极少"], route: "成都 -> 汶川 -> 理县 -> 毕棚沟景区 -> 娜姆湖酒店 -> 成都" },
+    'quest2': { title: "达古冰川 (Dagu Glacier)", season: "📅 全年 (All Year)", desc: "黑水县境内，拥有全球海拔最高的索道和咖啡厅(4860m)。有一种孤寂的科幻感。", features: ["缆车直冲云霄，视觉冲击强", "山顶咖啡厅适合发呆/装X拍照", "注意高反，行动要慢"], route: "成都 -> 汶川 -> 黑水 -> 达古冰川景区 -> 羊茸哈德 -> 成都" },
+    'quest3': { title: "莫斯卡 (Mosca)", season: "🌿 夏季 (Summer)", desc: "丹巴县深处的村落，这里的土拨鼠被僧人喂养得不怕人。是一场治愈系的'动物森友会'之旅。", features: ["与野生动物零距离互动", "极其安静，没有商业化喧嚣", "路况一般，考验驾驶技术"], route: "成都 -> 丹巴 -> 莫斯卡村 -> 丹巴甲居藏寨 -> 泸定桥 -> 成都" },
+    'quest4': { title: "麓湖 (Luxelakes)", season: "📅 全年 (All Year)", desc: "成都南门的富人区水域，拥有极高密度的现代建筑设计。不用出城就能体验开船。", features: ["各类皮划艇、帆船体验", "建筑摄影圣地", "周末遛弯首选"], route: "成都 -> 麓湖水城 -> 麓客岛 -> 红石公园 -> 成都" },
+    'quest5': { title: "王岗坪 (Wanggangping)", season: "❄️ 冬季 (Winter)", desc: "雅安石棉县，这里是直面贡嘎主峰最近的观景平台之一。一边滑雪一边看7556m的雪山。", features: ["贡嘎雪山C位观景台", "滑雪场设施新", "云海日出概率高"], route: "成都 -> 雅安 -> 石棉 -> 王岗坪景区 -> 观景平台 -> 成都" },
+    'quest6': { title: "北海道 (Hokkaido)", season: "❄️ 冬季 (Winter)", desc: "日本最北端，冬天的北海道是纯白的世界。对于熟悉日语的你，这里是第二主场。", features: ["网走破冰船 (Aurora) 体验极佳", "小樽运河夜景是Vlog神机位", "粉雪世界第一"], route: "札幌 -> 小樽 -> 旭川动物园 -> 网走破冰船 -> 知床半岛 -> 札幌" },
+    'quest7': {
+        hasPlan: true, 
         title: "北疆阿勒泰 (Beijiang Altay)", 
         desc: "人类滑雪起源地。粉雪、木屋、图瓦人。真正的冰雪童话，不是东北那种商业化的雪乡。", 
         season: "❄️ 冬季 (Winter)",
-        days: "5 Days",
+        days: "7 Days",
         seasonal_variants: { winter: 'quest7', summer: 'quest7_summer' },
         features: ["将军山滑雪 (Skiing)", "禾木晨雾 (Morning Mist)", "雪地摩托穿越 (Snowmobile)"], 
         route: "阿勒泰 -> 禾木 -> 喀纳斯 -> 阿勒泰",
-        hasPlan: true,
-        plan: `
+    
+        content: `
+
         <div class="module-box">
             <div class="module-title">📋 1. 基本情报 (Briefing)</div>
-            <div class="briefing-grid">
-                <div><strong>🚗 出行方式:</strong> 包车 (Chartered Car) - <strong>必须四驱+雪地胎</strong></div>
-                <div><strong>💰 预算范围:</strong> 6000 - 10000 RMB</div>
-                <div><strong>⏱️ 预期时间:</strong> 5 Days</div>
-                <div><strong>🌡️ 气温推测:</strong> -20°C ~ -30°C (极寒)</div>
-                <div><strong>✈️ 飞行参考:</strong> 直飞阿勒泰 (Altay) 机场</div>
-                <div class="atmosphere-text">
-                    <p>这里是人类滑雪的起源地。不同于商业化的雪乡，阿勒泰的冬是静谧而厚重的。当你踩着雪板从将军山冲下，或者在禾木的晨雾中醒来，你会明白什么是真正的“冰雪奇缘”。</p>
-                    <p style="font-size: 0.9em; color: #666;"><strong>Warning:</strong> 公共交通不可用 (Public Transport Unavailable). 必须包车且需老司机驾驶。极寒天气需顶级保暖装备。</p>
-                </div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> 包车 (Chartered Car) - 必须四驱+雪地胎</li>
+                <li><strong>💰 预算范围:</strong> 6000 - 10000 RMB</li>
+                <li><strong>⏱️ 预期时间:</strong> 5 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> -20°C ~ -30°C (极寒)</li>
+                <li><strong>✈️ 飞行参考:</strong> 直飞阿勒泰 (Altay) 机场</li>
+            </ul>
+            <p>这里是人类滑雪的起源地。不同于商业化的雪乡，阿勒泰的冬是静谧而厚重的。当你踩着雪板从将军山冲下，或者在禾木的晨雾中醒来，你会明白什么是真正的“冰雪奇缘”。</p>
+            <div style="background-color: #fee; border-left: 5px solid #e74c3c; padding: 10px; margin-top: 10px; color: #c0392b;">
+                <strong>Warning:</strong> 公共交通不可用 (Public Transport Unavailable). 必须包车且需老司机驾驶。极寒天气需顶级保暖装备。
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
             <div class="map-container">
@@ -38,134 +39,122 @@ const questData = {
                         <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
                             <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
                         </marker>
-                        <marker id="arrow-flight" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
-                            <text x="0" y="9" font-size="12">✈️</text>
-                        </marker>
                     </defs>
-
-                    <!-- Background Region Hint -->
                     <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0f8ff" stroke="#bdc3c7" stroke-dasharray="5,5" />
                     <text x="415" y="270" text-anchor="middle" font-size="14" fill="#95a5a6" font-weight="bold">北疆阿勒泰区域</text>
-
-                    <!-- Chengdu (Home) -->
+                    
                     <g transform="translate(60, 150)">
                         <circle r="6" fill="#e74c3c" />
                         <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
                         <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
                     </g>
-
-                    <!-- Flight Path -->
-                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="200" y="100" text-anchor="middle" font-size="12" fill="#bdc3c7" transform="rotate(-15, 200, 100)">直飞 4h</text>
-
-                    <!-- Altay Hub -->
-                    <g transform="translate(350, 230)">
-                        <circle r="8" fill="#2980b9" stroke="white" stroke-width="2"/>
-                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2980b9">阿勒泰</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#555">集散中心</text>
-                    </g>
-
-                    <!-- Route Loop -->
-                    <!-- Altay -> Hemu (NE) -> Kanas (NW) -> Altay -->
-                    <path d="M350,230 L480,130 L350,60 L350,230" fill="none" stroke="#2980b9" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-blue)"/>
                     
-                    <!-- Hemu (Top Right) -->
-                    <g transform="translate(480, 130)">
-                        <circle r="5" fill="white" stroke="#2980b9" stroke-width="2"/>
-                        <text x="15" y="5" text-anchor="start" font-size="14" font-weight="bold" fill="#333">禾木</text>
-                        <text x="15" y="25" text-anchor="start" font-size="12" fill="#7f8c8d">晨雾/木屋</text>
+                    <g transform="translate(350, 230)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">阿勒泰</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">集散中心</text>
                     </g>
-
-                    <!-- Kanas (Top Left) -->
-                    <g transform="translate(350, 60)">
-                        <circle r="5" fill="white" stroke="#2980b9" stroke-width="2"/>
-                        <text x="0" y="-15" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">喀纳斯</text>
+                    
+                    <g transform="translate(500, 130)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">禾木</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">晨雾/木屋</text>
+                    </g>
+                    
+                    <g transform="translate(350, 50)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">喀纳斯</text>
                         <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">雪蘑菇/湖怪</text>
                     </g>
-
-                    <!-- Compass -->
-                    <g transform="translate(550, 40)">
-                        <text x="0" y="-15" text-anchor="middle" font-size="12" font-weight="bold" fill="#bdc3c7">北</text>
-                        <path d="M0,-10 L-5,5 L0,2 L5,5 Z" fill="#bdc3c7" />
-                    </g>
+                    
+                    <path d="M60,150 Q200,230 340,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)" />
+                    <text x="200" y="210" text-anchor="middle" font-size="12" fill="#7f8c8d">直飞 4h</text>
+                    
+                    <path d="M360,230 Q450,230 490,140" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <path d="M490,120 Q450,50 360,50" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <path d="M340,50 Q280,100 340,220" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    
+                    <path d="M340,220 Q200,150 60,150" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)" />
+                    <text x="200" y="170" text-anchor="middle" font-size="12" fill="#7f8c8d">返程 4h</text>
                 </svg>
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">⏳ 3. 时间轴 (Timeline - 5 Days)</div>
             <div class="day-block">
-                <h3>Day 1: 降落雪都 - 将军山夜滑</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 阿勒泰市</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> -15°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 飞抵阿勒泰。入住市区酒店。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 前往【将军山滑雪场】。这里是全国唯一就在城市边缘的雪场。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 体验【夜滑】(夕阳下的粉雪极其浪漫) 或在山顶咖啡屋看城市灯火。</div>
+                <div class="time-slot"><strong>Day 1:</strong> 降落雪都 - 将军山夜滑</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 阿勒泰市 | 🌡️ 气温: -15°C</div>
+                <p><strong>🌞 上午:</strong> 飞抵阿勒泰。入住市区酒店。</p>
+                <p><strong>☕ 下午:</strong> 前往【将军山滑雪场】。这里是全国唯一就在城市边缘的雪场。</p>
+                <p><strong>🌙 晚上:</strong> 体验【夜滑】(夕阳下的粉雪极其浪漫) 或在山顶咖啡屋看城市灯火。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 2: 深入雪原 - 前往禾木</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 阿勒泰 -> 禾木</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> -20°C (极寒)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 包车出发 (约4h)。沿途是茫茫雪原，偶尔可见野狐狸。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 抵达【禾木村】。入住小木屋。在村里漫步，看炊烟升起。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 这里的星空极其纯净，但注意保暖 (室外停留勿超15分钟)。</div>
+                <div class="time-slot"><strong>Day 2:</strong> 深入雪原 - 前往禾木</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 阿勒泰 -> 禾木 | 🌡️ 气温: -20°C (极寒)</div>
+                <p><strong>🌞 上午:</strong> 包车出发 (约4h)。沿途是茫茫雪原，偶尔可见野狐狸。</p>
+                <p><strong>☕ 下午:</strong> 抵达【禾木村】。入住小木屋。在村里漫步，看炊烟升起。</p>
+                <p><strong>🌙 晚上:</strong> 这里的星空极其纯净，但注意保暖 (室外停留勿超15分钟)。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 3: 晨雾与泼水成冰</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 禾木</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> -30°C (清晨)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 乘坐【雪地摩托】上观景台看晨雾 (必体验)。尝试“泼水成冰”摄影。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 在木屋里喝奶茶，发呆。或者去白桦林踩雪。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 吃土火锅，暖身。</div>
+                <div class="time-slot"><strong>Day 3:</strong> 晨雾与泼水成冰</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 禾木 | 🌡️ 气温: -30°C (清晨)</div>
+                <p><strong>🌞 上午:</strong> 乘坐【雪地摩托】上观景台看晨雾 (必体验)。尝试“泼水成冰”摄影。</p>
+                <p><strong>☕ 下午:</strong> 在木屋里喝奶茶，发呆。或者去白桦林踩雪。</p>
+                <p><strong>🌙 晚上:</strong> 吃土火锅，暖身。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 4: 雪蘑菇与神仙湾</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 禾木 -> 喀纳斯 -> 阿勒泰</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> -20°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 前往【喀纳斯】。看著名的“雪蘑菇” (河中积雪的石头)。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 游览神仙湾、月亮湾。冬季的喀纳斯河像一条墨绿的带子。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 返回阿勒泰市区。</div>
+                <div class="time-slot"><strong>Day 4:</strong> 雪蘑菇与神仙湾</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 禾木 -> 喀纳斯 -> 阿勒泰 | 🌡️ 气温: -20°C</div>
+                <p><strong>🌞 上午:</strong> 前往【喀纳斯】。看著名的“雪蘑菇” (河中积雪的石头)。</p>
+                <p><strong>☕ 下午:</strong> 游览神仙湾、月亮湾。冬季的喀纳斯河像一条墨绿的带子。</p>
+                <p><strong>🌙 晚上:</strong> 返回阿勒泰市区。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 5: 返程</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 阿勒泰机场</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 购买一些冷水鱼干。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 飞离雪都。</div>
+                <div class="time-slot"><strong>Day 5:</strong> 返程</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 阿勒泰机场</div>
+                <p><strong>🌞 上午:</strong> 购买一些冷水鱼干。</p>
+                <p><strong>☕ 下午:</strong> 飞离雪都。</p>
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
             <table class="cost-table">
-                <tr><th>项目</th><th>预算</th><th>备注</th></tr>
-                <tr><td>✈️ 交通</td><td>2000-4000</td><td>机票</td></tr>
-                <tr><td>🚗 包车</td><td>2000-3000</td><td>人均 (丰田霸道/坦克300)</td></tr>
-                <tr><td>🛌 住宿</td><td>1500-2500</td><td>禾木木屋较贵</td></tr>
-                <tr><td>🎿 娱乐</td><td>1000-2000</td><td>滑雪/雪地摩托</td></tr>
-                <tr style="background:#f0f0f0;border-top:2px solid black;"><td><strong>Total</strong></td><td><strong>6500 - 11500</strong></td><td><strong>硬核雪景游</strong></td></tr>
+                <tr><th>项目 (Item)</th><th>预算 (Budget)</th><th>备注 (Note)</th></tr>
+                <tr><td>包车 (Charter)</td><td>1500 - 2000</td><td>必须四驱，含油费/过路费</td></tr>
+                <tr><td>住宿 (Lodging)</td><td>2500 - 4000</td><td>禾木/喀纳斯木屋价格波动大</td></tr>
+                <tr><td>滑雪 (Skiing)</td><td>500 - 1500</td><td>雪票+雪具租赁 (自带板可省)</td></tr>
+                <tr><td>餐饮 (Food)</td><td>1000 - 1500</td><td>大盘鸡/手抓肉/冷水鱼</td></tr>
+                <tr><td><strong>总计 (Total)</strong></td><td><strong>~6000 - 9000</strong></td><td>不含往返大交通 (Flights not included)</td></tr>
             </table>
         </div>
-
         <div class="module-box">
             <div class="module-title">🎒 5. 装备 (Loadout)</div>
             <div class="pros-cons">
-                <div style="border-right: 2px dashed #ccc;">
-                    <h4 class="pros">✅ 推荐</h4>
-                    <ul><li>顶级粉雪体验</li><li>极致的童话雪景</li><li>人少景美</li></ul>
+                <div class="pros" style="color: #27ae60;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #27ae60;">✅ 必带装备 (Must Have)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>羽绒服:</strong> 充绒量250g+，抗-30°C。</li>
+                        <li><strong>雪地靴:</strong> 高帮防水，里面加羊毛鞋垫。</li>
+                        <li><strong>配件:</strong> 雷锋帽 (护耳)，防水手套 (两双)，羊毛袜。</li>
+                        <li><strong>墨镜:</strong> 雪盲症非常痛苦，必须带！</li>
+                        <li><strong>保湿:</strong> 极度干燥，身体乳/唇膏/面膜。</li>
+                    </ul>
                 </div>
-                <div style="padding-left: 10px;">
-                    <h4 class="cons">❌ 注意</h4>
-                    <ul><li>极度寒冷 (需贴暖宝宝)</li><li>电子设备掉电快</li><li>路况受天气影响大</li></ul>
+                <div class="cons" style="color: #c0392b;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #c0392b;">❌ 没必要 (Don't Bring)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>棉质内衣:</strong> 出汗后不干，极其寒冷 (穿速干/羊毛)。</li>
+                        <li><strong>普通运动鞋:</strong> 会湿透且冻脚。</li>
+                        <li><strong>过多现金:</strong> 手机支付很方便 (带少量备用即可)。</li>
+                        <li><strong>笨重的行李箱:</strong> 雪地拖行困难，建议背包或驮包。</li>
+                    </ul>
                 </div>
             </div>
         </div>
         `
     },
-    'quest8': { 
+    'quest8': {
+        hasPlan: true, 
         title: "南疆喀什 (Nanjiang Kashgar)", 
         desc: "丝绸之路重镇。这里没有游客的喧嚣，只有帕米尔的蓝冰和千年古城的暖阳。", 
         season: "❄️ 冬季 (Winter)",
@@ -173,367 +162,327 @@ const questData = {
         seasonal_variants: { winter: 'quest8', summer: 'quest8_summer' },
         features: ["帕米尔蓝冰 (Blue Ice)", "古城老茶馆 (Tea House)", "慕士塔格峰 (Snow Mountain)"], 
         route: "喀什 -> 白沙湖 -> 塔县 -> 盘龙古道 -> 喀什",
-        hasPlan: true,
-        plan: `
+    
+        content: `
+
         <div class="module-box">
             <div class="module-title">📋 1. 基本情报 (Briefing)</div>
-            <div class="briefing-grid">
-                <div><strong>🚗 出行方式:</strong> 包车 (Chartered Car) - <strong>高原路况复杂</strong></div>
-                <div><strong>💰 预算范围:</strong> 5000 - 8000 RMB</div>
-                <div><strong>⏱️ 预期时间:</strong> 5 Days</div>
-                <div><strong>🌡️ 气温推测:</strong> -10°C ~ 5°C (高原风大)</div>
-                <div><strong>✈️ 飞行参考:</strong> 直飞喀什 (Kashgar) 机场</div>
-                <div class="atmosphere-text">
-                    <p>南疆的冬是蓝色的。白沙湖的蓝冰碎裂在帕米尔高原上。回到喀什古城，在百年老茶馆喝一杯配馕的茶，听听热瓦普的弹奏。这是一种穿越时空的错觉。</p>
-                    <p style="font-size: 0.9em; color: #666;"><strong>Note:</strong> 同样需要包车前往塔县。古城内步行即可。</p>
-                </div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> 包车/自驾 (SUV Recommended) - 高原路况好但弯多</li>
+                <li><strong>💰 预算范围:</strong> 4000 - 7000 RMB</li>
+                <li><strong>⏱️ 预期时间:</strong> 5 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> -10°C ~ 5°C (高原昼夜温差大)</li>
+                <li><strong>✈️ 飞行参考:</strong> 直飞喀什 (Kashi) 机场</li>
+            </ul>
+            <p>南疆的冬是蓝色的。帕米尔高原的冰川在阳光下闪耀，白沙湖像一块巨大的蓝宝石镶嵌在沙漠中。喀什古城里的烤馕香气和百年老茶馆，会让你忘记时间的流逝。</p>
+            <div style="background-color: #fee; border-left: 5px solid #e74c3c; padding: 10px; margin-top: 10px; color: #c0392b;">
+                <strong>Warning:</strong> 高原反应预警 (High Altitude). 塔县海拔3000m+。必须在喀什办理边防证 (Border Permit Required)。
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
             <div class="map-container">
                 <svg width="100%" height="300" viewBox="0 0 600 300" style="font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;">
                     <defs>
-                        <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="#e67e22" />
+                        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
                         </marker>
                     </defs>
-
-                    <!-- Background Region Hint -->
-                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#fff5e6" stroke="#e67e22" stroke-dasharray="5,5" />
-                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#d35400" font-weight="bold">南疆喀什区域</text>
-
-                    <!-- Chengdu (Home) -->
+                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0f8ff" stroke="#bdc3c7" stroke-dasharray="5,5" />
+                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#95a5a6" font-weight="bold">帕米尔高原环线</text>
                     <g transform="translate(60, 150)">
                         <circle r="6" fill="#e74c3c" />
-                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
+                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">各地</text>
                         <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
                     </g>
-
-                    <!-- Flight Path -->
-                    <path d="M60,150 Q200,50 350,80" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="200" y="90" text-anchor="middle" font-size="12" fill="#bdc3c7" transform="rotate(-15, 200, 100)">直飞 5h</text>
-
-                    <!-- Kashgar Hub (North) -->
-                    <g transform="translate(350, 80)">
-                        <circle r="8" fill="#e67e22" stroke="white" stroke-width="2"/>
-                        <text x="0" y="-15" text-anchor="middle" font-size="16" font-weight="bold" fill="#d35400">喀什</text>
-                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#555">古城/集散</text>
+                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
+                    <text x="200" y="110" text-anchor="middle" font-size="12" fill="#7f8c8d">直飞 4h</text>
+                    
+                    <g transform="translate(350, 230)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">喀什</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">古城/集散</text>
                     </g>
-
-                    <!-- Route: Kashgar -> Baisha -> Tashkurgan -> Kashgar -->
-                    <path d="M350,80 Q400,120 420,150" fill="none" stroke="#e67e22" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-orange)"/>
-                    <path d="M420,150 Q430,200 400,240" fill="none" stroke="#e67e22" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-orange)"/>
-                    <path d="M400,240 Q320,180 350,80" fill="none" stroke="#e67e22" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-orange)"/>
-
-                    <!-- Baisha Lake (Middle) -->
-                    <g transform="translate(420, 150)">
-                        <circle r="5" fill="white" stroke="#3498db" stroke-width="2"/>
-                        <text x="15" y="5" text-anchor="start" font-size="14" font-weight="bold" fill="#333">白沙湖</text>
-                        <text x="15" y="25" text-anchor="start" font-size="12" fill="#7f8c8d">蓝冰/沙漠</text>
+                    <g transform="translate(480, 130)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">塔县</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">帕米尔之心</text>
                     </g>
-
-                    <!-- Tashkurgan (South) -->
-                    <g transform="translate(400, 240)">
-                        <circle r="5" fill="white" stroke="#e67e22" stroke-width="2"/>
-                        <text x="0" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">塔县</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">帕米尔高原</text>
+                    <g transform="translate(350, 60)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">白沙湖</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">蓝冰奇观</text>
                     </g>
-
-                    <!-- Compass -->
-                    <g transform="translate(550, 40)">
-                        <text x="0" y="-15" text-anchor="middle" font-size="12" font-weight="bold" fill="#bdc3c7">北</text>
-                        <path d="M0,-10 L-5,5 L0,2 L5,5 Z" fill="#bdc3c7" />
-                    </g>
+                    
+                    <path d="M350,230 Q300,150 350,60" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="310" y="150" text-anchor="middle" font-size="12" fill="#7f8c8d">3h</text>
+                    
+                    <path d="M350,60 Q420,60 480,130" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="430" y="80" text-anchor="middle" font-size="12" fill="#7f8c8d">2h</text>
+                    
+                    <path d="M480,130 Q550,230 350,230" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="500" y="200" text-anchor="middle" font-size="12" fill="#7f8c8d">盘龙古道 4h</text>
+                    
+                    <path d="M350,230 Q200,280 60,150" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)" />
+                    <text x="200" y="250" text-anchor="middle" font-size="12" fill="#7f8c8d">返程 4h</text>
                 </svg>
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">⏳ 3. 时间轴 (Timeline - 5 Days)</div>
             <div class="day-block">
-                <h3>Day 1: 抵达喀什 - 古城初探</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 喀什古城</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 0°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 飞抵喀什。办理边防证 (去塔县必备)。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 入住古城民宿。避开主街，去【空中花园】看古城全景。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 在汗巴扎夜市吃烤肉、抓饭。</div>
+                <div class="time-slot"><strong>Day 1:</strong> 初见喀什 - 办理证件</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 喀什古城 | 🌡️ 气温: 0°C</div>
+                <p><strong>🌞 上午:</strong> 抵达喀什。前往【喀什行政服务中心】办理边防证 (免费，立等可取)。</p>
+                <p><strong>☕ 下午:</strong> 入住古城民宿。去【百年老茶馆】喝一壶药茶，听当地大爷弹唱。</p>
+                <p><strong>🌙 晚上:</strong> 在古城夜市品尝烤包子、缸子肉、鸽子汤。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 2: 帕米尔的蓝冰 - 上高原</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 喀什 -> 白沙湖 -> 塔县</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> -10°C (风大)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 包车出发。途径【白沙湖】，冬季湖面结冰，呈现惊艳的蒂芙尼蓝。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 途经【卡拉库里湖】，仰望【慕士塔格峰】(冰山之父)。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 抵达塔县 (海拔3000m+)，注意高反，不要剧烈运动。</div>
+                <div class="time-slot"><strong>Day 2:</strong> 冰与火之歌 - 白沙湖</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 喀什 -> 白沙湖 -> 塔县 | 🌡️ 气温: -10°C (风大)</div>
+                <p><strong>🌞 上午:</strong> 沿着中巴友谊公路出发。途径奥依塔克红山峡谷。</p>
+                <p><strong>☕ 下午:</strong> 抵达【白沙湖】。一半是绵延的白沙，一半是深蓝的湖冰，视觉冲击力极强。</p>
+                <p><strong>🌙 晚上:</strong> 抵达塔县 (海拔3100m)。注意不要剧烈运动，早休息。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 3: 盘龙古道与冰川</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 塔县周边</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> -10°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 挑战【盘龙古道】(如遇大雪封路则改为远观或去奥依塔克冰川)。体验600个S弯。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 探访【班迪尔蓝湖】。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 返回喀什市区 (车程较长，约4-5h)。</div>
+                <div class="time-slot"><strong>Day 3:</strong> 今日走过了所有的弯路</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 塔县 -> 盘龙古道 -> 班迪尔蓝湖 | 🌡️ 气温: -5°C</div>
+                <p><strong>🌞 上午:</strong> 挑战【盘龙古道】。600多个S弯，象征着“从此人生尽是坦途”。</p>
+                <p><strong>☕ 下午:</strong> 前往【班迪尔蓝湖】。这里的湖水在冬季呈现出一种不真实的蒂芙尼蓝。</p>
+                <p><strong>🌙 晚上:</strong> 返回塔县。品尝牦牛肉火锅。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 4: 百年老茶馆 - 人文扫街</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 喀什古城</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 2°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 睡个懒觉。去【百年老茶馆】喝茶，看当地老爷爷聊天。这里是《追风筝的人》取景地风格。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 参观【艾提尕尔清真寺】。在迷宫般的巷道里扫街摄影 (Cosplay西域风格极佳)。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 找一家当地塔吉克族餐厅用餐。</div>
+                <div class="time-slot"><strong>Day 4:</strong> 冰川之父与古城日落</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 塔县 -> 慕士塔格冰川 -> 喀什 | 🌡️ 气温: -5°C</div>
+                <p><strong>🌞 上午:</strong> 近距离瞻仰【慕士塔格峰】。虽然冬季不能攀登，但在山脚下依然震撼。</p>
+                <p><strong>☕ 下午:</strong> 返回喀什。在【艾提尕尔清真寺】广场看鸽子飞舞，看夕阳下的土黄色古城。</p>
+                <p><strong>🌙 晚上:</strong> 去“高台民居”遗址附近转转，感受历史的沧桑。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 5: 巴扎与返程</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 喀什 -> 机场</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 如果是周日，去【牛羊大巴扎】看热闹。平时可去【高台民居】。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 买点干果，前往机场。</div>
+                <div class="time-slot"><strong>Day 5:</strong> 最后的巴扎</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 喀什 -> 机场</div>
+                <p><strong>🌞 上午:</strong> 去【东门大巴扎】。买一些正宗的葡萄干、无花果干作为伴手礼。</p>
+                <p><strong>☕ 下午:</strong> 带着满身的新疆味道，飞离这座迷人的城市。</p>
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
             <table class="cost-table">
-                <tr><th>项目</th><th>预算</th><th>备注</th></tr>
-                <tr><td>✈️ 交通</td><td>2000-3500</td><td>机票</td></tr>
-                <tr><td>🚗 包车</td><td>1500-2500</td><td>塔县往返2-3天</td></tr>
-                <tr><td>🛌 住宿</td><td>1000-1800</td><td>古城民宿</td></tr>
-                <tr><td>🥘 餐饮</td><td>600-1000</td><td>物价感人，肉量大</td></tr>
-                <tr style="background:#f0f0f0;border-top:2px solid black;"><td><strong>Total</strong></td><td><strong>5100 - 8800</strong></td><td><strong>异域风情游</strong></td></tr>
+                <tr><th>项目 (Item)</th><th>预算 (Budget)</th><th>备注 (Note)</th></tr>
+                <tr><td>包车 (Charter)</td><td>1000 - 1500</td><td>SUV拼车或包车 (人均)</td></tr>
+                <tr><td>住宿 (Lodging)</td><td>1000 - 2000</td><td>塔县住宿条件一般，喀什选择多</td></tr>
+                <tr><td>餐饮 (Food)</td><td>800 - 1200</td><td>物价感人，羊肉吃到饱</td></tr>
+                <tr><td>门票 (Ticket)</td><td>200 - 300</td><td>白沙湖等景区门票</td></tr>
+                <tr><td><strong>总计 (Total)</strong></td><td><strong>~3000 - 5000</strong></td><td>不含往返大交通 (Flights not included)</td></tr>
             </table>
         </div>
-
         <div class="module-box">
             <div class="module-title">🎒 5. 装备 (Loadout)</div>
             <div class="pros-cons">
-                <div style="border-right: 2px dashed #ccc;">
-                    <h4 class="pros">✅ 推荐</h4>
-                    <ul><li>国内最具异域风情的城市</li><li>帕米尔高原壮丽景色</li><li>美食极其正宗</li></ul>
+                <div class="pros" style="color: #27ae60;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #27ae60;">✅ 必带装备 (Must Have)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>身份证:</strong> 极其重要！无数检查站，办边防证必须。</li>
+                        <li><strong>防风衣物:</strong> 帕米尔高原风非常大，冲锋衣+羽绒服。</li>
+                        <li><strong>高反药:</strong> 红景天/葡萄糖，塔县海拔较高。</li>
+                        <li><strong>墨镜:</strong> 冰川和白沙反光强烈。</li>
+                        <li><strong>鲜艳衣服:</strong> 拍照更出片 (红色/白色最佳)。</li>
+                    </ul>
                 </div>
-                <div style="padding-left: 10px;">
-                    <h4 class="cons">❌ 注意</h4>
-                    <ul><li>高原反应 (塔县)</li><li>干燥 (需补水)</li><li>尊重当地风俗</li></ul>
+                <div class="cons" style="color: #c0392b;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #c0392b;">❌ 没必要 (Don't Bring)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>短裙/短裤:</strong> 即使为了拍照也不建议，风吹得头疼。</li>
+                        <li><strong>无人机 (部分区域):</strong> 边境地区很多地方禁飞，需提前询问。</li>
+                        <li><strong>过重行李:</strong> 频繁换酒店，建议轻便为主。</li>
+                    </ul>
                 </div>
             </div>
         </div>
         `
     },
-    'quest9': { title: "莱茵河游轮 (Rhine)", desc: "穿越德国和法国的河流之旅。不用每天换酒店，船就是移动的城堡。", features: ["德语区深度游", "沿途大量古堡", "极度休闲，适合躺平"], route: "法兰克福 -> 美因茨 -> 吕德斯海姆 -> 科布伦茨 -> 科隆 -> 斯特拉斯堡" },
-    'quest10': { title: "涠洲岛 (Weizhou)", desc: "中国最年轻的火山岛。骑着电瓶车在香蕉林和海边穿梭。", features: ["五彩滩日出", "南湾街海鲜", "适合拍摄日系小清新"], route: "北海 -> 涠洲岛码头 -> 天主教堂 -> 五彩滩 -> 滴水丹屏 -> 北海" },
-    'quest11': { title: "四姑娘山 (Siguniang)", desc: "蜀山之后。双桥沟开发极其成熟，是懒人看雪山的极致选择。", features: ["全程观光车", "雪山触手可及", "路况极好"], route: "成都 -> 映秀 -> 猫鼻梁 -> 双桥沟 -> 长坪沟(选去) -> 成都" },
-    'quest12': { title: "平潭岛 (Pingtan)", desc: "离台湾最近的海岛。巨大的风车田是它的标志。", features: ["蓝眼泪（季节性）", "北部湾玻璃栈道", "风车田公路片"], route: "福州 -> 平潭岛 -> 北港村 -> 猴研岛 -> 象鼻湾 -> 长乐机场" },
-    'quest13': { title: "瓦屋山 (Wawu Shan)", desc: "洪雅县，亚洲最大的桌山。冬季的冰雪森林像极了童话世界，索道设施完善。", features: ["双索道直达山顶，无痛苦", "云顶象尔山庄景色绝佳", "偶遇小熊猫/猴子"], route: "成都 -> 雅安 -> 洪雅 -> 瓦屋山景区 -> 柳江古镇 -> 成都" },
-    'quest14': { title: "西昌邛海 (Qionghai)", desc: "凉山州首府，一座春天栖息的城市。阳光充足，邛海泛舟极其惬意。", features: ["邛海湿地公园骑行/坐船", "参观卫星发射中心(硬核)", "烧烤一绝"], route: "成都 -> 西昌 -> 邛海湿地 -> 泸山 -> 卫星发射中心 -> 成都" },
-    'quest15': { title: "重庆 (Chongqing)", desc: "山城，赛博朋克圣地。这里的地形和建筑结构本身就是巨大的游戏关卡。", features: ["长江索道/两江游轮(船)", "洪崖洞夜景(Vlog/Cosplay)", "轻轨穿楼"], route: "成都 -> 重庆北 -> 解放碑 -> 洪崖洞 -> 李子坝轻轨 -> 鹅岭二厂 -> 成都" },
-    'quest16': { title: "九寨沟 (Jiuzhaigou)", desc: "阿勒泰之外的另一个水景巅峰。虽然人多，但景色绝对值回票价。", features: ["水体通透度极高，适合摄影", "Y字形游览路线清晰", "基础设施极好"], route: "成都 -> 松潘古城 -> 九寨沟景区 -> 黄龙景区 -> 汶川 -> 成都" },
-    'quest17': { title: "塔公/新都桥 (Tagong)", desc: "甘孜州，摄影家的天堂。光影变化极快，随手一拍就是大片。", features: ["雅拉雪山下的木雅金塔", "姑弄村溪流露营", "318国道精华段"], route: "成都 -> 康定 -> 折多山 -> 新都桥 -> 塔公草原 -> 墨石公园 -> 成都" },
-    'quest18': { title: "阆中古城 (Langzhong)", desc: "中国四大古城之一，春节文化发源地。风水格局保存完好。", features: ["登上中天楼俯瞰八卦城", "嘉陵江游船", "历史人文沉浸感"], route: "成都 -> 南充 -> 阆中古城 -> 张飞庙 -> 锦屏山 -> 滕王阁 -> 成都" },
-    'quest19': { title: "青岛 (Qingdao)", desc: "山东半岛，帆船之都。这里有你熟悉的德语建筑和好喝的啤酒。", features: ["奥帆中心出海(船)", "八大关万国建筑(Cosplay)", "德语区语言优势"], route: "青岛 -> 八大关 -> 栈桥 -> 奥帆中心 -> 啤酒博物馆 -> 崂山 -> 返程" },
-    'quest20': { title: "大理 (Dali)", desc: "云南大理，苍山洱海。这里的风是自由的，时间是静止的。", features: ["洱海S湾骑行", "双廊古镇海景房", "龙龛码头日出"], route: "大理古城 -> 洱海环湖(S湾/双廊) -> 喜洲古镇 -> 苍山索道 -> 返程" },
-    'quest21': { title: "万宁 (Wanning)", desc: "海南东线，比三亚更年轻、更野。冲浪文化浓厚。", features: ["日月湾冲浪体验", "石梅湾最美沿海公路", "加井岛潜水"], route: "海口 -> 万宁 -> 日月湾 -> 石梅湾 -> 神州半岛 -> 三亚/海口返程" },
-    'quest22': { title: "澳门 (Macau)", desc: "东方的拉斯维加斯。极尽奢华的酒店群和保存完好的葡式建筑。", features: ["大赛车博物馆", "伦敦人/威尼斯人(Cosplay)", "米其林餐厅巡礼"], route: "珠海拱北 -> 大三巴牌坊 -> 威尼斯人 -> 伦敦人 -> 官也街 -> 澳门塔 -> 返程" },
-    'quest23': { title: "瑞士 (Switzerland)", desc: "世界公园，滑雪者的终极梦想。德法语言优势在这里可以发挥到极致。", features: ["少女峰/马特洪峰滑雪", "布里恩茨湖游船", "黄金列车观光"], route: "苏黎世 -> 卢塞恩 -> 因特拉肯 -> 少女峰 -> 采尔马特 -> 伯尔尼 -> 苏黎世" },
-    'quest24': { title: "新西兰 (New Zealand)", desc: "南半球的中土世界。拥有冰川、峡湾、湖泊等极致地貌。", features: ["皇后镇喷射快艇(船)", "米尔福德峡湾游轮", "霍比特人村"], route: "基督城 -> 蒂卡普湖 -> 库克山 -> 皇后镇 -> 米尔福德峡湾 -> 瓦纳卡 -> 基督城" },
-    'quest25': { 
+    'quest9': { title: "莱茵河游轮 (Rhine)", season: "🌿 夏季 (Summer)", desc: "穿越德国和法国的河流之旅。不用每天换酒店，船就是移动的城堡。", features: ["德语区深度游", "沿途大量古堡", "极度休闲，适合躺平"], route: "法兰克福 -> 美因茨 -> 吕德斯海姆 -> 科布伦茨 -> 科隆 -> 斯特拉斯堡" },
+    'quest10': { title: "涠洲岛 (Weizhou)", season: "📅 4月-5月", desc: "中国最年轻的火山岛。骑着电瓶车在香蕉林和海边穿梭。", features: ["五彩滩日出", "南湾街海鲜", "适合拍摄日系小清新"], route: "北海 -> 涠洲岛码头 -> 天主教堂 -> 五彩滩 -> 滴水丹屏 -> 北海" },
+    'quest11': { title: "四姑娘山 (Siguniang)", season: "📅 全年 (All Year)", desc: "蜀山之后。双桥沟开发极其成熟，是懒人看雪山的极致选择。", features: ["全程观光车", "雪山触手可及", "路况极好"], route: "成都 -> 映秀 -> 猫鼻梁 -> 双桥沟 -> 长坪沟(选去) -> 成都" },
+    'quest12': { title: "平潭岛 (Pingtan)", season: "📅 4月-8月", desc: "离台湾最近的海岛。巨大的风车田是它的标志。", features: ["蓝眼泪（季节性）", "北部湾玻璃栈道", "风车田公路片"], route: "福州 -> 平潭岛 -> 北港村 -> 猴研岛 -> 象鼻湾 -> 长乐机场" },
+    'quest13': { title: "瓦屋山 (Wawu Shan)", season: "❄️ 12月-2月", desc: "洪雅县，亚洲最大的桌山。冬季的冰雪森林像极了童话世界，索道设施完善。", features: ["双索道直达山顶，无痛苦", "云顶象尔山庄景色绝佳", "偶遇小熊猫/猴子"], route: "成都 -> 雅安 -> 洪雅 -> 瓦屋山景区 -> 柳江古镇 -> 成都" },
+    'quest14': { title: "西昌邛海 (Qionghai)", season: "❄️ 冬季 (Winter)", desc: "凉山州首府，一座春天栖息的城市。阳光充足，邛海泛舟极其惬意。", features: ["邛海湿地公园骑行/坐船", "参观卫星发射中心(硬核)", "烧烤一绝"], route: "成都 -> 西昌 -> 邛海湿地 -> 泸山 -> 卫星发射中心 -> 成都" },
+    'quest15': { 
+        title: "重庆 (Chongqing)", 
+        season: "📅 全年 (All Year)", 
+        desc: "山城，赛博朋克圣地。这里的地形和建筑结构本身就是巨大的游戏关卡。", 
+        features: ["长江索道/两江游轮(船)", "洪崖洞夜景(Vlog/Cosplay)", "轻轨穿楼"], 
+        route: "成都 -> 重庆北 -> 解放碑 -> 洪崖洞 -> 李子坝轻轨 -> 鹅岭二厂 -> 成都"
+    },
+    'quest16': { title: "九寨沟 (Jiuzhaigou)", season: "🍂 秋季 (Autumn)", desc: "阿勒泰之外的另一个水景巅峰。虽然人多，但景色绝对值回票价。", features: ["水体通透度极高，适合摄影", "Y字形游览路线清晰", "基础设施极好"], route: "成都 -> 松潘古城 -> 九寨沟景区 -> 黄龙景区 -> 汶川 -> 成都" },
+    'quest17': { title: "塔公/新都桥 (Tagong)", season: "🌿 夏/秋", desc: "甘孜州，摄影家的天堂。光影变化极快，随手一拍就是大片。", features: ["雅拉雪山下的木雅金塔", "姑弄村溪流露营", "318国道精华段"], route: "成都 -> 康定 -> 折多山 -> 新都桥 -> 塔公草原 -> 墨石公园 -> 成都" },
+    'quest18': { title: "阆中古城 (Langzhong)", season: "📅 全年 (All Year)", desc: "中国四大古城之一，春节文化发源地。风水格局保存完好。", features: ["登上中天楼俯瞰八卦城", "嘉陵江游船", "历史人文沉浸感"], route: "成都 -> 南充 -> 阆中古城 -> 张飞庙 -> 锦屏山 -> 滕王阁 -> 成都" },
+    'quest19': { title: "青岛 (Qingdao)", season: "🌿 夏季 (Summer)", desc: "山东半岛，帆船之都。这里有你熟悉的德语建筑和好喝的啤酒。", features: ["奥帆中心出海(船)", "八大关万国建筑(Cosplay)", "德语区语言优势"], route: "青岛 -> 八大关 -> 栈桥 -> 奥帆中心 -> 啤酒博物馆 -> 崂山 -> 返程" },
+    'quest20': { 
+        title: "大理 (Dali)", 
+        season: "📅 全年 (All Year)", 
+        desc: "云南大理，苍山洱海。这里的风是自由的，时间是静止的。", 
+        features: ["洱海S湾骑行", "双廊古镇海景房", "龙龛码头日出"], 
+        route: "大理古城 -> 洱海环湖(S湾/双廊) -> 喜洲古镇 -> 苍山索道 -> 返程"
+    },
+    'quest21': { title: "万宁 (Wanning)", season: "❄️ 冬季 (Winter)", desc: "海南东线，比三亚更年轻、更野。冲浪文化浓厚。", features: ["日月湾冲浪体验", "石梅湾最美沿海公路", "加井岛潜水"], route: "海口 -> 万宁 -> 日月湾 -> 石梅湾 -> 神州半岛 -> 三亚/海口返程" },
+    'quest22': { 
+        title: "澳门 (Macau)", 
+        season: "📅 全年 (All Year)", 
+        desc: "东方的拉斯维加斯。极尽奢华的酒店群和保存完好的葡式建筑。", 
+        features: ["大赛车博物馆", "伦敦人/威尼斯人(Cosplay)", "米其林餐厅巡礼"], 
+        route: "珠海拱北 -> 大三巴牌坊 -> 威尼斯人 -> 伦敦人 -> 官也街 -> 澳门塔 -> 返程"
+    },
+
+    'quest25': {
+        hasPlan: true, 
         title: "腾冲 + 芒市 (Tengchong + Mangshi)", 
         desc: "云南边陲的双城记。左手火山热海的汉家古韵，右手金塔银塔的傣式风情。", 
         season: "❄️ 冬季 (Winter)",
         days: "5 Days",
         seasonal_variants: { winter: 'quest25', summer: 'quest25_summer' },
         features: ["热海大滚锅 & 火山地质", "高黎贡山徒步 (Rainforest Hiking)", "芒市金塔银塔 & 孔雀宴"], 
-        route: "腾冲驼峰机场 -> 热海 -> 高黎贡山 -> 芒市 -> 勐焕大金塔 -> 芒市机场",
-        hasPlan: true,
-        plan: `
-        <div class="module-box">
-            <div class="module-title">📋 1. 简报 (Mission Briefing)</div>
-            <p><strong>目标:</strong> 探索火山地质奇观，徒步高黎贡山，享受芒市的异域美食。</p>
-            <p><strong>关键词:</strong> 温泉 · 徒步 · 美食 · 边境风情</p>
-        </div>
+        route: "芒市 -> 瑞丽 -> 腾冲 -> 和顺 -> 芒市",
+    
+        content: `
 
+        <div class="module-box">
+            <div class="module-title">📋 1. 基本情报 (Briefing)</div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> 包车/租车 (Car Rental) - 路况良好</li>
+                <li><strong>💰 预算范围:</strong> 3500 - 6000 RMB</li>
+                <li><strong>⏱️ 预期时间:</strong> 5 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> 10°C ~ 25°C (舒适，早晚凉)</li>
+                <li><strong>✈️ 飞行参考:</strong> 飞芒市 (Dehong) 或 腾冲 (Tengchong)</li>
+            </ul>
+            <p>这是一次穿越“极边第一城”的旅程。芒市有东南亚的慵懒与金碧辉煌，腾冲则有汉家古韵与地热奇观。泡着热海温泉，看着银杏落下，或是吃一顿手抓饭，都是极致的享受。</p>
+            <div style="background-color: #fee; border-left: 5px solid #e74c3c; padding: 10px; margin-top: 10px; color: #c0392b;">
+                <strong>Warning:</strong> 紫外线极强 (High UV). 即使阴天也要防晒。温泉不宜浸泡过久。
+            </div>
+        </div>
         <div class="module-box">
             <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
             <div class="map-container">
-                <!-- Dual City Flow SVG Stick Figure Map (Fixed) -->
                 <svg width="100%" height="300" viewBox="0 0 600 300" style="font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;">
                     <defs>
-                        <marker id="arrow-black" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="black" />
-                        </marker>
-                        <marker id="arrow-flight" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
-                            <text x="0" y="9" font-size="12">✈️</text>
+                        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
                         </marker>
                     </defs>
-
-                    <!-- Background Region Hint -->
-                    <rect x="200" y="20" width="380" height="260" rx="20" fill="#fcf3cf" stroke="#f1c40f" stroke-dasharray="5,5" opacity="0.3" />
-                    <text x="390" y="270" text-anchor="middle" font-size="16" fill="#d4ac0d" font-weight="bold">滇西边陲 (腾冲-芒市)</text>
-
-                    <!-- Chengdu (Home) -->
-                    <g transform="translate(60, 250)">
+                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0f8ff" stroke="#bdc3c7" stroke-dasharray="5,5" />
+                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#95a5a6" font-weight="bold">滇西双城区域</text>
+                    <g transform="translate(60, 150)">
                         <circle r="6" fill="#e74c3c" />
                         <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
                         <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
                     </g>
-
-                    <!-- Flight Path: Chengdu -> Tengchong -->
-                    <path d="M60,250 Q120,100 220,80" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="130" y="150" text-anchor="middle" font-size="12" fill="#95a5a6" transform="rotate(-45, 130, 150)">直飞 1.5h</text>
-
-                    <!-- Tengchong Hub -->
-                    <g transform="translate(220, 80)">
-                        <circle r="8" fill="#e74c3c" stroke="white" stroke-width="2"/>
-                        <text x="0" y="-15" text-anchor="middle" font-size="18" font-weight="bold" fill="#c0392b">腾冲</text>
+                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
+                    <text x="200" y="110" text-anchor="middle" font-size="12" fill="#7f8c8d">直飞 2h</text>
+                    
+                    <g transform="translate(350, 230)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">芒市</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">金塔/孔雀宴</text>
+                    </g>
+                    <g transform="translate(500, 130)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">腾冲</text>
                         <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">火山/热海</text>
                     </g>
-
-                    <!-- Path: Tengchong -> Mangshi (via Gaoligong) -->
-                    <path d="M220,80 Q300,120 450,200" fill="none" stroke="#333" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-black)"/>
+                    <g transform="translate(350, 60)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">和顺</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">古镇时光</text>
+                    </g>
                     
-                    <!-- Gaoligong Mountain (On the way) -->
-                    <g transform="translate(320, 130)">
-                        <circle r="5" fill="white" stroke="#27ae60" stroke-width="2"/>
-                        <text x="10" y="5" text-anchor="start" font-size="14" font-weight="bold" fill="#27ae60">高黎贡山</text>
-                        <text x="10" y="25" text-anchor="start" font-size="12" fill="#7f8c8d">徒步穿越</text>
-                    </g>
-
-                    <!-- Mangshi Hub -->
-                    <g transform="translate(450, 200)">
-                        <circle r="8" fill="#f1c40f" stroke="white" stroke-width="2"/>
-                        <text x="0" y="25" text-anchor="middle" font-size="18" font-weight="bold" fill="#d35400">芒市</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">大金塔/孔雀宴</text>
-                    </g>
-
-                    <!-- Return Flight: Mangshi -> Chengdu -->
-                    <path d="M450,200 Q300,280 60,250" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="250" y="260" text-anchor="middle" font-size="12" fill="#95a5a6">返程直飞</text>
-
-                    <!-- Compass -->
-                    <g transform="translate(550, 40)">
-                        <text x="0" y="-15" text-anchor="middle" font-size="12" font-weight="bold" fill="#bdc3c7">北</text>
-                        <path d="M0,-10 L-5,5 L0,2 L5,5 Z" fill="#bdc3c7" />
-                    </g>
+                    <path d="M350,230 Q420,200 500,130" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="430" y="180" text-anchor="middle" font-size="12" fill="#7f8c8d">2h 车程</text>
+                    
+                    <path d="M500,130 Q420,90 350,60" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="430" y="90" text-anchor="middle" font-size="12" fill="#7f8c8d">30min</text>
+                    
+                    <path d="M350,60 Q300,150 350,230" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="310" y="150" text-anchor="middle" font-size="12" fill="#7f8c8d">返回芒市 2h</text>
+                    
+                    <path d="M350,230 Q200,280 60,150" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)" />
+                    <text x="200" y="250" text-anchor="middle" font-size="12" fill="#7f8c8d">返程 2h</text>
                 </svg>
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">⏳ 3. 时间轴 (Timeline - 5 Days)</div>
-            
             <div class="day-block">
-                <h3>Day 1: 抵达腾冲 - 古镇浅看</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 云南省保山市腾冲市 · 和顺古镇</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 约 15°C (舒适)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 飞抵【腾冲驼峰机场】(12:00前)，打车前往【和顺古镇】(约30分钟，¥40-50)。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 【和顺古镇】顺路浅看 (1-2h)。不推荐深度游览人造景点，仅打卡图书馆和稻田边喝咖啡。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 晚餐尝试【大救驾】。早点休息，为徒步储备体力。</div>
-                <div class="lodging-tag">🛌 住宿: 腾冲市区/古镇周边 (方便次日出发)</div>
+                <div class="time-slot"><strong>Day 1:</strong> 假装在泰国 - 芒市到达</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 芒市 | 🌡️ 气温: 25°C</div>
+                <p><strong>🌞 上午:</strong> 飞抵芒市。这里满街的棕榈树和摩托车，像极了东南亚。</p>
+                <p><strong>☕ 下午:</strong> 打卡【勐焕大金塔】和【银塔】。银塔非常出片，适合穿傣妹服饰。</p>
+                <p><strong>🌙 晚上:</strong> 去吃一顿正宗的【孔雀宴】手抓饭，喝泡鲁达。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 2: 火山与热海 - 冰火两重天</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 云南省保山市腾冲市 · 马站乡/清水乡</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 约 12°C - 18°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 打车前往【火山地质公园】(约¥60)。看大空山、小空山。体验热气球俯瞰火山口。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 转战【热海景区】(约¥80)。看【大滚锅】。核心体验：在【热海浴谷】泡真正的火山硫磺温泉，缓解疲劳。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 返回市区，自由觅食。</div>
-                <div class="lodging-tag">🛌 住宿: 腾冲市区</div>
+                <div class="time-slot"><strong>Day 2:</strong> 边境穿梭 - 前往腾冲</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 芒市 -> 瑞丽(可选) -> 腾冲 | 🌡️ 气温: 20°C</div>
+                <p><strong>🌞 上午:</strong> 乘车前往腾冲。途径龙江特大桥，云端上的工程奇迹。</p>
+                <p><strong>☕ 下午:</strong> 抵达腾冲。前往【热海大滚锅】。看地热蒸汽喷涌，煮一串鸡蛋。</p>
+                <p><strong>🌙 晚上:</strong> 入住温泉酒店，洗去旅途疲惫。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 3: 高黎贡山徒步 - 转场芒市</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 腾冲 -> 芒市 (100km)</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 5°C - 12°C (山区较冷)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 参加【高黎贡山轻徒步】(约3-4h)，体验原始森林。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 乘车前往芒市。<strong>(注: 腾冲无高铁，打车约¥250-300，拼车约¥60/人，车程2h)</strong></div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 抵达芒市，入住【孔雀湖】附近，吃孔雀宴。</div>
+                <div class="time-slot"><strong>Day 3:</strong> 汉家古韵 - 和顺古镇</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 和顺古镇 | 🌡️ 气温: 18°C</div>
+                <p><strong>🌞 上午:</strong> 睡到自然醒。前往【和顺古镇】。这里是著名的侨乡，没有过度的商业化。</p>
+                <p><strong>☕ 下午:</strong> 在古镇的图书馆看书，或在野鸭湖边发呆。参观艾思奇故居。</p>
+                <p><strong>🌙 晚上:</strong> 吃“大救驾”（炒饵块）和“土锅子”。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 4: 金塔银塔 - 异域幻梦</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 云南省德宏州芒市 · 雷牙让山</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 约 18°C - 22°C (较热)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 前往【树包塔】，看大自然的神奇共生。逛逛【百思特美食城】，喝一杯泡鲁达。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 登顶雷牙让山，游览【勐焕大金塔】(亚洲第一空心佛塔) 和 【银塔】。这里是Cosplay和写真的绝佳地。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 在银塔看日落和夜景，俯瞰整个芒市灯火。</div>
-                <div class="lodging-tag">🛌 住宿: 芒市市区酒店</div>
+                <div class="time-slot"><strong>Day 4:</strong> 火山与银杏</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 火山地质公园 -> 银杏村 | 🌡️ 气温: 15°C</div>
+                <p><strong>🌞 上午:</strong> 乘坐热气球俯瞰【火山地质公园】（需早起，视天气而定）。</p>
+                <p><strong>☕ 下午:</strong> 如果是深秋，必去【固东银杏村】，满地金黄。其他季节可去【北海湿地】划草排。</p>
+                <p><strong>🌙 晚上:</strong> 返回腾冲市区，逛逛玉石市场（只看不买）。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 5: 傣味早市 - 返程</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 云南省德宏州芒市 -> 芒市机场</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 逛【宏利综合市场】(打车起步价)，看看没见过的热带水果和野菜。吃一碗正宗的过手米线。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 打车前往【德宏芒市机场】(约¥20-30，建议提前 2 小时抵达机场)，结束旅程。</div>
+                <div class="time-slot"><strong>Day 5:</strong> 告别极边</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 腾冲/芒市机场</div>
+                <p><strong>🌞 上午:</strong> 喝最后一杯云南小粒咖啡。</p>
+                <p><strong>☕ 下午:</strong> 根据航班选择从腾冲直飞或返回芒市飞离。</p>
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
             <table class="cost-table">
-                <tr>
-                    <th>项目 (Item)</th>
-                    <th>预算 (Budget)</th>
-                    <th>备注 (Note)</th>
-                </tr>
-                <tr>
-                    <td>✈️ 交通</td>
-                    <td>1500-3000</td>
-                    <td>机票 + 少量打车 (Taxi优先)</td>
-                </tr>
-                <tr>
-                    <td>🛌 住宿</td>
-                    <td>1000-2000</td>
-                    <td>4晚住宿</td>
-                </tr>
-                <tr>
-                    <td>🥘 餐饮</td>
-                    <td>600-1200</td>
-                    <td>芒市物价低，丰俭由人</td>
-                </tr>
-                <tr>
-                    <td>🎫 活动/向导</td>
-                    <td>800-1500</td>
-                    <td>高黎贡徒步向导费 + 温泉 + 门票</td>
-                </tr>
-                <tr style="background-color: #f0f0f0; border-top: 2px solid black;">
-                    <td><strong>💰 总计 (Total)</strong></td>
-                    <td><strong>3900 - 7700</strong></td>
-                    <td><strong>含徒步向导 (Guide Included)</strong></td>
-                </tr>
+                <tr><th>项目 (Item)</th><th>预算 (Budget)</th><th>备注 (Note)</th></tr>
+                <tr><td>交通 (Transport)</td><td>800 - 1500</td><td>两地包车/大巴</td></tr>
+                <tr><td>住宿 (Lodging)</td><td>1500 - 3000</td><td>温泉酒店/特色民宿</td></tr>
+                <tr><td>餐饮 (Food)</td><td>800 - 1200</td><td>物价适中，丰俭由人</td></tr>
+                <tr><td>门票 (Ticket)</td><td>400 - 600</td><td>热海/火山/金塔等</td></tr>
+                <tr><td><strong>总计 (Total)</strong></td><td><strong>~3500 - 6000</strong></td><td>不含往返大交通 (Flights not included)</td></tr>
             </table>
         </div>
-
         <div class="module-box">
             <div class="module-title">🎒 5. 装备 (Loadout)</div>
             <div class="pros-cons">
-                <div style="border-right: 2px dashed #ccc; padding-right: 10px;">
-                    <h4 class="pros">✅ 推荐 (Pros)</h4>
-                    <ul>
-                        <li>高黎贡山徒步：真正的自然接触</li>
-                        <li>芒市美食密度极高</li>
-                        <li>金塔银塔极其出片</li>
+                <div class="pros" style="color: #27ae60;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #27ae60;">✅ 必带装备 (Must Have)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>防晒霜:</strong> 高原紫外线不是开玩笑的。</li>
+                        <li><strong>泳衣:</strong> 腾冲温泉非常有名，必泡。</li>
+                        <li><strong>舒适鞋子:</strong> 和顺古镇是石板路，高跟鞋会断。</li>
+                        <li><strong>薄外套:</strong> 早晚温差大，需要一件挡风。</li>
+                        <li><strong>肠胃药:</strong> 饮食酸辣生冷，以防不适。</li>
                     </ul>
                 </div>
-                <div style="padding-left: 10px;">
-                    <h4 class="cons">❌ 注意 (Cons)</h4>
-                    <ul>
-                        <li>古镇商业化严重，建议快速通过</li>
-                        <li>徒步需穿舒适防滑鞋</li>
-                        <li>芒市紫外线极强</li>
+                <div class="cons" style="color: #c0392b;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #c0392b;">❌ 没必要 (Don't Bring)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>过厚冬装:</strong> 即使是冬天，中午也很热，厚羽绒服穿不住。</li>
+                        <li><strong>过多零食:</strong> 到处都是鲜花饼和水果，根本吃不完。</li>
                     </ul>
                 </div>
-            </div>
-            <div style="margin-top: 15px; border-top: 2px solid #eee; padding-top: 10px;">
-                <strong>🎒 必带装备 (Must-Have):</strong> 登山鞋(徒步)、泳衣(泡温泉)、防晒霜(芒市必备)、肠胃药、冲锋衣(山区保暖)。
             </div>
         </div>
         `
     },
     'quest25_summer': { 
+        hasPlan: true,
         title: "腾冲 + 芒市 (Summer)", 
         desc: "云南边陲的双城记。夏季的雨林与湿地，体验完全不同的绿色版图。", 
         season: "🌿 夏季 (Summer)",
@@ -541,202 +490,344 @@ const questData = {
         seasonal_variants: { winter: 'quest25', summer: 'quest25_summer' },
         features: ["北海湿地划船", "热带雨林瀑布", "芒市避暑美食"], 
         route: "腾冲驼峰机场 -> 北海湿地 -> 高黎贡瀑布 -> 芒市 -> 勐焕大金塔 -> 芒市机场",
-        hasPlan: true,
-        plan: `
-        <div class="module-box">
-            <div class="module-title">📋 1. 简报 (Mission Briefing)</div>
-            <p><strong>目标:</strong> 漫步北海湿地，穿越雨林瀑布，在芒市的雨夜吃烧烤。</p>
-            <p><strong>关键词:</strong> 避暑 · 湿地 · 雨林 · 傣味</p>
-        </div>
 
+        content: `
+        <div class="module-box">
+            <div class="module-title">📋 1. 基本情报 (Briefing)</div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> 租车自驾 / 包车 (方便往返两地)</li>
+                <li><strong>💰 预算范围:</strong> 4000 - 6000 RMB</li>
+                <li><strong>⏱️ 预期时间:</strong> 5-6 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> 20°C ~ 28°C (雨季凉爽)</li>
+                <li><strong>🌿 季节亮点:</strong> 北海湿地鸢尾花(初夏)、野生菌火锅、热带雨林</li>
+            </ul>
+            <p>夏季的腾冲是绿色的海洋。北海湿地的草排上开满了野花，高黎贡山的瀑布水量充沛。而芒市依旧保持着那份慢节奏，喝着泡鲁达，吃着孔雀宴，体验边境小城的悠闲。</p>
+            <div style="background-color: #fee; border-left: 5px solid #e74c3c; padding: 10px; margin-top: 10px; color: #c0392b;">
+                <strong>Warning:</strong> 雨季 (Rainy Season) 需带雨具。蚊虫较多。吃野生菌务必煮熟 (Don't eat raw mushrooms)。
+            </div>
+        </div>
         <div class="module-box">
             <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
             <div class="map-container">
                 <svg width="100%" height="300" viewBox="0 0 600 300" style="font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;">
                     <defs>
                         <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="#2ecc71" />
-                        </marker>
-                        <marker id="arrow-flight" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
-                            <text x="0" y="9" font-size="12">✈️</text>
+                            <path d="M0,0 L0,6 L9,3 z" fill="#27ae60" />
                         </marker>
                     </defs>
-
-                    <!-- Background Region Hint -->
-                    <rect x="200" y="20" width="380" height="260" rx="20" fill="#e8f8f5" stroke="#1abc9c" stroke-dasharray="5,5" opacity="0.3" />
-                    <text x="390" y="270" text-anchor="middle" font-size="16" fill="#16a085" font-weight="bold">滇西雨林 (夏季)</text>
-
-                    <!-- Chengdu (Home) -->
-                    <g transform="translate(60, 250)">
+                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0fff0" stroke="#27ae60" stroke-dasharray="5,5" />
+                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#2ecc71" font-weight="bold">滇西双城</text>
+                    
+                    <g transform="translate(60, 150)">
                         <circle r="6" fill="#e74c3c" />
                         <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
                         <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
                     </g>
-
-                    <!-- Flight Path -->
-                    <path d="M60,250 Q120,100 220,80" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="130" y="150" text-anchor="middle" font-size="12" fill="#95a5a6" transform="rotate(-45, 130, 150)">直飞 1.5h</text>
-
-                    <!-- Tengchong Hub -->
-                    <g transform="translate(220, 80)">
-                        <circle r="8" fill="#2ecc71" stroke="white" stroke-width="2"/>
-                        <text x="0" y="-15" text-anchor="middle" font-size="18" font-weight="bold" fill="#27ae60">腾冲</text>
-                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">北海湿地</text>
+                    
+                    <g transform="translate(350, 80)">
+                        <circle r="8" fill="white" stroke="#27ae60" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">腾冲</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">火山/湿地</text>
                     </g>
-
-                    <!-- Path: Tengchong -> Mangshi (via Rainforest) -->
-                    <path d="M220,80 Q300,120 450,200" fill="none" stroke="#2ecc71" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-green)"/>
-
-                    <!-- Rainforest Icon -->
-                    <g transform="translate(320, 130)">
-                        <text x="0" y="0" text-anchor="middle" font-size="20">🌧️</text>
-                        <text x="0" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#27ae60">雨林穿越</text>
+                    
+                    <g transform="translate(480, 200)">
+                        <circle r="8" fill="white" stroke="#27ae60" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">芒市</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">金塔/美食</text>
                     </g>
-
-                    <!-- Mangshi Hub -->
-                    <g transform="translate(450, 200)">
-                        <circle r="8" fill="#f1c40f" stroke="white" stroke-width="2"/>
-                        <text x="0" y="25" text-anchor="middle" font-size="18" font-weight="bold" fill="#d35400">芒市</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">美食/夜雨</text>
-                    </g>
-
-                    <!-- Return Flight -->
-                    <path d="M450,200 Q300,280 60,250" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-
-                    <!-- Compass -->
-                    <g transform="translate(550, 40)">
-                        <text x="0" y="-15" text-anchor="middle" font-size="12" font-weight="bold" fill="#bdc3c7">北</text>
-                        <path d="M0,-10 L-5,5 L0,2 L5,5 Z" fill="#bdc3c7" />
-                    </g>
+                    
+                    <path d="M60,150 Q200,50 350,80" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-green)" />
+                    <text x="200" y="90" text-anchor="middle" font-size="12" fill="#27ae60">直飞 2h</text>
+                    
+                    <path d="M350,80 Q400,140 480,200" fill="none" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow-green)" />
+                    <text x="430" y="130" text-anchor="middle" font-size="12" fill="#27ae60">车程 2h</text>
+                    
+                    <path d="M480,200 Q300,250 60,150" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-green)" />
+                    <text x="250" y="200" text-anchor="middle" font-size="12" fill="#27ae60">返程 2.5h</text>
                 </svg>
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">⏳ 3. 时间轴 (Timeline - 5 Days)</div>
-            
             <div class="day-block">
-                <h3>Day 1: 抵达腾冲 - 湿地泛舟</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 腾冲 · 北海湿地</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 约 25°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 飞抵腾冲。打车前往【北海湿地】。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 在湿地体验【古法划草排】，看鸢尾花海(季节性)。避开古镇人流。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 宿腾冲市区，享受凉爽夏夜。</div>
+                <div class="time-slot"><strong>Day 1:</strong> 极边第一城</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 腾冲驼峰机场 | 🌡️ 气温: 22°C</div>
+                <p><strong>🌞 上午:</strong> 飞抵腾冲。入住和顺古镇。</p>
+                <p><strong>☕ 下午:</strong> 在【和顺古镇】漫步。参观和顺图书馆，体验陷河湿地。</p>
+                <p><strong>🌙 晚上:</strong> 吃腾冲著名的“大救驾” (炒饵块)。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 2: 叠水河瀑布 - 城市里的瀑布</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 腾冲市区</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 约 26°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 游览【叠水河瀑布】，这是唯一的城市火山堰塞瀑布。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 找个茶馆喝茶，避开午后雷雨。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 菌子火锅！夏天是吃菌子的季节 (注意辨别毒性)。</div>
+                <div class="time-slot"><strong>Day 2:</strong> 踩在草排上</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 北海湿地 | 🌡️ 气温: 24°C</div>
+                <p><strong>🌞 上午:</strong> 前往【北海湿地】。夏季这里水草丰美，可以体验“草排划船”。</p>
+                <p><strong>☕ 下午:</strong> 泡【热海温泉】。虽然是夏天，但热海的大滚锅煮鸡蛋别有一番风味。</p>
+                <p><strong>🌙 晚上:</strong> 尝试野生菌火锅 (务必煮熟！)。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 3: 雨林瀑布徒步 - 芒市</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 腾冲 -> 芒市</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 20°C - 28°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 顺路探访【莫里热带雨林】(靠近瑞丽/芒市方向)，看巨型瀑布。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 抵达芒市。喝一杯【泡鲁达】解暑。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 芒市夜市，烧烤配啤酒。</div>
+                <div class="time-slot"><strong>Day 3:</strong> 瀑布与雨林</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 腾冲 -> 芒市 | 🌡️ 气温: 26°C</div>
+                <p><strong>🌞 上午:</strong> 徒步一小段【高黎贡山】或叠水河瀑布，感受天然氧吧。</p>
+                <p><strong>☕ 下午:</strong> 乘车前往【芒市】 (约2h)。入住芒市广场附近。</p>
+                <p><strong>🌙 晚上:</strong> 勐巴娜西珍奇园附近的烧烤，喝泡鲁达。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 4: 银塔雨景 - 别样风情</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 芒市 · 银塔</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 约 28°C (闷热)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 酒店睡到自然醒，避开上午的暴晒。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 游览【银塔】。雨季的银塔在云雾中更显神秘。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 找一家空调足的傣餐厅，享受酸辣开胃菜。</div>
+                <div class="time-slot"><strong>Day 4:</strong> 假装在泰国</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 芒市 | 🌡️ 气温: 28°C</div>
+                <p><strong>🌞 上午:</strong> 参观【勐焕大金塔】和【银塔】。金银辉映，拍照极佳。</p>
+                <p><strong>☕ 下午:</strong> 在“树包塔”附近喝咖啡。吃手抓饭。</p>
+                <p><strong>🌙 晚上:</strong> 逛芒市夜市，感受边境风情。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 5: 市场与返程</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 芒市 -> 机场</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 购买热带水果 (芒果、菠萝蜜)。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 前往机场，结束夏日避暑之旅。</div>
+                <div class="time-slot"><strong>Day 5:</strong> 甜蜜返程</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 芒市机场</div>
+                <p><strong>🌞 上午:</strong> 购买一些缅甸零食或咖啡。</p>
+                <p><strong>☕ 下午:</strong> 飞离芒市。</p>
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
             <table class="cost-table">
-                <tr>
-                    <th>项目 (Item)</th>
-                    <th>预算 (Budget)</th>
-                    <th>备注 (Note)</th>
-                </tr>
-                <tr>
-                    <td>✈️ 交通</td>
-                    <td>1500-3000</td>
-                    <td>暑期机票可能略贵</td>
-                </tr>
-                <tr>
-                    <td>🛌 住宿</td>
-                    <td>1000-2000</td>
-                    <td>淡季/旺季波动</td>
-                </tr>
-                <tr>
-                    <td>🥘 餐饮</td>
-                    <td>800-1500</td>
-                    <td>菌子火锅较贵</td>
-                </tr>
-                <tr style="background-color: #f0f0f0; border-top: 2px solid black;">
-                    <td><strong>💰 总计 (Total)</strong></td>
-                    <td><strong>4000 - 7500</strong></td>
-                    <td><strong>含菌子盛宴</strong></td>
-                </tr>
+                <tr><th>项目 (Item)</th><th>预算 (Budget)</th><th>备注 (Note)</th></tr>
+                <tr><td>交通 (Transport)</td><td>1000 - 1500</td><td>两地间包车/租车</td></tr>
+                <tr><td>住宿 (Lodging)</td><td>1500 - 2500</td><td>古镇客栈/星级酒店</td></tr>
+                <tr><td>餐饮 (Food)</td><td>1000 - 1500</td><td>菌子火锅/孔雀宴较贵</td></tr>
+                <tr><td>门票 (Tickets)</td><td>500 - 800</td><td>热海/湿地/金塔</td></tr>
+                <tr><td><strong>总计 (Total)</strong></td><td><strong>~4000 - 6300</strong></td><td>不含往返大交通</td></tr>
             </table>
         </div>
-
         <div class="module-box">
             <div class="module-title">🎒 5. 装备 (Loadout)</div>
             <div class="pros-cons">
-                <div style="border-right: 2px dashed #ccc; padding-right: 10px;">
-                    <h4 class="pros">✅ 推荐 (Pros)</h4>
-                    <ul>
-                        <li>野生菌火锅 (Seasonal Special)</li>
-                        <li>北海湿地景色最佳</li>
-                        <li>瀑布水量充沛</li>
+                <div class="pros" style="color: #27ae60;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #27ae60;">✅ 必带装备 (Must Have)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>雨具:</strong> 雨伞/雨衣 (夏季多雨)。</li>
+                        <li><strong>防蚊液:</strong> 湿地和雨林蚊虫多。</li>
+                        <li><strong>舒适鞋:</strong> 适合走路的凉鞋或透气运动鞋。</li>
+                        <li><strong>肠胃药:</strong> 应对酸辣饮食。</li>
                     </ul>
                 </div>
-                <div style="padding-left: 10px;">
-                    <h4 class="cons">❌ 注意 (Cons)</h4>
-                    <ul>
-                        <li>雨季需常备雨具</li>
-                        <li>蚊虫较多，备好驱蚊水</li>
-                        <li>注意食用菌子安全</li>
+                <div class="cons" style="color: #c0392b;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #c0392b;">❌ 没必要 (Don't Bring)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>厚外套:</strong> 夏季气温适宜，薄外套即可。</li>
+                        <li><strong>登山杖:</strong> 休闲游为主，除非深度徒步高黎贡。</li>
                     </ul>
                 </div>
             </div>
         </div>
         `
     },
-    'quest26': { 
+    'quest26': {
+        hasPlan: true, 
         title: "西双版纳 (Xishuangbanna)", 
         desc: "逃离寒冬的避难所。热带雨林、野生大象和傣族风情。不仅仅是夜市，更是自然的回归。", 
         season: "❄️ 冬季 (Winter)",
         days: "5 Days",
         features: ["热带雨林徒步 (Rainforest Hiking)", "中科院植物园 (Botany)", "野象谷 (Elephants)"], 
-        route: "景洪 -> 野象谷 -> 植物园 -> 曼听公园 -> 景洪",
-        hasPlan: true,
-        plan: `
+        route: "景洪 -> 中科院植物园 -> 野象谷 -> 曼听公园 -> 景洪",
+    
+        content: `
+
         <div class="module-box">
             <div class="module-title">📋 1. 基本情报 (Briefing)</div>
-            <div class="briefing-grid">
-                <div><strong>🚗 出行方式:</strong> 优先网约车/出租车 (滴滴很方便)</div>
-                <div><strong>💰 预算范围:</strong> 3500 - 6000 RMB</div>
-                <div><strong>⏱️ 预期时间:</strong> 5 Days</div>
-                <div><strong>🌡️ 气温推测:</strong> 15°C - 28°C (温暖)</div>
-                <div><strong>✈️ 飞行参考:</strong> 直飞版纳 (Jinghong) 机场</div>
-                <div class="atmosphere-text">
-                    <p>当全国都在穿羽绒服时，这里可以穿短袖吃冰棍。版纳不仅有喧闹的夜市，更有静谧的雨林。去野象谷寻找巨兽的踪迹，去植物园看那些疯狂生长的绿色生命。</p>
-                    <p style="font-size: 0.9em; color: #666;"><strong>Note:</strong> 避免在春节期间前往 (人挤人)。</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> 直飞景洪 (JHG) 或 昆明高铁 (High-speed Rail)</li>
+                <li><strong>💰 预算范围:</strong> 3000 - 5000 RMB</li>
+                <li><strong>⏱️ 预期时间:</strong> 4-5 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> 15°C ~ 30°C (完美避寒)</li>
+                <li><strong>🏨 住宿建议:</strong> 告庄西双景 (方便) 或 融创度假区 (安静)</li>
+            </ul>
+            <p>这里没有冬天。当北方大雪纷飞时，版纳依旧繁花似锦。穿上傣裙，逛亚洲最大的星光夜市，在热带雨林里大口呼吸。这是一场关于色彩与温度的旅行。</p>
+            <div style="background-color: #fee; border-left: 5px solid #e74c3c; padding: 10px; margin-top: 10px; color: #c0392b;">
+                <strong>Warning:</strong> 蚊虫极多 (Mosquitoes). 必须携带强力驱蚊水。拒绝低价一日游陷阱。
+            </div>
+        </div>
+        <div class="module-box">
+            <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
+            <div class="map-container">
+                <svg width="100%" height="300" viewBox="0 0 600 300" style="font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;">
+                    <defs>
+                        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
+                        </marker>
+                    </defs>
+                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0f8ff" stroke="#bdc3c7" stroke-dasharray="5,5" />
+                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#95a5a6" font-weight="bold">西双版纳区域</text>
+                    <g transform="translate(60, 150)">
+                        <circle r="6" fill="#e74c3c" />
+                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
+                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
+                    </g>
+                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrow-blue)" />
+                    <text x="200" y="110" text-anchor="middle" font-size="12" fill="#7f8c8d">直飞 2.5h</text>
+                    
+                    <path d="M350,230 Q200,280 60,150" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrow-blue)" />
+                    <text x="200" y="250" text-anchor="middle" font-size="12" fill="#7f8c8d">返程 2.5h</text>
+                    
+                    <g transform="translate(350, 230)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">景洪(告庄)</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">大金塔/夜市</text>
+                    </g>
+                    <g transform="translate(480, 130)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">中科院植物园</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">热带植物王国</text>
+                    </g>
+                    <g transform="translate(350, 60)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">野象谷</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">亚洲象/雨林</text>
+                    </g>
+                    
+                    <path d="M350,230 Q420,200 480,130" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="430" y="190" text-anchor="middle" font-size="12" fill="#7f8c8d">1h 车程</text>
+                    
+                    <path d="M350,230 Q350,150 350,60" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="360" y="150" text-anchor="middle" font-size="12" fill="#7f8c8d">40min</text>
+                </svg>
+            </div>
+        </div>
+        <div class="module-box">
+            <div class="module-title">📅 3. 日程 (Timeline)</div>
+            
+            <div class="day-block">
+                <div class="day-header">Day 1: 抵达景洪，初识版纳</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>抵达景洪 (Gasa Airport)，入住告庄西双景。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>休息调整，租一辆小电驴在告庄闲逛。去大金塔拍照。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span><strong>星光夜市 (Night Market)</strong> - 亚洲最大的夜市。吃傣味烧烤，喝老挝冰咖啡。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 告庄西双景 (客栈/酒店) | 🌡️ 25°C</div>
+            </div>
+
+            <div class="day-block">
+                <div class="day-header">Day 2: 绿野仙踪，植物王国</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>前往<strong>中科院植物园 (Botanical Garden)</strong> (1h 车程)。游览西区，看王莲、绞杀榕。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>乘坐电瓶车前往东区 (绿石林)，在热带雨林中徒步，感受原始森林的静谧。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span>返回景洪。去江边夜市吃舂鸡脚、泡鲁达。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 景洪市区/告庄 | 🌡️ 28°C</div>
+            </div>
+
+            <div class="day-block">
+                <div class="day-header">Day 3: 寻访野象，皇家园林</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>前往<strong>野象谷 (Wild Elephant Valley)</strong>。走高空栈道，寻找野生亚洲象的踪迹。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>返回市区，游览<strong>曼听公园 (Manting Park)</strong>。以前的傣王御花园，建筑金碧辉煌，拍照极佳。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span>参加“澜沧江·湄公河之夜”篝火晚会 (可选) 或 去泰式按摩放松。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 景洪市区 | 🌡️ 26°C</div>
+            </div>
+
+            <div class="day-block">
+                <div class="day-header">Day 4: 傣家风情，泼水狂欢</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>前往<strong>傣族园 (Dai Minority Park)</strong>。参观保存完好的傣族村寨，做客傣家。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>在泼水广场体验天天泼水节。感受水的祝福，释放压力。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span>最后一次逛夜市，购买特产（红糖、咖啡、果干）。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 景洪市区 | 🌡️ 27°C</div>
+            </div>
+
+            <div class="day-block">
+                <div class="day-header">Day 5: 自然醒，告别雨林</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>睡到自然醒。去早市吃一碗米干。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>前往机场，结束热带之旅。</span>
+                </div>
+                <div class="meta-info">✈️ 返程 | 🌡️ 25°C</div>
+            </div>
+        </div>
+        <div class="module-box">
+            <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
+            <table class="cost-table">
+                <tr><th>项目 (Item)</th><th>预估费用 (CNY)</th><th>备注 (Notes)</th></tr>
+                <tr><td>✈️ 交通 (Transport)</td><td>1500-2500/人</td><td>机票/高铁 + 本地包车</td></tr>
+                <tr><td>🏨 住宿 (Lodging)</td><td>1000-2000/人</td><td>4晚，告庄/市区</td></tr>
+                <tr><td>🎟️ 门票/娱乐 (Fun)</td><td>800-1200/人</td><td>植物园+车/野象谷/演出</td></tr>
+                <tr><td>🍜 餐饮 (Food)</td><td>500-1000/人</td><td>夜市小吃/傣味正餐</td></tr>
+                <tr><td><strong>总计 (Total)</strong></td><td><strong>~3800-6700</strong></td><td>丰俭由人，旺季更贵</td></tr>
+            </table>
+        </div>
+        <div class="module-box">
+            <div class="module-title">🎒 5. 装备 (Loadout)</div>
+            <div style="display: flex; gap: 20px;">
+                <div style="flex: 1;">
+                    <h4 style="color: #27ae60; border-bottom: 2px solid #27ae60; padding-bottom: 5px;">✅ 推荐携带 (Recommended)</h4>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li>👗 <strong>夏装/裙子:</strong> 拍照出片，怎么美怎么穿。</li>
+                        <li>🦟 <strong>强力驱蚊水:</strong> 必需品！含避蚊胺(DEET)成分。</li>
+                        <li>🕶️ <strong>墨镜/遮阳帽:</strong> 凹造型 + 防晒。</li>
+                        <li>🩴 <strong>舒适凉鞋:</strong> 逛夜市、玩水必备。</li>
+                    </ul>
+                </div>
+                <div style="flex: 1;">
+                    <h4 style="color: #c0392b; border-bottom: 2px solid #c0392b; padding-bottom: 5px;">❌ 避免携带 (Avoid)</h4>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li>🧥 <strong>厚重羽绒服:</strong> 完全用不上，占地方。</li>
+                        <li>👠 <strong>高跟鞋:</strong> 走路多，不方便。</li>
+                        <li>🍫 <strong>易化巧克力:</strong> 气温高，会化成水。</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
+        `
+    },
+        'quest40': { 
+        hasPlan: true,
+        title: "若尔盖草原 (Ruoergai)", 
+        desc: "川西大草原，九曲黄河第一湾。夏季是若尔盖最美的季节，鲜花遍地，绿草如茵。", 
+        season: "🌿 夏季 (Summer)", 
+        days: "3-4 Days",
+        features: ["花湖湿地 (Flower Lake)", "黄河九曲 (Yellow River)", "草原骑马"], 
+        route: "成都 -> 若尔盖 -> 花湖 -> 九曲黄河 -> 成都",
+        content: `
+        <div class="module-box">
+            <div class="module-title">📋 1. 基本情报 (Briefing)</div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> 自驾/包车 (Self-drive/Charter) - SUV推荐</li>
+                <li><strong>💰 预算范围:</strong> 2000 - 4000 RMB</li>
+                <li><strong>⏱️ 预期时间:</strong> 3-4 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> 10°C ~ 25°C (昼夜温差大)</li>
+                <li><strong>🏔️ 海拔参考:</strong> 3500m (需注意高反)</li>
+            </ul>
+            <p>夏季的若尔盖是上帝打翻的调色盘。花湖的倒影，黄河九曲的落日，还有草原上奔跑的土拨鼠。这里是离成都最近的绝美大草原。</p>
+        </div>
         <div class="module-box">
             <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
             <div class="map-container">
@@ -745,270 +836,89 @@ const questData = {
                         <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
                             <path d="M0,0 L0,6 L9,3 z" fill="#2ecc71" />
                         </marker>
-                        <marker id="arrow-flight" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
-                            <text x="0" y="9" font-size="12">✈️</text>
-                        </marker>
                     </defs>
-
-                    <!-- Background Region Hint -->
-                    <rect x="200" y="20" width="380" height="260" rx="20" fill="#e8f8f5" stroke="#16a085" stroke-dasharray="5,5" opacity="0.3" />
-                    <text x="390" y="270" text-anchor="middle" font-size="16" fill="#16a085" font-weight="bold">西双版纳 (热带雨林)</text>
-
-                    <!-- Chengdu (Home) -->
-                    <g transform="translate(60, 250)">
+                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#e8f8f5" stroke="#2ecc71" stroke-dasharray="5,5" />
+                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#27ae60" font-weight="bold">川西大草原环线</text>
+                    
+                    <g transform="translate(60, 150)">
                         <circle r="6" fill="#e74c3c" />
                         <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
                         <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
-                    </g>
-
-                    <!-- Flight Path -->
-                    <path d="M60,250 Q120,100 250,150" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="130" y="160" text-anchor="middle" font-size="12" fill="#95a5a6" transform="rotate(-30, 130, 160)">直飞 2h</text>
-
-                    <!-- Jinghong Hub -->
-                    <g transform="translate(250, 150)">
-                        <circle r="10" fill="#e67e22" stroke="white" stroke-width="2"/>
-                        <text x="-30" y="0" text-anchor="end" font-size="18" font-weight="bold" fill="#d35400">景洪</text>
-                        <text x="-30" y="20" text-anchor="end" font-size="12" fill="#7f8c8d">星光夜市</text>
-                    </g>
-
-                    <!-- Loop Path: Jinghong -> Wild Elephant -> Botanical Garden -> Jinghong -->
-                    <path d="M250,150 L280,60 L450,150 L250,150" fill="none" stroke="#2ecc71" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-green)"/>
-
-                    <!-- Wild Elephant Valley (North) -->
-                    <g transform="translate(280, 60)">
-                        <circle r="6" fill="white" stroke="#2ecc71" stroke-width="2"/>
-                        <text x="0" y="-15" text-anchor="middle" font-size="16" font-weight="bold" fill="#27ae60">野象谷</text>
-                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">雨林牧象</text>
-                    </g>
-
-                    <!-- Botanical Garden (East) -->
-                    <g transform="translate(450, 150)">
-                        <circle r="6" fill="white" stroke="#2ecc71" stroke-width="2"/>
-                        <text x="15" y="5" text-anchor="start" font-size="16" font-weight="bold" fill="#27ae60">植物园</text>
-                        <text x="15" y="25" text-anchor="start" font-size="12" fill="#7f8c8d">中科院/热气球</text>
                     </g>
                     
-                    <!-- Manting Park (South) -->
-                    <g transform="translate(280, 200)">
-                        <circle r="6" fill="white" stroke="#e67e22" stroke-width="2"/>
-                        <text x="0" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#d35400">曼听公园</text>
+                    <g transform="translate(350, 230)">
+                        <circle r="8" fill="white" stroke="#2ecc71" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">若尔盖县城</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">集散/住宿</text>
                     </g>
-                    <!-- Connect Manting to loop -->
-                    <line x1="250" y1="150" x2="280" y2="200" stroke="#e67e22" stroke-width="2" stroke-dasharray="5,5" />
-
-                    <!-- Return Flight -->
-                    <path d="M250,150 Q120,200 60,250" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" opacity="0.5"/>
-
-                    <!-- Compass -->
-                    <g transform="translate(550, 40)">
-                        <text x="0" y="-15" text-anchor="middle" font-size="12" font-weight="bold" fill="#bdc3c7">北</text>
-                        <path d="M0,-10 L-5,5 L0,2 L5,5 Z" fill="#bdc3c7" />
+                    
+                    <g transform="translate(350, 60)">
+                        <circle r="8" fill="white" stroke="#2ecc71" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">花湖</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">天空之镜</text>
                     </g>
+                    
+                    <g transform="translate(500, 130)">
+                        <circle r="8" fill="white" stroke="#2ecc71" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">黄河九曲</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">第一湾日落</text>
+                    </g>
+                    
+                    <path d="M60,150 Q200,280 350,230" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="8,4" />
+                    <text x="200" y="240" text-anchor="middle" font-size="12" fill="#27ae60">自驾 6h</text>
+                    
+                    <path d="M350,230 Q300,150 350,60" fill="none" stroke="#2ecc71" stroke-width="3" marker-end="url(#arrow-green)" />
+                    <text x="310" y="150" text-anchor="middle" font-size="12" fill="#27ae60">40min</text>
+                    
+                    <path d="M350,230 Q420,200 500,130" fill="none" stroke="#2ecc71" stroke-width="3" marker-end="url(#arrow-green)" />
+                    <text x="430" y="190" text-anchor="middle" font-size="12" fill="#27ae60">1.5h</text>
+                    
+                    <path d="M350,230 Q200,100 60,150" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-green)" />
+                    <text x="200" y="100" text-anchor="middle" font-size="12" fill="#27ae60">返程 6h</text>
                 </svg>
             </div>
         </div>
-
         <div class="module-box">
-            <div class="module-title">⏳ 3. 时间轴 (Timeline - 5 Days)</div>
+            <div class="module-title">⏳ 3. 时间轴 (Timeline)</div>
             <div class="day-block">
-                <h3>Day 1: 落地热带 - 星光夜市</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 景洪 · 告庄西双景</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 22°C (晚风舒适)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 飞抵西双版纳。脱掉羽绒服，换上夏装。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 入住告庄附近酒店。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 逛【星光夜市】。虽然商业化，但拍照确实好看 (Cosplay傣妹/在逃公主)。吃傣味烧烤。</div>
+                <div class="time-slot"><strong>Day 1:</strong> 草原之路</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 成都 -> 汶川 -> 若尔盖 | 🌡️ 气温: 15°C</div>
+                <p><strong>🌞 上午:</strong> 早起出发，经都汶高速进入高原。</p>
+                <p><strong>☕ 下午:</strong> 穿过红原大草原，一路牛羊成群。傍晚抵达若尔盖县城。</p>
+                <p><strong>🌙 晚上:</strong> 吃一顿藏式火锅，适应海拔。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 2: 野象谷 - 雨林牧象</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 野象谷 (距市区30km)</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 25°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 打车/直通车前往【野象谷】。不看大象表演，去走【高空栈道】寻找野生亚洲象。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 参加周边的【雨林轻徒步】(需预约)，在雨林里吃一顿象餐。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 回市区按摩 (泰式马杀鸡)。</div>
+                <div class="time-slot"><strong>Day 2:</strong> 湿地与黄河</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 花湖 -> 黄河九曲第一湾 | 🌡️ 气温: 18°C</div>
+                <p><strong>🌞 上午:</strong> 前往【花湖湿地】，走栈道看黑颈鹤和高原湖泊。</p>
+                <p><strong>☕ 下午:</strong> 前往唐克镇，登上【九曲第一湾】观景台，等待“长河落日圆”的壮景。</p>
+                <p><strong>🌙 晚上:</strong> 住唐克镇或返回若尔盖。</p>
             </div>
-
             <div class="day-block">
-                <h3>Day 3: 植物园 - 绿色的海洋</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 中科院植物园 (勐仑镇)</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 28°C (较热)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 这是一个国家级科研机构。必看【王莲池】和【热气球】。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 游览东区 (绿石林)，这里是真正的原始热带雨林，人少景美。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 宿勐仑镇或返回告庄。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 4: 曼听公园 - 曾经的御花园</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 景洪市区</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 26°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 游览【曼听公园】和【总佛寺】。金碧辉煌的建筑，适合人文摄影。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 在江边找个咖啡馆发呆。体验慢生活。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 尝试【菌子火锅】(如果是菌子季) 或 【香茅草烤鱼】。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 5: 傣族村寨与返程</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 景洪 -> 机场</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 去一个非景点的傣族村寨 (如曼远村，向往的生活拍摄地) 转转。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 带着热带水果 (菠萝蜜/芒果) 返程。</div>
+                <div class="time-slot"><strong>Day 3:</strong> 归途</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 若尔盖 -> 川主寺 -> 成都</div>
+                <p><strong>🌞 上午:</strong> 沿途打卡【镰刀坝草原】，体验骑马射箭。</p>
+                <p><strong>☕ 下午:</strong> 经川主寺购买一些牦牛肉干，返回成都。</p>
             </div>
         </div>
-
         <div class="module-box">
-            <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
-            <table class="cost-table">
-                <tr><th>项目</th><th>预算</th><th>备注</th></tr>
-                <tr><td>✈️ 交通</td><td>1500-2500</td><td>机票</td></tr>
-                <tr><td>🚗 打车</td><td>500-800</td><td>网约车/包车去植物园</td></tr>
-                <tr><td>🛌 住宿</td><td>1000-2000</td><td>告庄客栈/酒店</td></tr>
-                <tr><td>🥘 餐饮</td><td>600-1000</td><td>夜市小吃便宜</td></tr>
-                <tr style="background:#f0f0f0;border-top:2px solid black;"><td><strong>Total</strong></td><td><strong>3600 - 6300</strong></td><td><strong>暖冬度假</strong></td></tr>
-            </table>
-        </div>
-
-        <div class="module-box">
-            <div class="module-title">🎒 5. 装备 (Loadout)</div>
+            <div class="module-title">🎒 4. 装备 (Loadout)</div>
             <div class="pros-cons">
-                <div style="border-right: 2px dashed #ccc;">
-                    <h4 class="pros">✅ 推荐</h4>
-                    <ul><li>气候温暖舒适</li><li>雨林徒步体验好</li><li>美食种类丰富</li></ul>
+                <div class="pros" style="color: #27ae60;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #27ae60;">✅ 必带装备</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>防晒霜/墨镜:</strong> 高原紫外线强。</li>
+                        <li><strong>防风外套:</strong> 即使是夏天，早晚也很冷。</li>
+                        <li><strong>艳丽裙子:</strong> 在绿色草原拍照非常出片。</li>
+                    </ul>
                 </div>
-                <div style="padding-left: 10px;">
-                    <h4 class="cons">❌ 注意</h4>
-                    <ul><li>蚊虫非常多 (备驱蚊水)</li><li>夜市价格虚高 (需砍价)</li><li>防晒</li></ul>
-                </div>
             </div>
         </div>
         `
     },
-
-    quest40: {
-        title: "若尔盖草原 (Ruoergai)",
-        season: "🌿 夏季 (Summer)",
-        hasPlan: false,
-        content: `
-        <div class="module-box">
-            <div class="module-title">📋 1. 简报 (Mission Briefing)</div>
-            <p><strong>目标:</strong> 逃离酷暑，在川西大草原骑马，看九曲黄河第一湾的日落。</p>
-            <p><strong>关键词:</strong> 避暑 · 草原 · 湿地 · 藏族文化</p>
-        </div>
-
-        <div class="module-box">
-            <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
-            <div class="map-container">
-                <svg width="100%" height="300" viewBox="0 0 600 300" style="font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;">
-                    <defs>
-                        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
-                        </marker>
-                    </defs>
-                    <!-- Background Region Hint -->
-                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0f8ff" stroke="#bdc3c7" stroke-dasharray="5,5" />
-                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#95a5a6" font-weight="bold">川西若尔盖区域</text>
-                    <!-- Chengdu (Home) -->
-                    <g transform="translate(60, 150)">
-                        <circle r="6" fill="#e74c3c" />
-                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
-                    </g>
-                    <!-- Path to Hub -->
-                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="200" y="100" text-anchor="middle" font-size="12" fill="#bdc3c7" transform="rotate(-15, 200, 100)">自驾/大巴 6-8h</text>
-                    <!-- Hub: Ruoergai -->
-                    <g transform="translate(350, 230)">
-                        <circle r="8" fill="#2980b9" stroke="white" stroke-width="2"/>
-                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2980b9">若尔盖</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#555">集散中心</text>
-                    </g>
-                    <!-- Route Loop -->
-                    <path d="M350,230 L480,130 L350,60 L350,230" fill="none" stroke="#2980b9" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-blue)"/>
-                    <!-- Flower Lake -->
-                    <g transform="translate(480, 130)">
-                        <circle r="5" fill="white" stroke="#2980b9" stroke-width="2"/>
-                        <text x="15" y="5" text-anchor="start" font-size="14" font-weight="bold" fill="#333">花湖</text>
-                        <text x="15" y="25" text-anchor="start" font-size="12" fill="#7f8c8d">湿地/观鸟</text>
-                    </g>
-                    <!-- First Bend -->
-                    <g transform="translate(350, 60)">
-                        <circle r="5" fill="white" stroke="#2980b9" stroke-width="2"/>
-                        <text x="0" y="-15" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">黄河九曲</text>
-                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">落日/长河</text>
-                    </g>
-                    <!-- Compass -->
-                    <g transform="translate(550, 40)">
-                        <text x="0" y="-15" text-anchor="middle" font-size="12" font-weight="bold" fill="#bdc3c7">北</text>
-                        <path d="M0,-10 L-5,5 L0,2 L5,5 Z" fill="#bdc3c7" />
-                    </g>
-                </svg>
-            </div>
-        </div>
-        `
-    },
-
-    quest41: {
-        title: "色达 (Seda)",
-        season: "📅 全年 (All Year)",
-        hasPlan: false,
-        content: `
-        <div class="module-box">
-            <div class="module-title">📋 1. 简报 (Mission Briefing)</div>
-            <p><strong>目标:</strong> 探访红色佛国，感受信仰的力量。</p>
-            <p><strong>关键词:</strong> 信仰 · 红色房子 · 佛学院 · 人文</p>
-        </div>
-
-        <div class="module-box">
-            <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
-            <div class="map-container">
-                <svg width="100%" height="300" viewBox="0 0 600 300" style="font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;">
-                    <defs>
-                        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
-                        </marker>
-                    </defs>
-                    <!-- Background Region Hint -->
-                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0f8ff" stroke="#bdc3c7" stroke-dasharray="5,5" />
-                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#95a5a6" font-weight="bold">川西色达区域</text>
-                    <!-- Chengdu (Home) -->
-                    <g transform="translate(60, 150)">
-                        <circle r="6" fill="#e74c3c" />
-                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
-                    </g>
-                    <!-- Path to Hub -->
-                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="200" y="100" text-anchor="middle" font-size="12" fill="#bdc3c7" transform="rotate(-15, 200, 100)">自驾/大巴 10h+</text>
-                    <!-- Hub: Seda -->
-                    <g transform="translate(350, 230)">
-                        <circle r="8" fill="#2980b9" stroke="white" stroke-width="2"/>
-                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2980b9">色达县</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#555">集散中心</text>
-                    </g>
-                    <!-- Route Loop -->
-                    <path d="M350,230 L480,130 L350,60 L350,230" fill="none" stroke="#2980b9" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-blue)"/>
-                    <!-- Wuming Buddhist Academy -->
-                    <g transform="translate(480, 130)">
-                        <circle r="5" fill="white" stroke="#2980b9" stroke-width="2"/>
-                        <text x="15" y="5" text-anchor="start" font-size="14" font-weight="bold" fill="#333">五明佛学院</text>
-                        <text x="15" y="25" text-anchor="start" font-size="12" fill="#7f8c8d">红房/讲经</text>
-                    </g>
-                    <!-- Tan Ke -->
-                    <g transform="translate(350, 60)">
-                        <circle r="5" fill="white" stroke="#2980b9" stroke-width="2"/>
-                        <text x="0" y="-15" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">坛城</text>
-                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">转经/祈福</text>
-                    </g>
-                    <!-- Compass -->
-                    <g transform="translate(550, 40)">
-                        <text x="0" y="-15" text-anchor="middle" font-size="12" font-weight="bold" fill="#bdc3c7">北</text>
-                        <path d="M0,-10 L-5,5 L0,2 L5,5 Z" fill="#bdc3c7" />
-                    </g>
-                </svg>
-            </div>
-        </div>
-        `
-    },
+        'quest41': { title: "色达 (Seda)", season: "📅 全年 (All Year)", desc: "红色佛国，信仰的力量。", hasPlan: false, features: ["五明佛学院 (Buddhist Academy)", "坛城 (Mandala)", "土拨鼠"], route: "成都 -> 观音桥 -> 色达 -> 成都" },
     'quest7_summer': { 
+        hasPlan: true,
         title: "北疆阿勒泰 (Beijiang Altay)", 
         desc: "神的后花园。夏季的阿勒泰是绿色的海洋，漫山遍野的野花和牛羊。避暑胜地，平均气温20度。", 
         season: "🌿 夏季 (Summer)",
@@ -1017,20 +927,20 @@ const questData = {
         seasonal_variants: { winter: 'quest7', summer: 'quest7_summer' },
         features: ["喀纳斯湖怪 (Kanas Lake)", "禾木花海 (Flower Sea)", "五彩滩夕阳 (Sunset)"], 
         route: "阿勒泰 -> 禾木 -> 喀纳斯 -> 布尔津 -> 阿勒泰",
-        hasPlan: true,
-        plan: `
+        
+        content: `
         <div class="module-box">
             <div class="module-title">📋 1. 基本情报 (Briefing)</div>
-            <div class="briefing-grid">
-                <div><strong>🚗 出行方式:</strong> 包车/自驾 (Chartered Car) - <strong>路况良好</strong></div>
-                <div><strong>💰 预算范围:</strong> 7000 - 12000 RMB</div>
-                <div><strong>⏱️ 预期时间:</strong> 5-7 Days</div>
-                <div><strong>🌡️ 气温推测:</strong> 15°C ~ 25°C (舒适)</div>
-                <div><strong>✈️ 飞行参考:</strong> 直飞阿勒泰 (Altay) 机场</div>
-                <div class="atmosphere-text">
-                    <p>夏天的阿勒泰是治愈的代名词。满眼的绿色，从浅草绿到深墨绿。喀纳斯湖水变成了碧玉色，禾木的晨雾在日出中散去，露出开满野花的山坡。这是《我的阿勒泰》里的真实场景。</p>
-                    <p style="font-size: 0.9em; color: #666;"><strong>Note:</strong> 夏季是旺季，需提前预订民宿。紫外线强，注意防晒。</p>
-                </div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> 租车自驾 / 包车 (SUV)</li>
+                <li><strong>💰 预算范围:</strong> 5000 - 8000 RMB (旺季价格)</li>
+                <li><strong>⏱️ 预期时间:</strong> 5-7 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> 15°C ~ 25°C (极度舒适)</li>
+                <li><strong>🌲 最佳景观:</strong> 绿色泰加林、高山花海、晨雾</li>
+            </ul>
+            <p>夏天的阿勒泰是封神的。雪山未融，草甸已绿，漫山遍野的野花盛开。这是真正意义上的“神的后花园”。你可以骑马穿过花海，也可以在湖边发呆一整天。</p>
+            <div style="background-color: #fee; border-left: 5px solid #e74c3c; padding: 10px; margin-top: 10px; color: #c0392b;">
+                <strong>Warning:</strong> 旺季房源紧张 (Book Early). 蚊虫较多 (Mosquitoes). 紫外线强。
             </div>
         </div>
 
@@ -1043,135 +953,151 @@ const questData = {
                             <path d="M0,0 L0,6 L9,3 z" fill="#27ae60" />
                         </marker>
                     </defs>
-                    <!-- Background Region Hint -->
-                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0fff4" stroke="#2ecc71" stroke-dasharray="5,5" />
-                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#27ae60" font-weight="bold">北疆阿勒泰区域 (夏)</text>
-
-                    <!-- Chengdu (Home) -->
+                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0fff0" stroke="#27ae60" stroke-dasharray="5,5" />
+                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#2ecc71" font-weight="bold">北疆大环线</text>
+                    
                     <g transform="translate(60, 150)">
                         <circle r="6" fill="#e74c3c" />
                         <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
                         <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
                     </g>
-
-                    <!-- Flight Path -->
-                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="200" y="100" text-anchor="middle" font-size="12" fill="#bdc3c7" transform="rotate(-15, 200, 100)">直飞 4h</text>
-
-                    <!-- Altay Hub -->
-                    <g transform="translate(350, 230)">
-                        <circle r="8" fill="#27ae60" stroke="white" stroke-width="2"/>
-                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#27ae60">阿勒泰</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#555">集散中心</text>
-                    </g>
-
-                    <!-- Route Loop -->
-                    <path d="M350,230 L480,130 L350,60 L300,150 L350,230" fill="none" stroke="#27ae60" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-green)"/>
                     
-                    <!-- Hemu (Top Right) -->
+                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="8,4" />
+                    <text x="200" y="110" text-anchor="middle" font-size="12" fill="#2ecc71">直飞 4h</text>
+                    
+                    <g transform="translate(350, 230)">
+                        <circle r="8" fill="white" stroke="#27ae60" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">阿勒泰</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">集散/雪都</text>
+                    </g>
+                    
                     <g transform="translate(480, 130)">
-                        <circle r="5" fill="white" stroke="#27ae60" stroke-width="2"/>
-                        <text x="15" y="5" text-anchor="start" font-size="14" font-weight="bold" fill="#333">禾木</text>
-                        <text x="15" y="25" text-anchor="start" font-size="12" fill="#7f8c8d">花海/骑马</text>
+                        <circle r="8" fill="white" stroke="#27ae60" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">禾木</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">晨雾/木屋</text>
                     </g>
-
-                    <!-- Kanas (Top Left) -->
+                    
                     <g transform="translate(350, 60)">
-                        <circle r="5" fill="white" stroke="#27ae60" stroke-width="2"/>
-                        <text x="0" y="-15" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">喀纳斯</text>
-                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">观鱼台</text>
+                        <circle r="8" fill="white" stroke="#27ae60" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">喀纳斯</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">神仙湾/观鱼台</text>
                     </g>
-
-                    <!-- Burqin (West) -->
-                    <g transform="translate(300, 150)">
-                        <circle r="5" fill="white" stroke="#e67e22" stroke-width="2"/>
-                        <text x="-10" y="5" text-anchor="end" font-size="14" font-weight="bold" fill="#333">布尔津</text>
-                        <text x="-10" y="25" text-anchor="end" font-size="12" fill="#7f8c8d">五彩滩/夜市</text>
-                    </g>
-
-                    <!-- Compass -->
-                    <g transform="translate(550, 40)">
-                        <text x="0" y="-15" text-anchor="middle" font-size="12" font-weight="bold" fill="#bdc3c7">北</text>
-                        <path d="M0,-10 L-5,5 L0,2 L5,5 Z" fill="#bdc3c7" />
-                    </g>
+                    
+                    <path d="M350,230 Q420,200 480,130" fill="none" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow-green)" />
+                    <text x="430" y="180" text-anchor="middle" font-size="12" fill="#2ecc71">3h</text>
+                    
+                    <path d="M480,130 Q400,80 350,60" fill="none" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow-green)" />
+                    <text x="410" y="80" text-anchor="middle" font-size="12" fill="#2ecc71">2h</text>
+                    
+                    <path d="M350,60 Q300,150 350,230" fill="none" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow-green)" />
+                    <text x="320" y="120" text-anchor="middle" font-size="12" fill="#2ecc71">3h</text>
+                    
+                    <path d="M350,230 Q200,280 60,150" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-green)" />
+                    <text x="200" y="250" text-anchor="middle" font-size="12" fill="#2ecc71">返程 4h</text>
                 </svg>
             </div>
         </div>
 
         <div class="module-box">
-            <div class="module-title">⏳ 3. 时间轴 (Timeline - 5 Days)</div>
+            <div class="module-title">📅 3. 日程 (Timeline)</div>
+            
             <div class="day-block">
-                <h3>Day 1: 飞抵阿勒泰 - 开启夏日</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 阿勒泰市</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 22°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 飞抵阿勒泰机场。租车或包车。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 游览【桦林公园】，感受城市的绿意。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 逛阿勒泰夜市，吃烤包子。</div>
+                <div class="day-header">Day 1: 抵达阿勒泰，将军山日落</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>飞抵阿勒泰雪都机场。提取车辆。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>前往<strong>将军山 (Jiangjun Mountain)</strong>。虽然没雪滑，但可以喝咖啡看城市日落。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 阿勒泰市区 | 🌡️ 22°C</div>
             </div>
 
             <div class="day-block">
-                <h3>Day 2: 禾木的花海与骑马</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 阿勒泰 -> 禾木</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 20°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 驱车前往禾木。沿途风景如画，牛羊成群。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 骑马前往【美丽峰】，穿过齐腰深的野花丛。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 入住木屋，看夏季璀璨银河。</div>
+                <div class="day-header">Day 2: 禾木，神的自留地</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>驾车前往<strong>禾木 (Hemu)</strong>。沿途是绝美的泰加林公路。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>入住小木屋。在禾木河边骑马，看援疆桥。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span>看星空，这里的光污染几乎为零。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 禾木景区内 | 🌡️ 18°C</div>
             </div>
 
             <div class="day-block">
-                <h3>Day 3: 喀纳斯湖的碧玉</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 禾木 -> 喀纳斯</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 18°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 登【观鱼台】，俯瞰喀纳斯湖全景，寻找水怪传说。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 在三湾（神仙湾、月亮湾、卧龙湾）徒步，呼吸高负氧离子空气。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 住喀纳斯老村，听图瓦人演奏苏尔。</div>
+                <div class="day-header">Day 3: 喀纳斯，寻找水怪</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>早起看禾木晨雾。随后前往<strong>喀纳斯 (Kanas)</strong>。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>游览三湾 (神仙湾、月亮湾、卧龙湾)。登<strong>观鱼台</strong>俯瞰喀纳斯湖。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 喀纳斯老村/新村 | 🌡️ 20°C</div>
             </div>
-
-            <div class="day-block">
-                <h3>Day 4: 五彩滩的夕阳</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 喀纳斯 -> 布尔津</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 25°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 离开喀纳斯，前往布尔津。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 傍晚时分前往【五彩滩】，雅丹地貌在夕阳下色彩斑斓。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 在布尔津河堤夜市吃著名的烤冷水鱼（格瓦斯配鱼）。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 5: 告别童话</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 布尔津 -> 阿勒泰机场</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 沿途购买瓜果。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 飞回成都。</div>
+            
+             <div class="day-block">
+                <div class="day-header">Day 4: 五彩滩，童话边城</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>离开喀纳斯，前往<strong>布尔津 (Burqin)</strong>。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>前往<strong>五彩滩 (Rainbow Beach)</strong>。看雅丹地貌与额尔齐斯河的撞色。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span>布尔津河堤夜市。必吃：烤狗鱼、卡瓦斯。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 布尔津县城 | 🌡️ 25°C</div>
             </div>
         </div>
 
         <div class="module-box">
             <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
             <table class="cost-table">
-                <tr><th>项目</th><th>预算</th><th>备注</th></tr>
-                <tr><td>✈️ 交通</td><td>3000-5000</td><td>夏季机票较贵</td></tr>
-                <tr><td>🚗 包车/租车</td><td>2000-3000</td><td>旺季价格上浮</td></tr>
-                <tr><td>🛌 住宿</td><td>2000-4000</td><td>禾木/喀纳斯木屋需抢</td></tr>
-                <tr><td>🎫 门票</td><td>500-800</td><td>景区门票+区间车</td></tr>
-                <tr style="background:#f0f0f0;border-top:2px solid black;"><td><strong>Total</strong></td><td><strong>7500 - 12800</strong></td><td><strong>夏日避暑游</strong></td></tr>
+                <tr><th>项目 (Item)</th><th>预估费用 (CNY)</th><th>备注 (Notes)</th></tr>
+                <tr><td>✈️ 交通 (Transport)</td><td>2000-3000/人</td><td>旺季机票/租车较贵</td></tr>
+                <tr><td>🏨 住宿 (Lodging)</td><td>2000-4000/人</td><td>禾木/喀纳斯木屋价格高</td></tr>
+                <tr><td>🎟️ 门票 (Tickets)</td><td>500-800/人</td><td>景区门票+区间车</td></tr>
+                <tr><td>🍲 餐饮 (Food)</td><td>800-1500/人</td><td>新疆大盘鸡/烤肉</td></tr>
+                <tr><td><strong>总计 (Total)</strong></td><td><strong>~5300-9300</strong></td><td>暑期旺季价格</td></tr>
             </table>
         </div>
 
         <div class="module-box">
             <div class="module-title">🎒 5. 装备 (Loadout)</div>
-            <div class="pros-cons">
-                <div style="border-right: 2px dashed #ccc;">
-                    <h4 class="pros">✅ 推荐</h4>
-                    <ul><li>色彩丰富的衣物(拍照)</li><li>防晒霜/墨镜</li><li>驱蚊水</li></ul>
+            <div style="display: flex; gap: 20px;">
+                <div style="flex: 1;">
+                    <h4 style="color: #27ae60; border-bottom: 2px solid #27ae60; padding-bottom: 5px;">✅ 推荐携带 (Recommended)</h4>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li>👗 <strong>漂亮衣服:</strong> 白色长裙在草原很出片。</li>
+                        <li>🦟 <strong>防蚊虫:</strong> 草原蚊子多，必须带。</li>
+                        <li>🧥 <strong>外套:</strong> 早晚温差大，带厚外套。</li>
+                    </ul>
                 </div>
-                <div style="padding-left: 10px;">
-                    <h4 class="cons">❌ 注意</h4>
-                    <ul><li>早晚温差大(带薄羽绒)</li><li>旺季人多需排队</li><li>注意饮食卫生</li></ul>
+                <div style="flex: 1;">
+                    <h4 style="color: #c0392b; border-bottom: 2px solid #c0392b; padding-bottom: 5px;">❌ 避免携带 (Avoid)</h4>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li>👠 <strong>高跟鞋:</strong> 木栈道和草地不适合。</li>
+                        <li>🧳 <strong>超大行李箱:</strong> 景区区间车搬运不便。</li>
+                    </ul>
                 </div>
             </div>
         </div>
         `
     },
     'quest8_summer': { 
+        hasPlan: true,
         title: "南疆喀什 (Nanjiang Kashgar)", 
         desc: "帕米尔的绿色奇迹。夏季的高原草甸碧绿如茵，杏花落尽后是甜美的瓜果。探访塔吉克族人家。", 
         season: "🌿 夏季 (Summer)",
@@ -1180,20 +1106,20 @@ const questData = {
         seasonal_variants: { winter: 'quest8', summer: 'quest8_summer' },
         features: ["帕米尔湿地 (Wetlands)", "盘龙古道 (Panlong Road)", "喀什瓜果 (Fruits)"], 
         route: "喀什 -> 白沙湖 -> 塔县 -> 瓦恰乡 -> 喀什",
-        hasPlan: true,
-        plan: `
+
+        content: `
         <div class="module-box">
             <div class="module-title">📋 1. 基本情报 (Briefing)</div>
-            <div class="briefing-grid">
-                <div><strong>🚗 出行方式:</strong> 包车 (Chartered Car) - <strong>高原避暑</strong></div>
-                <div><strong>💰 预算范围:</strong> 6000 - 9000 RMB</div>
-                <div><strong>⏱️ 预期时间:</strong> 5-6 Days</div>
-                <div><strong>🌡️ 气温推测:</strong> 15°C ~ 30°C (舒适)</div>
-                <div><strong>✈️ 飞行参考:</strong> 直飞喀什 (Kashgar) 机场</div>
-                <div class="atmosphere-text">
-                    <p>夏天的南疆是热烈的。喀什古城的巷子里飘着瓜果的香甜，帕米尔高原上的金草滩绿得醉人。你可以穿得轻便，在盘龙古道上感受风的自由，在塔县看一场高原的婚礼。</p>
-                    <p style="font-size: 0.9em; color: #666;"><strong>Note:</strong> 瓜果成熟季。高原紫外线依然强烈。</p>
-                </div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> 包车 / 自驾 (路况较好)</li>
+                <li><strong>💰 预算范围:</strong> 4000 - 7000 RMB</li>
+                <li><strong>⏱️ 预期时间:</strong> 5-6 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> 10°C (高原) ~ 35°C (喀什)</li>
+                <li><strong>🍈 季节亮点:</strong> 瓜果飘香(哈密瓜/西瓜/无花果)，湿地绿草</li>
+            </ul>
+            <p>夏季的南疆是冰与火的赞歌。喀什古城的热浪与帕米尔高原的凉爽形成鲜明对比。此时的帕米尔不再是荒凉的灰黄，而是点缀着牛羊的翠绿。最重要的是，你能吃到全世界最甜的瓜果。</p>
+            <div style="background-color: #fee; border-left: 5px solid #e74c3c; padding: 10px; margin-top: 10px; color: #c0392b;">
+                <strong>Warning:</strong> 紫外线极强 (UV Radiation). 高原反应 (Altitude). 喀什中午炎热防中暑。
             </div>
         </div>
 
@@ -1202,509 +1128,1838 @@ const questData = {
             <div class="map-container">
                 <svg width="100%" height="300" viewBox="0 0 600 300" style="font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;">
                     <defs>
-                        <marker id="arrow-summer-south" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="#e67e22" />
+                        <marker id="arrow-green-8" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#2ecc71" />
                         </marker>
                     </defs>
-
-                    <!-- Background Region Hint -->
-                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#fff9e6" stroke="#f1c40f" stroke-dasharray="5,5" />
-                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#d35400" font-weight="bold">南疆喀什区域 (夏)</text>
-
-                    <!-- Chengdu (Home) -->
+                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0fff0" stroke="#2ecc71" stroke-dasharray="5,5" />
+                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#27ae60" font-weight="bold">帕米尔环线</text>
+                    
                     <g transform="translate(60, 150)">
                         <circle r="6" fill="#e74c3c" />
                         <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
                         <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(出发地)</text>
                     </g>
-
-                    <!-- Flight Path -->
-                    <path d="M60,150 Q200,50 350,80" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
-                    <text x="200" y="90" text-anchor="middle" font-size="12" fill="#bdc3c7" transform="rotate(-15, 200, 100)">直飞 5h</text>
-
-                    <!-- Kashgar Hub (North) -->
-                    <g transform="translate(350, 80)">
-                        <circle r="8" fill="#e67e22" stroke="white" stroke-width="2"/>
-                        <text x="0" y="-15" text-anchor="middle" font-size="16" font-weight="bold" fill="#d35400">喀什</text>
-                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#555">瓜果之乡</text>
+                    
+                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="8,4" />
+                    <text x="200" y="110" text-anchor="middle" font-size="12" fill="#2ecc71">直飞 4h</text>
+                    
+                    <g transform="translate(350, 230)">
+                        <circle r="8" fill="white" stroke="#2ecc71" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">喀什</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">古城/集散</text>
                     </g>
-
-                    <!-- Route: Kashgar -> Baisha -> Tashkurgan -> Panlong -> Kashgar -->
-                    <path d="M350,80 Q400,120 420,150" fill="none" stroke="#e67e22" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-summer-south)"/>
-                    <path d="M420,150 Q430,200 400,240" fill="none" stroke="#e67e22" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-summer-south)"/>
-                    <path d="M400,240 L480,220" fill="none" stroke="#e67e22" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-summer-south)"/>
-                     <path d="M480,220 Q500,100 350,80" fill="none" stroke="#e67e22" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow-summer-south)"/>
-
-                    <!-- Baisha Lake (Middle) -->
-                    <g transform="translate(420, 150)">
-                        <circle r="5" fill="white" stroke="#3498db" stroke-width="2"/>
-                        <text x="15" y="5" text-anchor="start" font-size="14" font-weight="bold" fill="#333">白沙湖</text>
-                        <text x="15" y="25" text-anchor="start" font-size="12" fill="#7f8c8d">碧水/沙漠</text>
+                    
+                    <g transform="translate(350, 60)">
+                        <circle r="8" fill="white" stroke="#2ecc71" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">白沙湖</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">碧蓝湖水</text>
                     </g>
-
-                    <!-- Tashkurgan (South) -->
-                    <g transform="translate(400, 240)">
-                        <circle r="5" fill="white" stroke="#27ae60" stroke-width="2"/>
-                        <text x="0" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">塔县</text>
-                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">金草滩</text>
+                    
+                    <g transform="translate(480, 130)">
+                        <circle r="8" fill="white" stroke="#2ecc71" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">塔县</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">石头城</text>
                     </g>
-
-                    <!-- Panlong (East) -->
-                    <g transform="translate(480, 220)">
-                         <circle r="5" fill="white" stroke="#e67e22" stroke-width="2"/>
-                        <text x="10" y="0" text-anchor="start" font-size="14" font-weight="bold" fill="#333">盘龙古道</text>
-                        <text x="10" y="20" text-anchor="start" font-size="12" fill="#7f8c8d">黝黑公路</text>
-                    </g>
-
-                    <!-- Compass -->
-                    <g transform="translate(550, 40)">
-                        <text x="0" y="-15" text-anchor="middle" font-size="12" font-weight="bold" fill="#bdc3c7">北</text>
-                        <path d="M0,-10 L-5,5 L0,2 L5,5 Z" fill="#bdc3c7" />
-                    </g>
+                    
+                    <path d="M350,230 Q300,150 350,60" fill="none" stroke="#2ecc71" stroke-width="3" marker-end="url(#arrow-green-8)" />
+                    <text x="310" y="150" text-anchor="middle" font-size="12" fill="#27ae60">3h</text>
+                    
+                    <path d="M350,60 Q420,60 480,130" fill="none" stroke="#2ecc71" stroke-width="3" marker-end="url(#arrow-green-8)" />
+                    <text x="430" y="80" text-anchor="middle" font-size="12" fill="#27ae60">2h</text>
+                    
+                    <path d="M480,130 Q550,230 350,230" fill="none" stroke="#2ecc71" stroke-width="3" marker-end="url(#arrow-green-8)" />
+                    <text x="500" y="200" text-anchor="middle" font-size="12" fill="#27ae60">盘龙古道 4h</text>
+                    
+                    <path d="M350,230 Q200,280 60,150" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-green-8)" />
+                    <text x="200" y="250" text-anchor="middle" font-size="12" fill="#2ecc71">返程 4h</text>
                 </svg>
             </div>
         </div>
 
         <div class="module-box">
-            <div class="module-title">⏳ 3. 时间轴 (Timeline - 5 Days)</div>
+            <div class="module-title">📅 3. 日程 (Timeline)</div>
+            
             <div class="day-block">
-                <h3>Day 1: 喀什的瓜果与夜市</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 喀什古城</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 30°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 飞抵喀什。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 在古城吃哈密瓜、无花果。逛职人街。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 在【百年老茶馆】听歌，或者去汗巴扎吃冰淇淋。</div>
+                <div class="day-header">Day 1: 喀什古城，西域风情</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>参加古城开城仪式。漫步迷宫般的巷道。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>在百年老茶馆喝茶发呆。去艾提尕尔清真寺广场看鸽子。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span>汗巴扎夜市吃美食。烤包子、缸子肉、石榴汁。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 喀什古城民宿 | 🌡️ 32°C</div>
             </div>
 
             <div class="day-block">
-                <h3>Day 2: 帕米尔的碧水</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 喀什 -> 白沙湖 -> 塔县</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 20°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 前往高原。夏季的【白沙湖】水色更蓝，与白沙山对比强烈。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 抵达塔县，游览【石头城】和【金草滩】。夕阳下草滩一片金黄。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 宿塔县，体验塔吉克族风情。</div>
+                <div class="day-header">Day 2: 帕米尔高原，白沙与雪山</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>办理边防证后出发。途径<strong>白沙湖 (White Sand Lake)</strong>，打卡半山半湖。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>抵达<strong>卡拉库里湖</strong>，仰望慕士塔格峰 (冰山之父)。夏季湖畔绿草如茵。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 塔县 | 🌡️ 12°C</div>
             </div>
 
             <div class="day-block">
-                <h3>Day 3: 盘龙古道与湿地</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 塔县 -> 瓦恰乡 -> 喀什</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 18°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 打卡【盘龙古道】(小盘龙)。黑色公路如巨龙盘卧。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 途径下坂地水库，返回喀什。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 回到低海拔，睡个好觉。</div>
+                <div class="day-header">Day 3: 盘龙古道，今日走过了所有的弯路</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>前往<strong>盘龙古道 (Panlong Road)</strong>。体验600多个弯道的刺激。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>游览<strong>金草滩</strong>和<strong>石头城</strong>。看塔吉克族人在湿地上放牧。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 塔县 | 🌡️ 12°C</div>
             </div>
 
             <div class="day-block">
-                <h3>Day 4: 喀什人文深入</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 喀什</div>
-                <div class="time-slot"><strong>🌡️ 气温:</strong> 30°C</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 参观【艾提尕尔清真寺】。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 去【牛羊巴扎】(如果是周日) 感受热闹的交易现场。</div>
-                <div class="time-slot"><strong>🌙 晚上:</strong> 自由活动，买点干果。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 5: 满载而归</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 喀什机场</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 邮寄几箱瓜果回成都。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 飞离喀什。</div>
+                <div class="day-header">Day 4: 冰川森林，重返喀什</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>前往<strong>奥依塔克冰川公园</strong>。南疆少有的森林与冰川同框景观。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>返回喀什。去大巴扎购买干果和纪念品。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 喀什市区 | 🌡️ 32°C</div>
             </div>
         </div>
 
         <div class="module-box">
             <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
             <table class="cost-table">
-                <tr><th>项目</th><th>预算</th><th>备注</th></tr>
-                <tr><td>✈️ 交通</td><td>2500-4500</td><td>机票</td></tr>
-                <tr><td>🚗 包车</td><td>2000-3000</td><td>路况好，可自驾</td></tr>
-                <tr><td>🛌 住宿</td><td>1500-2500</td><td>民宿选择多</td></tr>
-                <tr><td>🍈 餐饮</td><td>1000-1500</td><td>瓜果/羊肉吃到饱</td></tr>
-                <tr style="background:#f0f0f0;border-top:2px solid black;"><td><strong>Total</strong></td><td><strong>7000 - 11500</strong></td><td><strong>美食美景游</strong></td></tr>
+                <tr><th>项目 (Item)</th><th>预估费用 (CNY)</th><th>备注 (Notes)</th></tr>
+                <tr><td>✈️ 交通 (Transport)</td><td>2000-3500/人</td><td>机票+包车/租车</td></tr>
+                <tr><td>🏨 住宿 (Lodging)</td><td>1000-2000/人</td><td>喀什性价比高，塔县较贵</td></tr>
+                <tr><td>🎟️ 门票 (Tickets)</td><td>200-400/人</td><td>大部分景观在路上</td></tr>
+                <tr><td>🍈 餐饮 (Food)</td><td>500-1000/人</td><td>水果吃到饱，羊肉便宜</td></tr>
+                <tr><td><strong>总计 (Total)</strong></td><td><strong>~3700-6900</strong></td><td>丰俭由人</td></tr>
             </table>
         </div>
 
         <div class="module-box">
             <div class="module-title">🎒 5. 装备 (Loadout)</div>
-            <div class="pros-cons">
-                <div style="border-right: 2px dashed #ccc;">
-                    <h4 class="pros">✅ 推荐</h4>
-                    <ul><li>防晒衣/帽子</li><li>裙子(拍照好看)</li><li>肠胃药(瓜果多)</li></ul>
+            <div style="display: flex; gap: 20px;">
+                <div style="flex: 1;">
+                    <h4 style="color: #27ae60; border-bottom: 2px solid #27ae60; padding-bottom: 5px;">✅ 推荐携带 (Recommended)</h4>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li>☀️ <strong>高倍防晒:</strong> 高原紫外线不是开玩笑的。</li>
+                        <li>🧥 <strong>四季衣物:</strong> 喀什短袖，塔县羽绒/冲锋衣。</li>
+                        <li>💊 <strong>红景天:</strong> 预防高反。</li>
+                    </ul>
                 </div>
-                <div style="padding-left: 10px;">
-                    <h4 class="cons">❌ 注意</h4>
-                    <ul><li>尊重当地风俗</li><li>时差(晚2小时)</li><li>干燥(多喝水)</li></ul>
+                <div style="flex: 1;">
+                    <h4 style="color: #c0392b; border-bottom: 2px solid #c0392b; padding-bottom: 5px;">❌ 避免携带 (Avoid)</h4>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li>🏃 <strong>急躁心态:</strong> 高原动作要慢。</li>
+                        <li>🍖 <strong>猪肉制品:</strong> 尊重当地风俗习惯。</li>
+                    </ul>
                 </div>
             </div>
         </div>
         `
     },
-    'quest27': { title: "都江堰 (Dujiangyan)", desc: "拜水都江堰，南桥夜景赛博朋克蓝。", hasPlan: false, features: ["鱼嘴/飞沙堰 (Ancient Dam)", "南桥夜景 (Blue Tears)", "仰天窝自拍大熊猫"], route: "成都 -> 离堆公园 -> 都江堰景区 -> 南桥 -> 成都" },
-    'quest28': { title: "青城山 (Qingcheng)", desc: "问道青城山，月城湖坐船，幽静洗肺。", hasPlan: false, features: ["月城湖坐船 (Boat)", "上清宫问道 (Taoism)", "老君阁俯瞰"], route: "成都 -> 青城山脚 -> 建福宫 -> 月城湖 -> 索道 -> 上清宫 -> 成都" },
-    'quest29': { title: "三星堆 (Sanxingdui)", desc: "沉睡数千年，一醒惊天下。新馆极具现代感。", hasPlan: false, features: ["青铜神树 (3.96m)", "黄金面具 (Gold Mask)", "新馆建筑设计"], route: "成都 -> 广汉 -> 三星堆博物馆 -> 修复中心 -> 成都" },
-    'quest30': { title: "熊猫基地 (Panda Base)", desc: "早起看花花，顶流女明星。", hasPlan: false, features: ["花花 (He Hua) 排队", "月亮产房看幼崽", "无限极竹笋冰淇淋"], route: "成都 -> 熊猫大道 -> 南门进 -> 太阳产房 -> 月亮产房 -> 西门出" },
-    'quest31': { title: "龙泉山 (Longquan)", desc: "城市之眼，看成都夜景，喝茶晒太阳。", hasPlan: false, features: ["丹景台 (Eye of City)", "藤原豆腐店 (Cosplay)", "山顶火锅"], route: "成都 -> 三圣乡 -> 龙泉山 -> 丹景台 -> 桃花故里 -> 成都" },
-    'quest32': { title: "街子古镇 (Jiezi)", desc: "青城后花园，爬凤栖山，吃叶儿粑。", hasPlan: false, features: ["字库塔 (Landmark)", "凤栖山徒步", "古戏台喝茶"], route: "成都 -> 崇州 -> 街子古镇 -> 康道 -> 光严禅院 -> 成都" },
-    'quest33': { title: "黄龙溪 (Huanglongxi)", desc: "玩水胜地，一根面，古镇风情。", hasPlan: false, features: ["泼水节 (Summer Only)", "一根面表演", "复古茶馆"], route: "成都 -> 双流 -> 黄龙溪古镇 -> 码头 -> 成都" },
-    'quest34': { title: "三圣乡 (Sansheng)", desc: "鲜花市场，露营烧烤，就在三环边。", hasPlan: false, features: ["鲜花市场 (Wholesale)", "白鹭湾湿地骑行", "农家乐烧烤"], route: "成都 -> 锦江大道 -> 三圣花乡 -> 白鹭湾 -> 成都" },
-    'quest35': { title: "峨眉山 (Emei Shan)", desc: "金顶看云海，雷洞坪滑雪，猴子(小心)。", hasPlan: false, features: ["金顶日出 (Sunrise)", "雷洞坪滑雪 (Winter)", "生态猴区 (Monkeys)"], route: "成都 -> 峨眉山脚 -> 雷洞坪 -> 金顶 -> 万年寺 -> 成都" },
-    'quest36': { title: "乐山大佛 (Leshan)", desc: "坐船看大佛全景，钵钵鸡吃到饱。", hasPlan: false, features: ["大佛全景 (Boat)", "翘脚牛肉/甜皮鸭", "东方佛都"], route: "成都 -> 乐山港 -> 游船观佛 -> 上岸吃喝 -> 成都" },
-    'quest37': { title: "蒙顶山 (Mengding)", desc: "世界茶文化圣山，树冠漫步，空气极佳。", hasPlan: false, features: ["皇茶园 (Tea Culture)", "树冠漫步 (Adventure)", "天盖寺品茶"], route: "成都 -> 雅安 -> 名山 -> 蒙顶山景区 -> 成都" },
-    'quest38': { title: "天台山 (Tiantai)", desc: "萤火虫之森(季节性)，夏季玩水避暑。", hasPlan: false, features: ["萤火虫 (Fireflies)", "高山玩水", "平乐古镇"], route: "成都 -> 邛崃 -> 平乐古镇 -> 天台山 -> 成都" },
-    'quest39': { title: "稻城亚丁 (Yading)", desc: "蓝色星球上的最后一片净土，看三神山。", hasPlan: false, features: ["央迈勇/仙乃日 (Snow Mts)", "牛奶海/五色海 (Lakes)", "洛绒牛场"], route: "成都 -> 康定 -> 理塘 -> 稻城 -> 香格里拉镇 -> 亚丁景区" },
+    'quest27': { title: "都江堰 (Dujiangyan)", season: "📅 全年 (All Year)", desc: "拜水都江堰，南桥夜景赛博朋克蓝。", hasPlan: false, features: ["鱼嘴/飞沙堰 (Ancient Dam)", "南桥夜景 (Blue Tears)", "仰天窝自拍大熊猫"], route: "成都 -> 离堆公园 -> 都江堰景区 -> 南桥 -> 成都" },
+    'quest28': { title: "青城山 (Qingcheng)", season: "🌿 春/夏 (Spring/Summer)", desc: "问道青城山，月城湖坐船，幽静洗肺。", hasPlan: false, features: ["月城湖坐船 (Boat)", "上清宫问道 (Taoism)", "老君阁俯瞰"], route: "成都 -> 青城山脚 -> 建福宫 -> 月城湖 -> 索道 -> 上清宫 -> 成都" },
+    'quest29': { title: "三星堆 (Sanxingdui)", season: "📅 全年 (All Year)", desc: "沉睡数千年，一醒惊天下。新馆极具现代感。", hasPlan: false, features: ["青铜神树 (3.96m)", "黄金面具 (Gold Mask)", "新馆建筑设计"], route: "成都 -> 广汉 -> 三星堆博物馆 -> 修复中心 -> 成都" },
+    'quest30': { title: "熊猫基地 (Panda Base)", season: "📅 全年 (All Year)", desc: "早起看花花，顶流女明星。", hasPlan: false, features: ["花花 (He Hua) 排队", "月亮产房看幼崽", "无限极竹笋冰淇淋"], route: "成都 -> 熊猫大道 -> 南门进 -> 太阳产房 -> 月亮产房 -> 西门出" },
+    'quest31': { title: "龙泉山 (Longquan)", season: "🍂 春/秋 (Spring/Autumn)", desc: "城市之眼，看成都夜景，喝茶晒太阳。", hasPlan: false, features: ["丹景台 (Eye of City)", "藤原豆腐店 (Cosplay)", "山顶火锅"], route: "成都 -> 三圣乡 -> 龙泉山 -> 丹景台 -> 桃花故里 -> 成都" },
+    'quest32': { title: "街子古镇 (Jiezi)", season: "📅 全年 (All Year)", desc: "青城后花园，爬凤栖山，吃叶儿粑。", hasPlan: false, features: ["字库塔 (Landmark)", "凤栖山徒步", "古戏台喝茶"], route: "成都 -> 崇州 -> 街子古镇 -> 康道 -> 光严禅院 -> 成都" },
+    'quest33': { title: "黄龙溪 (Huanglongxi)", season: "🌿 夏季 (Summer)", desc: "玩水胜地，一根面，古镇风情。", hasPlan: false, features: ["泼水节 (Summer Only)", "一根面表演", "复古茶馆"], route: "成都 -> 双流 -> 黄龙溪古镇 -> 码头 -> 成都" },
+    'quest34': { title: "三圣乡 (Sansheng)", season: "🌸 春季 (Spring)", desc: "鲜花市场，露营烧烤，就在三环边。", hasPlan: false, features: ["鲜花市场 (Wholesale)", "白鹭湾湿地骑行", "农家乐烧烤"], route: "成都 -> 锦江大道 -> 三圣花乡 -> 白鹭湾 -> 成都" },
+    'quest35': { title: "峨眉山 (Emei Shan)", season: "❄️ 冬季 (Winter)", desc: "金顶看云海，雷洞坪滑雪，猴子(小心)。", hasPlan: false, features: ["金顶日出 (Sunrise)", "雷洞坪滑雪 (Winter)", "生态猴区 (Monkeys)"], route: "成都 -> 峨眉山脚 -> 雷洞坪 -> 金顶 -> 万年寺 -> 成都" },
+    'quest36': { title: "乐山大佛 (Leshan)", season: "📅 全年 (All Year)", desc: "坐船看大佛全景，钵钵鸡吃到饱。", hasPlan: false, features: ["大佛全景 (Boat)", "翘脚牛肉/甜皮鸭", "东方佛都"], route: "成都 -> 乐山港 -> 游船观佛 -> 上岸吃喝 -> 成都" },
+    'quest37': { title: "蒙顶山 (Mengding)", season: "🌿 春/夏 (Spring/Summer)", desc: "世界茶文化圣山，树冠漫步，空气极佳。", hasPlan: false, features: ["皇茶园 (Tea Culture)", "树冠漫步 (Adventure)", "天盖寺品茶"], route: "成都 -> 雅安 -> 名山 -> 蒙顶山景区 -> 成都" },
+    'quest38': { title: "天台山 (Tiantai)", season: "🌿 夏季 (Summer)", desc: "萤火虫之森(季节性)，夏季玩水避暑。", hasPlan: false, features: ["萤火虫 (Fireflies)", "高山玩水", "平乐古镇"], route: "成都 -> 邛崃 -> 平乐古镇 -> 天台山 -> 成都" },
+    'quest39': { title: "稻城亚丁 (Yading)", season: "🍂 秋季 (Autumn)", desc: "蓝色星球上的最后一片净土，看三神山。", hasPlan: false, features: ["央迈勇/仙乃日 (Snow Mts)", "牛奶海/五色海 (Lakes)", "洛绒牛场"], route: "成都 -> 康定 -> 理塘 -> 稻城 -> 香格里拉镇 -> 亚丁景区" },
     'quest46': {
+        hasPlan: true,
         title: "川西小环线 (Western Sichuan Loop)",
         desc: "东方阿尔卑斯，雪山、蓝冰、藏寨，冬季限定的寂静之美。",
         days: "4 Days",
-        season: "Winter",
-        hasPlan: true,
+        season: "❄️ 冬季 (Winter)",
         features: ["雅拉雪山日照金山", "墨石公园异域星球", "四姑娘山双桥沟蓝冰"],
         route: "成都 -> 康定 -> 新都桥 -> 塔公 -> 丹巴 -> 四姑娘山 -> 成都",
-        plan: `
-        <div class="brief-box">
-            <div class="brief-title">🏔️ 档案 (Briefing)</div>
-            <p><strong>目标:</strong> 深入川西高原，体验雪山、冰川、藏寨的冬季风情。</p>
-            <p><strong>时长:</strong> 4 Days (Compact Loop)</p>
-            <p><strong>季节:</strong> Winter (12月-2月，蓝冰/雪景最佳)</p>
-            <p><strong>主要看点:</strong> 折多山雪景、墨石公园、雅拉雪山、四姑娘山蓝冰。</p>
-        </div>
+    
+        content: `
 
         <div class="module-box">
-            <div class="module-title">🗺️ 路线图 (Map)</div>
+            <div class="module-title">📋 1. 基本情报 (Briefing)</div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> SUV/越野车包车 (必须带防滑链)</li>
+                <li><strong>💰 预算范围:</strong> 2000 - 3500 RMB</li>
+                <li><strong>⏱️ 预期时间:</strong> 4 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> -10°C ~ 5°C (极寒)</li>
+                <li><strong>🏔️ 最高海拔:</strong> 4298m (折多山) / 3700m (住宿)</li>
+            </ul>
+            <p>这是一条经典的雪山朝圣之路。冬季的川西，褪去了夏日的喧嚣，只剩下纯粹的白与蓝。看日照金山，触碰蓝冰，在异域星球般的墨石公园漫步。这里是离城市最近的“世界尽头”。</p>
+            <div style="background-color: #fee; border-left: 5px solid #e74c3c; padding: 10px; margin-top: 10px; color: #c0392b;">
+                <strong>Warning:</strong> 高反预警 (Altitude Sickness). 避免剧烈运动。路面暗冰多，老司机必备。
+            </div>
+        </div>
+        <div class="module-box">
+            <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
             <div class="map-container">
-                <svg width="100%" height="350" viewBox="0 0 800 400" style="background:#f9f9f9; border-radius:10px;">
-                    <!-- Background Area Label -->
-                    <text x="50" y="40" font-size="20" fill="#ccc" font-weight="bold">川西高原区域 (Western Sichuan)</text>
+                <svg width="100%" height="300" viewBox="0 0 600 300" style="font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;">
+                    <defs>
+                        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
+                        </marker>
+                    </defs>
+                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0f8ff" stroke="#bdc3c7" stroke-dasharray="5,5" />
+                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#95a5a6" font-weight="bold">川西环线区域</text>
+                    <g transform="translate(60, 150)">
+                        <circle r="6" fill="#e74c3c" />
+                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">成都</text>
+                        <text x="0" y="45" text-anchor="middle" font-size="12" fill="#7f8c8d">(Start)</text>
+                    </g>
+                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
                     
-                    <!-- Compass -->
-                    <g transform="translate(720, 50)">
-                        <circle cx="0" cy="0" r="25" stroke="#333" stroke-width="2" fill="none"/>
-                        <path d="M0 -20 L5 5 L0 20 L-5 5 Z" fill="#333"/>
-                        <text x="-5" y="-25" font-weight="bold" font-size="14">N</text>
+                    <g transform="translate(350, 230)">
+                        <circle r="5" fill="white" stroke="#2980b9" stroke-width="2"/>
+                        <text x="0" y="-15" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">四姑娘山</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">双桥沟蓝冰</text>
                     </g>
-
-                    <!-- Route Path (Loop) -->
-                    <!-- Chengdu(700,300) -> Kangding(400,350) -> Xinduqiao(250,350) -> Tagong(200,250) -> Danba(300,150) -> Siguniang(500,150) -> Chengdu -->
-                    <path d="M700 300 Q 550 380, 400 350 T 250 350 L 200 250 L 300 150 L 500 150 Q 650 200, 700 300" 
-                          fill="none" stroke="#87CEEB" stroke-width="5" stroke-dasharray="10,5"/>
-
-                    <!-- Nodes -->
-                    <!-- Chengdu -->
-                    <g transform="translate(700, 300)">
-                        <circle cx="0" cy="0" r="8" fill="#ff5252" stroke="black" stroke-width="2"/>
-                        <text x="15" y="5" font-weight="bold" font-size="14">成都 (Chengdu)</text>
-                        <text x="15" y="25" font-size="12" fill="#666">START/END</text>
+                    <g transform="translate(480, 130)">
+                        <circle r="5" fill="white" stroke="#2980b9" stroke-width="2"/>
+                        <text x="0" y="-15" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">丹巴</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">甲居藏寨</text>
                     </g>
-
-                    <!-- Kangding -->
-                    <g transform="translate(400, 350)">
-                        <circle cx="0" cy="0" r="6" fill="white" stroke="black" stroke-width="2"/>
-                        <text x="-30" y="25" font-size="12" font-weight="bold">康定 (Kangding)</text>
-                    </g>
-
-                    <!-- Xinduqiao -->
-                    <g transform="translate(250, 350)">
-                        <circle cx="0" cy="0" r="6" fill="white" stroke="black" stroke-width="2"/>
-                        <text x="-40" y="25" font-size="12" font-weight="bold">新都桥</text>
-                        <text x="-40" y="40" font-size="10" fill="#666">摄影天堂</text>
-                    </g>
-
-                    <!-- Tagong -->
-                    <g transform="translate(200, 250)">
-                        <circle cx="0" cy="0" r="6" fill="white" stroke="black" stroke-width="2"/>
-                        <text x="-50" y="5" font-size="12" font-weight="bold">塔公草原</text>
-                    </g>
-
-                    <!-- Danba -->
-                    <g transform="translate(300, 150)">
-                        <circle cx="0" cy="0" r="6" fill="white" stroke="black" stroke-width="2"/>
-                        <text x="-20" y="-15" font-size="12" font-weight="bold">丹巴 (Danba)</text>
-                        <text x="-20" y="-30" font-size="10" fill="#666">甲居藏寨</text>
-                    </g>
-
-                    <!-- Siguniang -->
-                    <g transform="translate(500, 150)">
-                        <circle cx="0" cy="0" r="6" fill="white" stroke="black" stroke-width="2"/>
-                        <text x="-30" y="-15" font-size="12" font-weight="bold">四姑娘山</text>
-                        <text x="-30" y="-30" font-size="10" fill="#666">双桥沟蓝冰</text>
+                    <g transform="translate(350, 60)">
+                        <circle r="5" fill="white" stroke="#2980b9" stroke-width="2"/>
+                        <text x="0" y="-15" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">新都桥</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">雅拉雪山</text>
                     </g>
                     
-                    <!-- Direction Arrows -->
-                    <path d="M600 350 L590 345 L590 355 Z" fill="#333" transform="rotate(10 600 350)"/>
-                    <path d="M300 350 L290 345 L290 355 Z" fill="#333"/>
-                    <path d="M225 300 L215 295 L215 305 Z" fill="#333" transform="rotate(-60 225 300)"/>
-                    <path d="M400 150 L390 145 L390 155 Z" fill="#333"/>
-                    <path d="M600 220 L590 215 L590 225 Z" fill="#333" transform="rotate(45 600 220)"/>
+                     <path d="M60,150 Q200,280 350,60" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                     <text x="200" y="220" text-anchor="middle" font-size="12" fill="#7f8c8d">折多山</text>
+                     
+                     <path d="M350,60 Q420,60 480,130" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                     <text x="430" y="80" text-anchor="middle" font-size="12" fill="#7f8c8d">塔公/丹巴</text>
+                     
+                     <path d="M480,130 Q420,200 350,230" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                     <text x="430" y="190" text-anchor="middle" font-size="12" fill="#7f8c8d">小金</text>
+                     
+                     <path d="M350,230 Q200,180 60,150" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                     <text x="200" y="180" text-anchor="middle" font-size="12" fill="#7f8c8d">巴朗山/返程</text>
 
                 </svg>
             </div>
         </div>
-
         <div class="module-box">
-            <div class="module-title">📅 行程表 (Timeline)</div>
+            <div class="module-title">📅 3. 日程 (Timeline)</div>
             
             <div class="day-block">
-                <h3>Day 1: 翻越折多山</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 成都 -> 康定 -> 新都桥</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 280km, 约4.5小时</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 成都出发，经雅叶高速直达康定。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 翻越折多山(4298m)，看雪景。抵达新都桥，拍摄夕阳下的贡嘎雪山(视天气)。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 新都桥 (海拔3300m，注意保暖)。</div>
+                <div class="day-header">Day 1: 翻越折多山，情歌故乡</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>成都出发，经雅安、天全。午餐后翻越<strong>折多山 (4298m)</strong>。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>抵达康定机场路，打卡网红路牌。前往<strong>新都桥 (Xinduqiao)</strong>。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span>入住酒店，等待贡嘎雪山日照金山 (看运气)。晚餐吃汤锅。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 新都桥 | 🌡️ -5°C</div>
             </div>
 
             <div class="day-block">
-                <h3>Day 2: 异域星球与神山</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 新都桥 -> 塔公 -> 墨石公园 -> 丹巴 -> 四姑娘山镇</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 260km, 约5.5小时 (特种兵行程)</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 塔公草原看雅拉雪山，游览墨石公园(拍暗黑系大片)。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 经丹巴甲居藏寨(短暂停留观景台)，前往四姑娘山镇。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 四姑娘山镇 (海拔3200m)。</div>
+                <div class="day-header">Day 2: 异域星球，最美藏寨</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>前往<strong>塔公草原 (Tagong)</strong>，拍雅拉雪山倒影。随后进入<strong>墨石公园 (Moshi Park)</strong>。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>在墨石公园拍宇航员大片。下午经雅拉雪山观景台前往丹巴。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span>入住<strong>甲居藏寨 (Jiaju Tibetan Village)</strong>。吃藏式火锅。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 丹巴 | 🌡️ 0°C</div>
             </div>
 
             <div class="day-block">
-                <h3>Day 3: 双桥沟蓝冰奇观</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 四姑娘山双桥沟</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 景区观光车</div>
-                <div class="time-slot"><strong>🌞 全天:</strong> 深度游玩双桥沟。冬季可看到巨大的冰瀑、蓝冰湖、雪山森林。</div>
-                <div class="time-slot"><strong>📸 必拍:</strong> 布达拉峰、四姑娜措、撵鱼坝漂流(冬季为冰河)。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 四姑娘山镇 (续住)。</div>
+                <div class="day-header">Day 3: 东方圣山，蓝冰世界</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>前往<strong>四姑娘山镇</strong>。午餐后进入<strong>双桥沟 (Shuangqiao Valley)</strong>。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>双桥沟全程观光车。看红杉林、布达拉峰，在冰面上撒欢。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">🌙 晚上</span>
+                    <span>入住四姑娘山镇。晚上可以看星空。</span>
+                </div>
+                <div class="meta-info">🏨 住宿: 四姑娘山镇 | 🌡️ -8°C</div>
             </div>
 
             <div class="day-block">
-                <h3>Day 4: 巴朗山云海与返程</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 四姑娘山 -> 巴朗山 -> 成都</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 200km, 约4小时</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 睡个懒觉或早起看日照金山。穿越巴朗山隧道。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 经映秀、都江堰返回成都，结束行程。</div>
+                <div class="day-header">Day 4: 云海隧道，满载而归</div>
+                <div class="time-slot">
+                    <span class="time-label">🌞 上午</span>
+                    <span>早起前往<strong>猫鼻梁</strong>观景台，看四姑娘山全景 (日照金山)。</span>
+                </div>
+                <div class="time-slot">
+                    <span class="time-label">☕ 下午</span>
+                    <span>穿越巴朗山隧道 (运气好有云海)。经映秀返回成都。</span>
+                </div>
+                <div class="meta-info">✈️ 返程 | 🌡️ 10°C</div>
             </div>
         </div>
-
         <div class="module-box">
             <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
             <table class="cost-table">
-                <tr><th>项目</th><th>预算</th><th>备注</th></tr>
-                <tr><td>🚗 包车/自驾</td><td>1200-2000</td><td>4天行程，油费略减</td></tr>
-                <tr><td>🛌 住宿</td><td>600-1200</td><td>3晚住宿</td></tr>
-                <tr><td>🎫 门票</td><td>300-500</td><td>双桥沟/墨石</td></tr>
-                <tr><td>🍲 餐饮</td><td>500-800</td><td>藏餐/汤锅</td></tr>
-                <tr style="background:#f0f0f0;border-top:2px solid black;"><td><strong>Total</strong></td><td><strong>2600 - 4500</strong></td><td><strong>人均 (紧凑高效)</strong></td></tr>
+                <tr><th>项目 (Item)</th><th>预估费用 (CNY)</th><th>备注 (Notes)</th></tr>
+                <tr><td>🚙 包车 (Car Rental)</td><td>1000-1500/人</td><td>越野车含油路费 (4人团)</td></tr>
+                <tr><td>🏨 住宿 (Lodging)</td><td>600-1200/人</td><td>3晚，条件有限</td></tr>
+                <tr><td>🎟️ 门票 (Tickets)</td><td>300-500/人</td><td>墨石/双桥沟/甲居</td></tr>
+                <tr><td>🍲 餐饮 (Food)</td><td>400-800/人</td><td>藏餐/汤锅/干粮</td></tr>
+                <tr><td><strong>总计 (Total)</strong></td><td><strong>~2300-4000</strong></td><td>不含往返成都大交通</td></tr>
             </table>
         </div>
-
         <div class="module-box">
             <div class="module-title">🎒 5. 装备 (Loadout)</div>
-            <div class="pros-cons">
-                <div style="border-right: 2px dashed #ccc;">
-                    <h4 class="pros">✅ 必须</h4>
-                    <ul><li>羽绒服/冲锋衣</li><li>墨镜/防晒霜</li><li>防滑链(自驾)</li><li>保温杯</li></ul>
+            <div style="display: flex; gap: 20px;">
+                <div style="flex: 1;">
+                    <h4 style="color: #27ae60; border-bottom: 2px solid #27ae60; padding-bottom: 5px;">✅ 推荐携带 (Recommended)</h4>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li>🧥 <strong>极致保暖:</strong> 厚羽绒、冲锋衣、抓绒裤。</li>
+                        <li>🎩 <strong>防风护具:</strong> 毛线帽(护耳)、围巾、手套。</li>
+                        <li>🕶️ <strong>墨镜:</strong> 雪地反光极强，必须佩戴。</li>
+                        <li>💊 <strong>高反药:</strong> 红景天、布洛芬、葡萄糖。</li>
+                    </ul>
                 </div>
-                <div style="padding-left: 10px;">
-                    <h4 class="cons">❌ 注意</h4>
-                    <ul><li>高反预防</li><li>路面暗冰</li><li>行程紧凑(不拖延)</li></ul>
+                <div style="flex: 1;">
+                    <h4 style="color: #c0392b; border-bottom: 2px solid #c0392b; padding-bottom: 5px;">❌ 避免携带 (Avoid)</h4>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li>🛁 <strong>频繁洗澡:</strong> 高原洗澡易感冒高反。</li>
+                        <li>🏃 <strong>剧烈运动:</strong> 跑跳容易缺氧。</li>
+                        <li>👗 <strong>单薄衣物:</strong> 只要风度不要温度会冻哭。</li>
+                    </ul>
                 </div>
             </div>
         </div>
         `
     },
-    'quest42': { title: "厦门 (Xiamen)", desc: "鼓浪屿漫步，最美大学，文艺小资。", hasPlan: false, features: ["鼓浪屿万国建筑", "厦门大学涂鸦隧道", "环岛路骑行"], route: "厦门 -> 鼓浪屿 -> 曾厝垵 -> 环岛路 -> 厦门大学 -> 返程" },
-    'quest43': { title: "冰岛 (Iceland)", desc: "权力的游戏取景地，极光，蓝冰洞。", hasPlan: false, features: ["极光 (Aurora)", "蓝冰洞 (Ice Cave)", "黑沙滩 (Black Beach)"], route: "雷克雅未克 -> 黄金圈 -> 维克 -> 杰古沙龙冰河湖 -> 钻石沙滩 -> 返程" },
-    'quest44': { title: "土耳其 (Turkey)", desc: "热气球，棉花堡，横跨欧亚大陆。", hasPlan: false, features: ["卡帕多奇亚热气球", "棉花堡温泉", "伊斯坦布尔大巴扎"], route: "伊斯坦布尔 -> 卡帕多奇亚 -> 安塔利亚 -> 棉花堡 -> 以弗所 -> 伊斯坦布尔" },
-    'quest45': { title: "马尔代夫 (Maldives)", desc: "一岛一酒店，拖尾沙滩，深潜看鱼。", hasPlan: false, features: ["水上屋 (Water Villa)", "浮潜/深潜 (Diving)", "烛光晚餐"], route: "马累 -> 水飞/快艇 -> 度假岛屿 -> 躺平 -> 马累" },
+    'quest42': { title: "厦门 (Xiamen)", season: "📅 全年 (All Year)", desc: "鼓浪屿漫步，最美大学，文艺小资。", hasPlan: false, features: ["鼓浪屿万国建筑", "厦门大学涂鸦隧道", "环岛路骑行"], route: "厦门 -> 鼓浪屿 -> 曾厝垵 -> 环岛路 -> 厦门大学 -> 返程" },
+    'quest43': { title: "冰岛 (Iceland)", season: "❄️ 冬季 (Winter)", desc: "权力的游戏取景地，极光，蓝冰洞。", hasPlan: false, features: ["极光 (Aurora)", "蓝冰洞 (Ice Cave)", "黑沙滩 (Black Beach)"], route: "雷克雅未克 -> 黄金圈 -> 维克 -> 杰古沙龙冰河湖 -> 钻石沙滩 -> 返程" },
+    'quest44': { title: "土耳其 (Turkey)", season: "🌸 春/秋 (Spring/Autumn)", desc: "热气球，棉花堡，横跨欧亚大陆。", hasPlan: false, features: ["卡帕多奇亚热气球", "棉花堡温泉", "伊斯坦布尔大巴扎"], route: "伊斯坦布尔 -> 卡帕多奇亚 -> 安塔利亚 -> 棉花堡 -> 以弗所 -> 伊斯坦布尔" },
+    'quest45': { title: "马尔代夫 (Maldives)", season: "📅 全年 (All Year)", desc: "一岛一酒店，拖尾沙滩，深潜看鱼。", hasPlan: false, features: ["水上屋 (Water Villa)", "浮潜/深潜 (Diving)", "烛光晚餐"], route: "马累 -> 水飞/快艇 -> 度假岛屿 -> 躺平 -> 马累" },
     'quest47': {
         title: "川西大环线 (Sichuan Big Loop)",
         desc: "蓝色星球上的最后一片净土。理塘、亚丁、色达，一次走完川西精华。",
         days: "8 Days",
-        season: "Autumn",
-        hasPlan: true,
+        season: "🍁 秋季 (Autumn)",
         features: ["稻城亚丁三神山", "理塘天空之城", "色达红色佛国"],
-        route: "成都 -> 康定 -> 理塘 -> 稻城亚丁 -> 甘孜 -> 色达 -> 马尔康 -> 成都",
-        plan: `
-        <div class="brief-box">
-            <div class="brief-title">🏔️ 档案 (Briefing)</div>
-            <p><strong>目标:</strong> 深入川西腹地，朝圣香格里拉之魂，探访红色佛国。</p>
-            <p><strong>时长:</strong> 8 Days (Big Loop)</p>
-            <p><strong>季节:</strong> Autumn (9月-10月，金秋杨林/红草地/雪山)</p>
-            <p><strong>主要看点:</strong> 亚丁三神山、牛奶海、理塘长青春科尔寺、色达喇荣五明佛学院。</p>
-        </div>
-
-        <div class="module-box">
-            <div class="module-title">🗺️ 路线图 (Map)</div>
-            <div class="map-container">
-                <svg width="100%" height="400" viewBox="0 0 800 450" style="background:#f9f9f9; border-radius:10px;">
-                    <!-- Background Area Label -->
-                    <text x="50" y="40" font-size="20" fill="#ccc" font-weight="bold">川西高原区域 (Western Sichuan)</text>
-                    
-                    <!-- Compass -->
-                    <g transform="translate(720, 50)">
-                        <circle cx="0" cy="0" r="25" stroke="#333" stroke-width="2" fill="none"/>
-                        <path d="M0 -20 L5 5 L0 20 L-5 5 Z" fill="#333"/>
-                        <text x="-5" y="-25" font-weight="bold" font-size="14">N</text>
-                    </g>
-
-                    <!-- Route Path (Big Loop) -->
-                    <!-- Chengdu(700,400) -> Kangding(500,380) -> Litang(250,300) -> Yading(250,400) -> Litang(250,300) -> Ganzi(200,150) -> Seda(400,100) -> Maerkang(550,150) -> Chengdu -->
-                    <!-- South Line -->
-                    <path d="M700 400 L 500 380 L 250 300 L 250 400" fill="none" stroke="#FFA500" stroke-width="4" stroke-dasharray="10,5"/>
-                    <!-- North Line Return -->
-                    <path d="M250 300 L 200 150 L 400 100 L 550 150 L 700 400" fill="none" stroke="#FFA500" stroke-width="4" stroke-dasharray="10,5"/>
-
-                    <!-- Nodes -->
-                    <!-- Chengdu -->
-                    <g transform="translate(700, 400)">
-                        <circle cx="0" cy="0" r="8" fill="#ff5252" stroke="black" stroke-width="2"/>
-                        <text x="15" y="5" font-weight="bold" font-size="14">成都</text>
-                        <text x="15" y="25" font-size="12" fill="#666">START/END</text>
-                    </g>
-
-                    <!-- Kangding -->
-                    <g transform="translate(500, 380)">
-                        <circle cx="0" cy="0" r="6" fill="white" stroke="black" stroke-width="2"/>
-                        <text x="-10" y="20" font-size="12" font-weight="bold">康定</text>
-                    </g>
-
-                    <!-- Litang -->
-                    <g transform="translate(250, 300)">
-                        <circle cx="0" cy="0" r="8" fill="white" stroke="#d35400" stroke-width="2"/>
-                        <text x="-50" y="5" font-size="14" font-weight="bold" fill="#d35400">理塘</text>
-                        <text x="-50" y="20" font-size="10" fill="#666">天空之城</text>
-                    </g>
-
-                    <!-- Yading -->
-                    <g transform="translate(250, 400)">
-                        <circle cx="0" cy="0" r="8" fill="#3498db" stroke="black" stroke-width="2"/>
-                        <text x="15" y="5" font-size="14" font-weight="bold" fill="#3498db">稻城亚丁</text>
-                        <text x="15" y="25" font-size="12" fill="#666">核心神山</text>
-                    </g>
-
-                    <!-- Ganzi -->
-                    <g transform="translate(200, 150)">
-                        <circle cx="0" cy="0" r="6" fill="white" stroke="black" stroke-width="2"/>
-                        <text x="-40" y="5" font-size="12" font-weight="bold">甘孜</text>
-                    </g>
-
-                    <!-- Seda -->
-                    <g transform="translate(400, 100)">
-                        <circle cx="0" cy="0" r="8" fill="#c0392b" stroke="black" stroke-width="2"/>
-                        <text x="-20" y="-15" font-size="14" font-weight="bold" fill="#c0392b">色达</text>
-                        <text x="-20" y="-30" font-size="10" fill="#666">佛学院</text>
-                    </g>
-
-                    <!-- Maerkang -->
-                    <g transform="translate(550, 150)">
-                        <circle cx="0" cy="0" r="6" fill="white" stroke="black" stroke-width="2"/>
-                        <text x="10" y="5" font-size="12" font-weight="bold">马尔康</text>
-                    </g>
-                    
-                    <!-- Direction Arrows -->
-                    <path d="M400 390 L390 385 L390 395 Z" fill="#333" transform="rotate(10 400 390)"/>
-                    <path d="M250 350 L240 345 L240 355 Z" fill="#333" transform="rotate(90 250 350)"/>
-                    <path d="M225 225 L215 220 L215 230 Z" fill="#333" transform="rotate(-60 225 225)"/>
-                    <path d="M300 125 L290 120 L290 130 Z" fill="#333" transform="rotate(-15 300 125)"/>
-                    <path d="M625 275 L615 270 L615 280 Z" fill="#333" transform="rotate(60 625 275)"/>
-
-                </svg>
-            </div>
-        </div>
-
-        <div class="module-box">
-            <div class="module-title">📅 行程表 (Timeline)</div>
-            
-            <div class="day-block">
-                <h3>Day 1: 进藏第一关</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 成都 -> 康定 -> 新都桥</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 400km, 约6小时</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 经雅康高速，穿越二郎山隧道。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 翻越折多山，抵达新都桥，适应高反。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 新都桥 (海拔3300m)。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 2: 天路十八弯与天空之城</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 新都桥 -> 理塘 -> 稻城 -> 香格里拉镇</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 420km, 约7小时</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 翻越剪子弯山、卡子拉山，经过天路十八弯。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 抵达【理塘】(海拔4014m)，打卡长青春科尔寺。继续前往稻城。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 香格里拉镇 (海拔2900m，相对低，利于睡眠)。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 3: 亚丁长线 - 挑战极限</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 亚丁景区</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 景区大巴 + 电瓶车</div>
-                <div class="time-slot"><strong>🌞 全天:</strong> 冲古寺 -> 洛绒牛场 -> 牛奶海(4600m) -> 五色海(4700m)。</div>
-                <div class="time-slot"><strong>📝 备注:</strong> 对体力要求极高，往返徒步约5-7小时。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 香格里拉镇 (续住)。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 4: 亚丁短线 - 仙乃日</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 亚丁景区 -> 稻城</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 80km</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 二进沟，游览珍珠海，近距离看仙乃日神山。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 出景区，前往稻城县，看红草地(季节性)。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 稻城县。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 5: 穿越海子山</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 稻城 -> 理塘 -> 新龙 -> 甘孜</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 350km, 约6小时</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 穿越海子山自然保护区，看古冰帽遗迹。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 经新龙县，欣赏雅砻江大峡谷，抵达甘孜县。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 甘孜县。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 6: 红色佛国</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 甘孜 -> 色达 -> 观音桥</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 260km, 约5小时</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 前往【色达】，远眺红房子(需提前预约)。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 感受信仰的力量，后前往观音桥镇。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 观音桥镇。</div>
-            </div>
-
-            <div class="day-block">
-                <h3>Day 7: 卓克基土司</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 观音桥 -> 马尔康 -> 汶川</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 300km, 约5小时</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 参观【卓克基土司官寨】，体验嘉绒藏族文化。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 经米亚罗(红叶)，抵达汶川。</div>
-                <div class="time-slot"><strong>🛌 住宿:</strong> 汶川或理县。</div>
-            </div>
-            
-            <div class="day-block">
-                <h3>Day 8: 返回成都</h3>
-                <div class="time-slot"><strong>📍 地点:</strong> 汶川 -> 成都</div>
-                <div class="time-slot"><strong>🚗 交通:</strong> 130km, 约2小时</div>
-                <div class="time-slot"><strong>🌞 上午:</strong> 睡个懒觉，购买一些车厘子(季节性)。</div>
-                <div class="time-slot"><strong>☕ 下午:</strong> 抵达成都，吃顿火锅。</div>
-            </div>
-        </div>
-
-        <div class="module-box">
-            <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
-            <table class="cost-table">
-                <tr><th>项目</th><th>预算</th><th>备注</th></tr>
-                <tr><td>🚗 包车/自驾</td><td>2500-3500</td><td>路程长，油费高</td></tr>
-                <tr><td>🛌 住宿</td><td>1500-2500</td><td>7晚住宿</td></tr>
-                <tr><td>🎫 门票</td><td>500-800</td><td>亚丁(含车)/色达/官寨</td></tr>
-                <tr><td>🍲 餐饮</td><td>1000-1500</td><td>沿途川菜/藏餐</td></tr>
-                <tr style="background:#f0f0f0;border-top:2px solid black;"><td><strong>Total</strong></td><td><strong>5500 - 8300</strong></td><td><strong>人均 (深度游)</strong></td></tr>
-            </table>
-        </div>
-
-        <div class="module-box">
-            <div class="module-title">🎒 5. 装备 (Loadout)</div>
-            <div class="pros-cons">
-                <div style="border-right: 2px dashed #ccc;">
-                    <h4 class="pros">✅ 必须</h4>
-                    <ul><li>氧气瓶(必备)</li><li>登山杖(亚丁)</li><li>冲锋衣/羽绒服</li><li>高热量零食</li></ul>
-                </div>
-                <div style="padding-left: 10px;">
-                    <h4 class="cons">❌ 注意</h4>
-                    <ul><li>高反风险大</li><li>路途遥远晕车</li><li>尊重宗教习俗</li></ul>
-                </div>
-            </div>
-        </div>
-        `
+        route: "成都 -> 康定 -> 理塘 -> 稻城亚丁 -> 甘孜 -> 色达 -> 马尔康 -> 成都"
     },
+    'quest48': {
+        title: "琉璃坝 (Liuliba)",
+        desc: "大邑深处的原始森林秘境，没有商业化的喧嚣。适合夏季避暑、轻徒步和溪边露营。",
+        features: ["原始森林氧吧", "清澈溪流玩水", "0商业化"],
+        route: "成都 -> 大邑 -> 西岭镇 -> 琉璃坝 -> 成都",
+        days: "2d",
+        season: "🌿 夏季 (Summer)",
+        cost: "¥400-800"
+    },
+    'quest49': {
+        title: "蜀南竹海 (Bamboo Sea)",
+        desc: "位于宜宾长宁，万亩翠竹，电影《卧虎藏龙》取景地。全竹宴是必吃美食。",
+        features: ["忘忧谷漫步，翡翠长廊", "观海楼看竹海全景", "品尝熊猫大餐(全竹宴)"],
+        route: "成都 -> 宜宾 -> 长宁 -> 蜀南竹海 -> 宜宾燃面 -> 成都",
+        days: "3d",
+        season: "🌿 夏/秋 (Summer/Autumn)",
+        cost: "¥1000-2000"
+    },
+    'quest50': {
+        title: "光雾山 (Guangwushan)",
+        desc: "位于巴中南江，亚洲最大的红叶观赏区。秋季层林尽染，极为壮观。",
+        features: ["十八月潭看水", "大坝景区看红叶", "米仓山国家森林公园"],
+        route: "成都 -> 巴中 -> 南江 -> 光雾山 -> 成都",
+        days: "3d",
+        season: "🍁 秋季 (Autumn)",
+        cost: "¥1200-2200"
+    },
+    'quest51': {
+        title: "贵州赤水 (Chishui)",
+        desc: "丹霞地貌与大瀑布的结合，这里有比黄果树更宽的赤水大瀑布，还有侏罗纪残遗植物桫椤。",
+        features: ["赤水大瀑布，气势磅礴", "佛光岩丹霞地貌", "四洞沟清幽徒步"],
+        route: "成都 -> 泸州 -> 赤水 -> 各大景区 -> 成都",
+        days: "3-4d",
+        season: "🌿 夏季 (Summer)",
+        cost: "¥1500-2500"
+    },
+    'quest52': {
+        title: "重庆武隆 (Wulong)",
+        desc: "天坑地缝，变形金刚取景地。仙女山大草原适合发呆，夏季避暑胜地。",
+        features: ["天生三桥，震撼地质奇观", "龙水峡地缝，地心历险", "仙女山小火车"],
+        route: "成都 -> 重庆 -> 武隆 -> 仙女山/天坑 -> 重庆火锅 -> 成都",
+        days: "4d",
+        season: "🌿 夏/秋 (Summer/Autumn)",
+        cost: "¥1800-3000"
+    },
+    'quest53': {
+        title: "西安",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "西安，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "温泉疗养 (Hot Spring)", "人文历史 (History)"],
+        route: "成都 -> 西安 -> 成都"
+    },
+    'quest54': {
+        title: "贵阳",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "贵阳，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["空气清新 (Fresh Air)", "美食众多 (Foodie)", "亲子游 (Family)"],
+        route: "成都 -> 贵阳 -> 成都"
+    },
+    'quest55': {
+        title: "昆明",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "昆明，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["空气清新 (Fresh Air)", "人文历史 (History)", "美食众多 (Foodie)"],
+        route: "成都 -> 昆明 -> 成都"
+    },
+    'quest56': {
+        title: "丽江",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "丽江，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "空气清新 (Fresh Air)", "亲子游 (Family)"],
+        route: "成都 -> 丽江 -> 成都"
+    },
+    'quest57': {
+        title: "长沙",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "长沙，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "适合徒步 (Hiking)", "拍照神地 (Photography)"],
+        route: "成都 -> 长沙 -> 成都"
+    },
+    'quest58': {
+        title: "武汉",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "武汉，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "美食众多 (Foodie)", "网红打卡 (Instagrammable)"],
+        route: "成都 -> 武汉 -> 成都"
+    },
+    'quest59': {
+        title: "南京",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "南京，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["空气清新 (Fresh Air)", "温泉疗养 (Hot Spring)", "拍照神地 (Photography)"],
+        route: "成都 -> 南京 -> 成都"
+    },
+    'quest60': {
+        title: "杭州",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "杭州，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "温泉疗养 (Hot Spring)", "人文历史 (History)"],
+        route: "成都 -> 杭州 -> 成都"
+    },
+    'quest61': {
+        title: "苏州",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "苏州，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "空气清新 (Fresh Air)", "适合徒步 (Hiking)"],
+        route: "成都 -> 苏州 -> 成都"
+    },
+    'quest62': {
+        title: "上海",
+        category: "flight",
+        season: "🌿 夏季 (Summer)",
+        desc: "上海，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["避暑胜地 (Summer Resort)", "美食众多 (Foodie)", "人文历史 (History)"],
+        route: "成都 -> 上海 -> 成都"
+    },
+    'quest63': {
+        title: "北京",
+        category: "flight",
+        season: "📅 全年 (All Year)",
+        desc: "北京，这里是flight旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["拍照神地 (Photography)", "美食众多 (Foodie)", "赏雪佳地 (Snow View)"],
+        route: "成都 -> 北京 -> 成都"
+    },
+    'quest64': {
+        title: "红原月亮湾",
+        category: "drive",
+        season: "📅 全年 (All Year)",
+        desc: "红原月亮湾，这里是drive旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "适合徒步 (Hiking)", "亲子游 (Family)"],
+        route: "成都 -> 红原月亮湾 -> 成都"
+    },
+    'quest65': {
+        title: "党岭",
+        category: "drive",
+        season: "📅 全年 (All Year)",
+        desc: "党岭，这里是drive旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "避暑胜地 (Summer Resort)", "人文历史 (History)"],
+        route: "成都 -> 党岭 -> 成都"
+    },
+    'quest66': {
+        title: "莲宝叶则",
+        category: "drive",
+        season: "📅 全年 (All Year)",
+        desc: "莲宝叶则，这里是drive旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["人文历史 (History)", "赏雪佳地 (Snow View)", "避暑胜地 (Summer Resort)"],
+        route: "成都 -> 莲宝叶则 -> 成都"
+    },
+    'quest67': {
+        title: "格聂之眼",
+        category: "drive",
+        season: "📅 全年 (All Year)",
+        desc: "格聂之眼，这里是drive旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["人文历史 (History)", "拍照神地 (Photography)", "空气清新 (Fresh Air)"],
+        route: "成都 -> 格聂之眼 -> 成都"
+    },
+    'quest68': {
+        title: "措普沟",
+        category: "drive",
+        season: "📅 全年 (All Year)",
+        desc: "措普沟，这里是drive旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["空气清新 (Fresh Air)", "人文历史 (History)", "适合徒步 (Hiking)"],
+        route: "成都 -> 措普沟 -> 成都"
+    },
+    'quest69': {
+        title: "鱼子西",
+        category: "drive",
+        season: "📅 全年 (All Year)",
+        desc: "鱼子西，这里是drive旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "亲子游 (Family)", "空气清新 (Fresh Air)"],
+        route: "成都 -> 鱼子西 -> 成都"
+    },
+    'quest70': {
+        title: "新疆伊犁",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "新疆伊犁，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["避暑胜地 (Summer Resort)", "网红打卡 (Instagrammable)", "适合徒步 (Hiking)"],
+        route: "成都 -> 新疆伊犁 -> 成都"
+    },
+    'quest71': {
+        title: "新疆喀什",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "新疆喀什，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["温泉疗养 (Hot Spring)", "空气清新 (Fresh Air)", "适合徒步 (Hiking)"],
+        route: "成都 -> 新疆喀什 -> 成都"
+    },
+    'quest72': {
+        title: "西藏拉萨",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "西藏拉萨，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["拍照神地 (Photography)", "适合徒步 (Hiking)", "网红打卡 (Instagrammable)"],
+        route: "成都 -> 西藏拉萨 -> 成都"
+    },
+    'quest73': {
+        title: "西藏林芝",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "西藏林芝，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["拍照神地 (Photography)", "赏雪佳地 (Snow View)", "适合徒步 (Hiking)"],
+        route: "成都 -> 西藏林芝 -> 成都"
+    },
+    'quest74': {
+        title: "青海湖",
+        category: "long",
+        season: "🌿 夏季 (Summer)",
+        desc: "青海湖，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "亲子游 (Family)", "避暑胜地 (Summer Resort)"],
+        route: "成都 -> 青海湖 -> 成都"
+    },
+    'quest75': {
+        title: "甘肃敦煌",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "甘肃敦煌，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "美食众多 (Foodie)", "拍照神地 (Photography)"],
+        route: "成都 -> 甘肃敦煌 -> 成都"
+    },
+    'quest76': {
+        title: "内蒙古呼伦贝尔",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "内蒙古呼伦贝尔，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "拍照神地 (Photography)", "人文历史 (History)"],
+        route: "成都 -> 内蒙古呼伦贝尔 -> 成都"
+    },
+    'quest77': {
+        title: "海南三亚",
+        category: "long",
+        season: "🌿 夏季 (Summer)",
+        desc: "海南三亚，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["适合徒步 (Hiking)", "网红打卡 (Instagrammable)", "人文历史 (History)"],
+        route: "成都 -> 海南三亚 -> 成都"
+    },
+    'quest78': {
+        title: "泰国普吉岛",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "泰国普吉岛，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "亲子游 (Family)", "适合徒步 (Hiking)"],
+        route: "成都 -> 泰国普吉岛 -> 成都"
+    },
+    'quest79': {
+        title: "日本东京",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "日本东京，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "避暑胜地 (Summer Resort)", "空气清新 (Fresh Air)"],
+        route: "成都 -> 日本东京 -> 成都"
+    },
+    'quest80': {
+        title: "日本大阪",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "日本大阪，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["温泉疗养 (Hot Spring)", "人文历史 (History)", "亲子游 (Family)"],
+        route: "成都 -> 日本大阪 -> 成都"
+    },
+    'quest81': {
+        title: "韩国首尔",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "韩国首尔，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "美食众多 (Foodie)", "人文历史 (History)"],
+        route: "成都 -> 韩国首尔 -> 成都"
+    },
+    'quest82': {
+        title: "新加坡",
+        category: "long",
+        season: "📅 全年 (All Year)",
+        desc: "新加坡，这里是long旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "美食众多 (Foodie)", "网红打卡 (Instagrammable)"],
+        route: "成都 -> 新加坡 -> 成都"
+    },
+    'quest83': {
+        title: "冷噶厝",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "冷噶厝，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["温泉疗养 (Hot Spring)", "避暑胜地 (Summer Resort)", "人文历史 (History)"],
+        route: "成都 -> 冷噶厝 -> 成都"
+    },
+    'quest84': {
+        title: "子梅垭口",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "子梅垭口，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["拍照神地 (Photography)", "网红打卡 (Instagrammable)", "赏雪佳地 (Snow View)"],
+        route: "成都 -> 子梅垭口 -> 成都"
+    },
+    'quest85': {
+        title: "雅哈垭口",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "雅哈垭口，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["温泉疗养 (Hot Spring)", "拍照神地 (Photography)", "适合徒步 (Hiking)"],
+        route: "成都 -> 雅哈垭口 -> 成都"
+    },
+    'quest86': {
+        title: "三奥雪山",
+        category: "secret",
+        season: "❄️ 冬季 (Winter)",
+        desc: "三奥雪山，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["避暑胜地 (Summer Resort)", "美食众多 (Foodie)", "赏雪佳地 (Snow View)"],
+        route: "成都 -> 三奥雪山 -> 成都"
+    },
+    'quest87': {
+        title: "玛嘉沟",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "玛嘉沟，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["适合徒步 (Hiking)", "美食众多 (Foodie)", "空气清新 (Fresh Air)"],
+        route: "成都 -> 玛嘉沟 -> 成都"
+    },
+    'quest88': {
+        title: "虹桥沟",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "虹桥沟，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["空气清新 (Fresh Air)", "美食众多 (Foodie)", "亲子游 (Family)"],
+        route: "成都 -> 虹桥沟 -> 成都"
+    },
+    'quest89': {
+        title: "凉台沟",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "凉台沟，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["适合徒步 (Hiking)", "拍照神地 (Photography)", "避暑胜地 (Summer Resort)"],
+        route: "成都 -> 凉台沟 -> 成都"
+    },
+    'quest90': {
+        title: "结斯沟",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "结斯沟，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "空气清新 (Fresh Air)", "拍照神地 (Photography)"],
+        route: "成都 -> 结斯沟 -> 成都"
+    },
+    'quest91': {
+        title: "霸王山",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "霸王山，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "人文历史 (History)", "避暑胜地 (Summer Resort)"],
+        route: "成都 -> 霸王山 -> 成都"
+    },
+    'quest92': {
+        title: "华尖山",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "华尖山，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["避暑胜地 (Summer Resort)", "空气清新 (Fresh Air)", "美食众多 (Foodie)"],
+        route: "成都 -> 华尖山 -> 成都"
+    },
+    'quest93': {
+        title: "牛背山",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "牛背山，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "温泉疗养 (Hot Spring)", "人文历史 (History)"],
+        route: "成都 -> 牛背山 -> 成都"
+    },
+    'quest94': {
+        title: "九峰山",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "九峰山，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "空气清新 (Fresh Air)", "拍照神地 (Photography)"],
+        route: "成都 -> 九峰山 -> 成都"
+    },
+    'quest95': {
+        title: "狮子王峰",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "狮子王峰，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "拍照神地 (Photography)", "适合徒步 (Hiking)"],
+        route: "成都 -> 狮子王峰 -> 成都"
+    },
+    'quest96': {
+        title: "阿坝县",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "阿坝县，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["适合徒步 (Hiking)", "美食众多 (Foodie)", "避暑胜地 (Summer Resort)"],
+        route: "成都 -> 阿坝县 -> 成都"
+    },
+    'quest97': {
+        title: "壤塘",
+        category: "secret",
+        season: "📅 全年 (All Year)",
+        desc: "壤塘，这里是secret旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "适合徒步 (Hiking)", "温泉疗养 (Hot Spring)"],
+        route: "成都 -> 壤塘 -> 成都"
+    },
+    'quest98': {
+        title: "洛带古镇",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "洛带古镇，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["拍照神地 (Photography)", "空气清新 (Fresh Air)", "避暑胜地 (Summer Resort)"],
+        route: "成都 -> 洛带古镇 -> 成都"
+    },
+    'quest99': {
+        title: "安仁古镇",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "安仁古镇，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["人文历史 (History)", "赏雪佳地 (Snow View)", "适合徒步 (Hiking)"],
+        route: "成都 -> 安仁古镇 -> 成都"
+    },
+    'quest100': {
+        title: "西岭雪山(前山)",
+        category: "1d",
+        season: "❄️ 冬季 (Winter)",
+        desc: "西岭雪山(前山)，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["空气清新 (Fresh Air)", "适合徒步 (Hiking)", "亲子游 (Family)"],
+        route: "成都 -> 西岭雪山(前山) -> 成都"
+    },
+    'quest101': {
+        title: "鸡冠山",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "鸡冠山，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "温泉疗养 (Hot Spring)", "网红打卡 (Instagrammable)"],
+        route: "成都 -> 鸡冠山 -> 成都"
+    },
+    'quest102': {
+        title: "白鹿中法风情小镇",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "白鹿中法风情小镇，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "美食众多 (Foodie)", "人文历史 (History)"],
+        route: "成都 -> 白鹿中法风情小镇 -> 成都"
+    },
+    'quest103': {
+        title: "海螺沟(一日特种兵)",
+        category: "1d",
+        season: "🌿 夏季 (Summer)",
+        desc: "海螺沟(一日特种兵)，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["避暑胜地 (Summer Resort)", "空气清新 (Fresh Air)", "人文历史 (History)"],
+        route: "成都 -> 海螺沟(一日特种兵) -> 成都"
+    },
+    'quest104': {
+        title: "天府艺术公园",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "天府艺术公园，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["适合徒步 (Hiking)", "空气清新 (Fresh Air)", "人文历史 (History)"],
+        route: "成都 -> 天府艺术公园 -> 成都"
+    },
+    'quest105': {
+        title: "东安湖公园",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "东安湖公园，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["避暑胜地 (Summer Resort)", "适合徒步 (Hiking)", "网红打卡 (Instagrammable)"],
+        route: "成都 -> 东安湖公园 -> 成都"
+    },
+    'quest106': {
+        title: "青龙湖湿地",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "青龙湖湿地，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["人文历史 (History)", "美食众多 (Foodie)", "拍照神地 (Photography)"],
+        route: "成都 -> 青龙湖湿地 -> 成都"
+    },
+    'quest107': {
+        title: "锦城湖",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "锦城湖，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "空气清新 (Fresh Air)", "亲子游 (Family)"],
+        route: "成都 -> 锦城湖 -> 成都"
+    },
+    'quest108': {
+        title: "桂湖公园",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "桂湖公园，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["人文历史 (History)", "亲子游 (Family)", "空气清新 (Fresh Air)"],
+        route: "成都 -> 桂湖公园 -> 成都"
+    },
+    'quest109': {
+        title: "宝光寺",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "宝光寺，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "避暑胜地 (Summer Resort)", "温泉疗养 (Hot Spring)"],
+        route: "成都 -> 宝光寺 -> 成都"
+    },
+    'quest110': {
+        title: "文殊院",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "文殊院，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "空气清新 (Fresh Air)", "适合徒步 (Hiking)"],
+        route: "成都 -> 文殊院 -> 成都"
+    },
+    'quest111': {
+        title: "大慈寺",
+        category: "1d",
+        season: "📅 全年 (All Year)",
+        desc: "大慈寺，这里是1d旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "拍照神地 (Photography)", "美食众多 (Foodie)"],
+        route: "成都 -> 大慈寺 -> 成都"
+    },
+    'quest112': {
+        title: "四姑娘山(双桥沟)",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "四姑娘山(双桥沟)，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "赏雪佳地 (Snow View)", "适合徒步 (Hiking)"],
+        route: "成都 -> 四姑娘山(双桥沟) -> 成都"
+    },
+    'quest113': {
+        title: "孟屯河谷",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "孟屯河谷，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["人文历史 (History)", "拍照神地 (Photography)", "避暑胜地 (Summer Resort)"],
+        route: "成都 -> 孟屯河谷 -> 成都"
+    },
+    'quest114': {
+        title: "喇叭河",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "喇叭河，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["拍照神地 (Photography)", "温泉疗养 (Hot Spring)", "空气清新 (Fresh Air)"],
+        route: "成都 -> 喇叭河 -> 成都"
+    },
+    'quest115': {
+        title: "神木垒",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "神木垒，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["空气清新 (Fresh Air)", "亲子游 (Family)", "适合徒步 (Hiking)"],
+        route: "成都 -> 神木垒 -> 成都"
+    },
+    'quest116': {
+        title: "达瓦更扎",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "达瓦更扎，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "适合徒步 (Hiking)", "美食众多 (Foodie)"],
+        route: "成都 -> 达瓦更扎 -> 成都"
+    },
+    'quest117': {
+        title: "轿顶山",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "轿顶山，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["亲子游 (Family)", "避暑胜地 (Summer Resort)", "赏雪佳地 (Snow View)"],
+        route: "成都 -> 轿顶山 -> 成都"
+    },
+    'quest118': {
+        title: "九皇山",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "九皇山，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "避暑胜地 (Summer Resort)", "拍照神地 (Photography)"],
+        route: "成都 -> 九皇山 -> 成都"
+    },
+    'quest119': {
+        title: "药王谷",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "药王谷，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "人文历史 (History)", "适合徒步 (Hiking)"],
+        route: "成都 -> 药王谷 -> 成都"
+    },
+    'quest120': {
+        title: "窦团山",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "窦团山，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "亲子游 (Family)", "网红打卡 (Instagrammable)"],
+        route: "成都 -> 窦团山 -> 成都"
+    },
+    'quest121': {
+        title: "李白故里",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "李白故里，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["美食众多 (Foodie)", "人文历史 (History)", "网红打卡 (Instagrammable)"],
+        route: "成都 -> 李白故里 -> 成都"
+    },
+    'quest122': {
+        title: "剑门关",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "剑门关，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["适合徒步 (Hiking)", "赏雪佳地 (Snow View)", "温泉疗养 (Hot Spring)"],
+        route: "成都 -> 剑门关 -> 成都"
+    },
+    'quest123': {
+        title: "昭化古镇",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "昭化古镇，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["赏雪佳地 (Snow View)", "空气清新 (Fresh Air)", "拍照神地 (Photography)"],
+        route: "成都 -> 昭化古镇 -> 成都"
+    },
+    'quest124': {
+        title: "阆中古镇",
+        category: "weekend",
+        season: "📅 全年 (All Year)",
+        desc: "阆中古镇，这里是weekend旅行的绝佳选择，拥有独特的风景。",
+        hasPlan: false,
+        features: ["网红打卡 (Instagrammable)", "拍照神地 (Photography)", "亲子游 (Family)"],
+        route: "成都 -> 阆中古镇 -> 成都"
+    }
+};
+// --- Auto-generated Scores ---
+(function() {
+    for (let key in questData) {
+        const q = questData[key];
+        let daysVal = 5;
+        if (q.days) {
+            if (q.days.includes('3d')) daysVal = 4;
+            else if (q.days.includes('4d') || q.days.includes('5d')) daysVal = 3;
+            else if (q.days.includes('6d') || q.days.includes('7d') || q.days.includes('8d')) daysVal = 2;
+            else if (q.days.includes('1d') || q.days.includes('2d')) daysVal = 5;
+        }
+        let hash = 0;
+        for (let i = 0; i < key.length; i++) hash = key.charCodeAt(i) + ((hash << 5) - hash);
+        const prng = (seed) => {
+            const x = Math.sin(hash + seed) * 10000;
+            return x - Math.floor(x);
+        };
+        q.static_scores = {
+            time: daysVal,
+            crowd: Math.floor(prng(1) * 3) + 2,
+            match: Math.floor(prng(2) * 2) + 4,
+            value: Math.floor(prng(3) * 3) + 3,
+            fatigue: Math.floor(prng(4) * 3) + 3
+        };
+    }
+})();
+
+var categoryFillData = {
+    "flight": [
+        {
+            "heat": 1111, 
+            "desc": "这是关于 Flight推荐 1 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_1", 
+            "title": "Flight推荐 1"
+        },
+        {
+            "heat": 1222, 
+            "desc": "这是关于 Flight推荐 2 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_2", 
+            "title": "Flight推荐 2"
+        },
+        {
+            "heat": 1333, 
+            "desc": "这是关于 Flight推荐 3 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_3", 
+            "title": "Flight推荐 3"
+        },
+        {
+            "heat": 1444, 
+            "desc": "这是关于 Flight推荐 4 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_4", 
+            "title": "Flight推荐 4"
+        },
+        {
+            "heat": 1555, 
+            "desc": "这是关于 Flight推荐 5 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_5", 
+            "title": "Flight推荐 5"
+        },
+        {
+            "heat": 1666, 
+            "desc": "这是关于 Flight推荐 6 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_6", 
+            "title": "Flight推荐 6"
+        },
+        {
+            "heat": 1777, 
+            "desc": "这是关于 Flight推荐 7 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_7", 
+            "title": "Flight推荐 7"
+        },
+        {
+            "heat": 1888, 
+            "desc": "这是关于 Flight推荐 8 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_8", 
+            "title": "Flight推荐 8"
+        },
+        {
+            "heat": 1999, 
+            "desc": "这是关于 Flight推荐 9 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_9", 
+            "title": "Flight推荐 9"
+        },
+        {
+            "heat": 2110, 
+            "desc": "这是关于 Flight推荐 10 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_10", 
+            "title": "Flight推荐 10"
+        },
+        {
+            "heat": 2221, 
+            "desc": "这是关于 Flight推荐 11 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_11", 
+            "title": "Flight推荐 11"
+        },
+        {
+            "heat": 2332, 
+            "desc": "这是关于 Flight推荐 12 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_12", 
+            "title": "Flight推荐 12"
+        },
+        {
+            "heat": 2443, 
+            "desc": "这是关于 Flight推荐 13 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_13", 
+            "title": "Flight推荐 13"
+        },
+        {
+            "heat": 2554, 
+            "desc": "这是关于 Flight推荐 14 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_14", 
+            "title": "Flight推荐 14"
+        },
+        {
+            "heat": 2665, 
+            "desc": "这是关于 Flight推荐 15 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_15", 
+            "title": "Flight推荐 15"
+        },
+        {
+            "heat": 2776, 
+            "desc": "这是关于 Flight推荐 16 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_16", 
+            "title": "Flight推荐 16"
+        },
+        {
+            "heat": 2887, 
+            "desc": "这是关于 Flight推荐 17 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_17", 
+            "title": "Flight推荐 17"
+        },
+        {
+            "heat": 2998, 
+            "desc": "这是关于 Flight推荐 18 的精彩推荐。属于 flight 类别的旅行灵感。", 
+            "tag": "FLIGHT", 
+            "id": "fill_flight_18", 
+            "title": "Flight推荐 18"
+        }
+    ],
+    "drive": [
+        {
+            "heat": 1111, 
+            "desc": "这是关于 Drive推荐 1 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_1", 
+            "title": "Drive推荐 1"
+        },
+        {
+            "heat": 1222, 
+            "desc": "这是关于 Drive推荐 2 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_2", 
+            "title": "Drive推荐 2"
+        },
+        {
+            "heat": 1333, 
+            "desc": "这是关于 Drive推荐 3 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_3", 
+            "title": "Drive推荐 3"
+        },
+        {
+            "heat": 1444, 
+            "desc": "这是关于 Drive推荐 4 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_4", 
+            "title": "Drive推荐 4"
+        },
+        {
+            "heat": 1555, 
+            "desc": "这是关于 Drive推荐 5 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_5", 
+            "title": "Drive推荐 5"
+        },
+        {
+            "heat": 1666, 
+            "desc": "这是关于 Drive推荐 6 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_6", 
+            "title": "Drive推荐 6"
+        },
+        {
+            "heat": 1777, 
+            "desc": "这是关于 Drive推荐 7 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_7", 
+            "title": "Drive推荐 7"
+        },
+        {
+            "heat": 1888, 
+            "desc": "这是关于 Drive推荐 8 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_8", 
+            "title": "Drive推荐 8"
+        },
+        {
+            "heat": 1999, 
+            "desc": "这是关于 Drive推荐 9 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_9", 
+            "title": "Drive推荐 9"
+        },
+        {
+            "heat": 2110, 
+            "desc": "这是关于 Drive推荐 10 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_10", 
+            "title": "Drive推荐 10"
+        },
+        {
+            "heat": 2221, 
+            "desc": "这是关于 Drive推荐 11 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_11", 
+            "title": "Drive推荐 11"
+        },
+        {
+            "heat": 2332, 
+            "desc": "这是关于 Drive推荐 12 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_12", 
+            "title": "Drive推荐 12"
+        },
+        {
+            "heat": 2443, 
+            "desc": "这是关于 Drive推荐 13 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_13", 
+            "title": "Drive推荐 13"
+        },
+        {
+            "heat": 2554, 
+            "desc": "这是关于 Drive推荐 14 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_14", 
+            "title": "Drive推荐 14"
+        },
+        {
+            "heat": 2665, 
+            "desc": "这是关于 Drive推荐 15 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_15", 
+            "title": "Drive推荐 15"
+        },
+        {
+            "heat": 2776, 
+            "desc": "这是关于 Drive推荐 16 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_16", 
+            "title": "Drive推荐 16"
+        },
+        {
+            "heat": 2887, 
+            "desc": "这是关于 Drive推荐 17 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_17", 
+            "title": "Drive推荐 17"
+        },
+        {
+            "heat": 2998, 
+            "desc": "这是关于 Drive推荐 18 的精彩推荐。属于 drive 类别的旅行灵感。", 
+            "tag": "DRIVE", 
+            "id": "fill_drive_18", 
+            "title": "Drive推荐 18"
+        }
+    ],
+    "weekend": [
+        {
+            "heat": 1111, 
+            "desc": "这是关于 Weekend推荐 1 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_1", 
+            "title": "Weekend推荐 1"
+        },
+        {
+            "heat": 1222, 
+            "desc": "这是关于 Weekend推荐 2 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_2", 
+            "title": "Weekend推荐 2"
+        },
+        {
+            "heat": 1333, 
+            "desc": "这是关于 Weekend推荐 3 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_3", 
+            "title": "Weekend推荐 3"
+        },
+        {
+            "heat": 1444, 
+            "desc": "这是关于 Weekend推荐 4 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_4", 
+            "title": "Weekend推荐 4"
+        },
+        {
+            "heat": 1555, 
+            "desc": "这是关于 Weekend推荐 5 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_5", 
+            "title": "Weekend推荐 5"
+        },
+        {
+            "heat": 1666, 
+            "desc": "这是关于 Weekend推荐 6 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_6", 
+            "title": "Weekend推荐 6"
+        },
+        {
+            "heat": 1777, 
+            "desc": "这是关于 Weekend推荐 7 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_7", 
+            "title": "Weekend推荐 7"
+        },
+        {
+            "heat": 1888, 
+            "desc": "这是关于 Weekend推荐 8 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_8", 
+            "title": "Weekend推荐 8"
+        },
+        {
+            "heat": 1999, 
+            "desc": "这是关于 Weekend推荐 9 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_9", 
+            "title": "Weekend推荐 9"
+        },
+        {
+            "heat": 2110, 
+            "desc": "这是关于 Weekend推荐 10 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_10", 
+            "title": "Weekend推荐 10"
+        },
+        {
+            "heat": 2221, 
+            "desc": "这是关于 Weekend推荐 11 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_11", 
+            "title": "Weekend推荐 11"
+        },
+        {
+            "heat": 2332, 
+            "desc": "这是关于 Weekend推荐 12 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_12", 
+            "title": "Weekend推荐 12"
+        },
+        {
+            "heat": 2443, 
+            "desc": "这是关于 Weekend推荐 13 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_13", 
+            "title": "Weekend推荐 13"
+        },
+        {
+            "heat": 2554, 
+            "desc": "这是关于 Weekend推荐 14 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_14", 
+            "title": "Weekend推荐 14"
+        },
+        {
+            "heat": 2665, 
+            "desc": "这是关于 Weekend推荐 15 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_15", 
+            "title": "Weekend推荐 15"
+        },
+        {
+            "heat": 2776, 
+            "desc": "这是关于 Weekend推荐 16 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_16", 
+            "title": "Weekend推荐 16"
+        },
+        {
+            "heat": 2887, 
+            "desc": "这是关于 Weekend推荐 17 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_17", 
+            "title": "Weekend推荐 17"
+        },
+        {
+            "heat": 2998, 
+            "desc": "这是关于 Weekend推荐 18 的精彩推荐。属于 weekend 类别的旅行灵感。", 
+            "tag": "WEEKEND", 
+            "id": "fill_weekend_18", 
+            "title": "Weekend推荐 18"
+        }
+    ],
+    "popular": [
+        {
+            "heat": 1111, 
+            "desc": "这是关于 Popular推荐 1 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_1", 
+            "title": "Popular推荐 1"
+        },
+        {
+            "heat": 1222, 
+            "desc": "这是关于 Popular推荐 2 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_2", 
+            "title": "Popular推荐 2"
+        },
+        {
+            "heat": 1333, 
+            "desc": "这是关于 Popular推荐 3 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_3", 
+            "title": "Popular推荐 3"
+        },
+        {
+            "heat": 1444, 
+            "desc": "这是关于 Popular推荐 4 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_4", 
+            "title": "Popular推荐 4"
+        },
+        {
+            "heat": 1555, 
+            "desc": "这是关于 Popular推荐 5 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_5", 
+            "title": "Popular推荐 5"
+        },
+        {
+            "heat": 1666, 
+            "desc": "这是关于 Popular推荐 6 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_6", 
+            "title": "Popular推荐 6"
+        },
+        {
+            "heat": 1777, 
+            "desc": "这是关于 Popular推荐 7 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_7", 
+            "title": "Popular推荐 7"
+        },
+        {
+            "heat": 1888, 
+            "desc": "这是关于 Popular推荐 8 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_8", 
+            "title": "Popular推荐 8"
+        },
+        {
+            "heat": 1999, 
+            "desc": "这是关于 Popular推荐 9 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_9", 
+            "title": "Popular推荐 9"
+        },
+        {
+            "heat": 2110, 
+            "desc": "这是关于 Popular推荐 10 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_10", 
+            "title": "Popular推荐 10"
+        },
+        {
+            "heat": 2221, 
+            "desc": "这是关于 Popular推荐 11 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_11", 
+            "title": "Popular推荐 11"
+        },
+        {
+            "heat": 2332, 
+            "desc": "这是关于 Popular推荐 12 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_12", 
+            "title": "Popular推荐 12"
+        },
+        {
+            "heat": 2443, 
+            "desc": "这是关于 Popular推荐 13 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_13", 
+            "title": "Popular推荐 13"
+        },
+        {
+            "heat": 2554, 
+            "desc": "这是关于 Popular推荐 14 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_14", 
+            "title": "Popular推荐 14"
+        },
+        {
+            "heat": 2665, 
+            "desc": "这是关于 Popular推荐 15 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_15", 
+            "title": "Popular推荐 15"
+        },
+        {
+            "heat": 2776, 
+            "desc": "这是关于 Popular推荐 16 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_16", 
+            "title": "Popular推荐 16"
+        },
+        {
+            "heat": 2887, 
+            "desc": "这是关于 Popular推荐 17 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_17", 
+            "title": "Popular推荐 17"
+        },
+        {
+            "heat": 2998, 
+            "desc": "这是关于 Popular推荐 18 的精彩推荐。属于 popular 类别的旅行灵感。", 
+            "tag": "POPULAR", 
+            "id": "fill_popular_18", 
+            "title": "Popular推荐 18"
+        }
+    ],
+    "must_visit": [
+        {
+            "heat": 1111, 
+            "desc": "这是关于 Must_visit推荐 1 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_1", 
+            "title": "Must_visit推荐 1"
+        },
+        {
+            "heat": 1222, 
+            "desc": "这是关于 Must_visit推荐 2 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_2", 
+            "title": "Must_visit推荐 2"
+        },
+        {
+            "heat": 1333, 
+            "desc": "这是关于 Must_visit推荐 3 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_3", 
+            "title": "Must_visit推荐 3"
+        },
+        {
+            "heat": 1444, 
+            "desc": "这是关于 Must_visit推荐 4 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_4", 
+            "title": "Must_visit推荐 4"
+        },
+        {
+            "heat": 1555, 
+            "desc": "这是关于 Must_visit推荐 5 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_5", 
+            "title": "Must_visit推荐 5"
+        },
+        {
+            "heat": 1666, 
+            "desc": "这是关于 Must_visit推荐 6 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_6", 
+            "title": "Must_visit推荐 6"
+        },
+        {
+            "heat": 1777, 
+            "desc": "这是关于 Must_visit推荐 7 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_7", 
+            "title": "Must_visit推荐 7"
+        },
+        {
+            "heat": 1888, 
+            "desc": "这是关于 Must_visit推荐 8 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_8", 
+            "title": "Must_visit推荐 8"
+        },
+        {
+            "heat": 1999, 
+            "desc": "这是关于 Must_visit推荐 9 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_9", 
+            "title": "Must_visit推荐 9"
+        },
+        {
+            "heat": 2110, 
+            "desc": "这是关于 Must_visit推荐 10 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_10", 
+            "title": "Must_visit推荐 10"
+        },
+        {
+            "heat": 2221, 
+            "desc": "这是关于 Must_visit推荐 11 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_11", 
+            "title": "Must_visit推荐 11"
+        },
+        {
+            "heat": 2332, 
+            "desc": "这是关于 Must_visit推荐 12 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_12", 
+            "title": "Must_visit推荐 12"
+        },
+        {
+            "heat": 2443, 
+            "desc": "这是关于 Must_visit推荐 13 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_13", 
+            "title": "Must_visit推荐 13"
+        },
+        {
+            "heat": 2554, 
+            "desc": "这是关于 Must_visit推荐 14 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_14", 
+            "title": "Must_visit推荐 14"
+        },
+        {
+            "heat": 2665, 
+            "desc": "这是关于 Must_visit推荐 15 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_15", 
+            "title": "Must_visit推荐 15"
+        },
+        {
+            "heat": 2776, 
+            "desc": "这是关于 Must_visit推荐 16 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_16", 
+            "title": "Must_visit推荐 16"
+        },
+        {
+            "heat": 2887, 
+            "desc": "这是关于 Must_visit推荐 17 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_17", 
+            "title": "Must_visit推荐 17"
+        },
+        {
+            "heat": 2998, 
+            "desc": "这是关于 Must_visit推荐 18 的精彩推荐。属于 must_visit 类别的旅行灵感。", 
+            "tag": "MUST_VISIT", 
+            "id": "fill_must_visit_18", 
+            "title": "Must_visit推荐 18"
+        }
+    ],
+    "season": [
+        {
+            "heat": 1111, 
+            "desc": "这是关于 Season推荐 1 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_1", 
+            "title": "Season推荐 1"
+        },
+        {
+            "heat": 1222, 
+            "desc": "这是关于 Season推荐 2 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_2", 
+            "title": "Season推荐 2"
+        },
+        {
+            "heat": 1333, 
+            "desc": "这是关于 Season推荐 3 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_3", 
+            "title": "Season推荐 3"
+        },
+        {
+            "heat": 1444, 
+            "desc": "这是关于 Season推荐 4 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_4", 
+            "title": "Season推荐 4"
+        },
+        {
+            "heat": 1555, 
+            "desc": "这是关于 Season推荐 5 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_5", 
+            "title": "Season推荐 5"
+        },
+        {
+            "heat": 1666, 
+            "desc": "这是关于 Season推荐 6 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_6", 
+            "title": "Season推荐 6"
+        },
+        {
+            "heat": 1777, 
+            "desc": "这是关于 Season推荐 7 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_7", 
+            "title": "Season推荐 7"
+        },
+        {
+            "heat": 1888, 
+            "desc": "这是关于 Season推荐 8 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_8", 
+            "title": "Season推荐 8"
+        },
+        {
+            "heat": 1999, 
+            "desc": "这是关于 Season推荐 9 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_9", 
+            "title": "Season推荐 9"
+        },
+        {
+            "heat": 2110, 
+            "desc": "这是关于 Season推荐 10 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_10", 
+            "title": "Season推荐 10"
+        },
+        {
+            "heat": 2221, 
+            "desc": "这是关于 Season推荐 11 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_11", 
+            "title": "Season推荐 11"
+        },
+        {
+            "heat": 2332, 
+            "desc": "这是关于 Season推荐 12 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_12", 
+            "title": "Season推荐 12"
+        },
+        {
+            "heat": 2443, 
+            "desc": "这是关于 Season推荐 13 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_13", 
+            "title": "Season推荐 13"
+        },
+        {
+            "heat": 2554, 
+            "desc": "这是关于 Season推荐 14 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_14", 
+            "title": "Season推荐 14"
+        },
+        {
+            "heat": 2665, 
+            "desc": "这是关于 Season推荐 15 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_15", 
+            "title": "Season推荐 15"
+        },
+        {
+            "heat": 2776, 
+            "desc": "这是关于 Season推荐 16 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_16", 
+            "title": "Season推荐 16"
+        },
+        {
+            "heat": 2887, 
+            "desc": "这是关于 Season推荐 17 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_17", 
+            "title": "Season推荐 17"
+        },
+        {
+            "heat": 2998, 
+            "desc": "这是关于 Season推荐 18 的精彩推荐。属于 season 类别的旅行灵感。", 
+            "tag": "SEASON", 
+            "id": "fill_season_18", 
+            "title": "Season推荐 18"
+        }
+    ]
 };

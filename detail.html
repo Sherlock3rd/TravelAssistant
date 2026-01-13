@@ -84,7 +84,7 @@
         /* Module Containers */
         .module-box {
             border: 2px solid var(--ink-color);
-            padding: 20px;
+            padding: 35px 20px 20px 20px; /* Increased top padding to avoid title overlap */
             margin-bottom: 25px;
             background: white;
             box-shadow: 5px 5px 0px #ccc;
@@ -260,7 +260,7 @@
 
 
             if (data.hasPlan) {
-                document.getElementById('plan-body').innerHTML = data.plan;
+                document.getElementById('plan-body').innerHTML = data.content;
             } else {
                 document.getElementById('plan-body').innerHTML = `
                     <div style="text-align: center; padding: 50px;">
