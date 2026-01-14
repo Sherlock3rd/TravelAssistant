@@ -1343,17 +1343,17 @@ const questData = {
                         <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">雅拉雪山</text>
                     </g>
                     
-                     <path d="M60,150 Q200,280 350,60" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
-                     <text x="200" y="220" text-anchor="middle" font-size="12" fill="#7f8c8d">折多山</text>
-                     
-                     <path d="M350,60 Q420,60 480,130" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
-                     <text x="430" y="80" text-anchor="middle" font-size="12" fill="#7f8c8d">塔公/丹巴</text>
-                     
-                     <path d="M480,130 Q420,200 350,230" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
-                     <text x="430" y="190" text-anchor="middle" font-size="12" fill="#7f8c8d">小金</text>
-                     
-                     <path d="M350,230 Q200,180 60,150" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
-                     <text x="200" y="180" text-anchor="middle" font-size="12" fill="#7f8c8d">巴朗山/返程</text>
+                    <path d="M60,150 Q200,280 350,60" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="200" y="220" text-anchor="middle" font-size="12" fill="#2980b9">折多山 4h</text>
+                    
+                    <path d="M350,60 Q420,60 480,130" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="430" y="80" text-anchor="middle" font-size="12" fill="#2980b9">塔公 2.5h</text>
+                    
+                    <path d="M480,130 Q420,200 350,230" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="430" y="190" text-anchor="middle" font-size="12" fill="#2980b9">小金 2h</text>
+                    
+                    <path d="M350,230 Q200,180 60,150" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="200" y="180" text-anchor="middle" font-size="12" fill="#2980b9">返程 4h</text>
 
                 </svg>
             </div>

@@ -9,8 +9,9 @@ import sys
 import io
 
 # Configuration
-DATA_JS_PATH = 'data.js'
-DB_PATH = 'travel_db.json'
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_JS_PATH = os.path.join(SCRIPT_DIR, '../public/data.js')
+DB_PATH = os.path.join(SCRIPT_DIR, '../server/travel_db.json')
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
 
 # Reload sys to set default encoding if needed (Python 2 hack)

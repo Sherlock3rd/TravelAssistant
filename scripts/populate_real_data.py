@@ -4,7 +4,9 @@ import io
 import random
 import os
 
-DB_PATH = 'travel_db.json'
+# Path relative to script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(SCRIPT_DIR, '../server/travel_db.json')
 
 def generate_random_heat():
     return random.randint(1000, 50000)

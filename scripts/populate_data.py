@@ -51,7 +51,12 @@ features_pool = [
 
 # Read existing file to find max quest ID
 import io
-with io.open('d:/charlie/TravelAssistant/data.js', 'r', encoding='utf-8') as f:
+import os
+# Path relative to script location
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_JS_PATH = os.path.join(SCRIPT_DIR, '../public/data.js')
+
+with io.open(DATA_JS_PATH, 'r', encoding='utf-8') as f:
     content = f.read()
     
 existing_ids = re.findall(r'\'(quest\d+)\':', content)
@@ -110,7 +115,7 @@ if new_entries:
     # Add new data and close
     final_content = new_content + u",\n" + new_data_str + u"\n};\n"
     
-    with io.open('d:/charlie/TravelAssistant/data.js', 'w', encoding='utf-8') as f:
+    with io.open(DATA_JS_PATH, 'w', encoding='utf-8') as f:
         f.write(final_content)
         
     print("Added {} new quests.".format(len(new_entries)))

@@ -4,7 +4,15 @@ import json
 import os
 
 PORT = 8080
-DB_FILE = 'travel_db.json'
+
+# Configure paths
+SERVER_DIR = os.path.dirname(os.path.abspath(__file__))
+PUBLIC_DIR = os.path.join(SERVER_DIR, '../public')
+DB_FILE = os.path.join(SERVER_DIR, 'travel_db.json')
+
+# Change working directory to public to serve static files
+if os.path.exists(PUBLIC_DIR):
+    os.chdir(PUBLIC_DIR)
 
 class RequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_OPTIONS(self):
