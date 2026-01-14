@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
+    <meta charset="utf-8">
     <meta http-equiv="refresh" content="0; url=./public/index.html" />
-    <title>Redirecting...</title>
+    <title>正在跳转 - Travel Assistant</title>
+    <script>
+        // JavaScript 跳转作为备选方案
+        window.location.href = "./public/index.html";
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="./public/index.html">Travel Assistant</a>...</p>
+    <div class="container">
+        <p>🚀 正在带您前往 <a href="./public/index.html">Travel Assistant</a>...</p>
+        <p><small>如果浏览器没有自动跳转，请<a href="./public/index.html">点击这里</a>。</small></p>
+    </div>
 </body>
 </html>
