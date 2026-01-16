@@ -11,6 +11,7 @@ window.questData = window.questData || {};
 window.inspirationData = window.inspirationData || {};
 window.crawledData = window.crawledData || {};
 window.categoryFillData = window.categoryFillData || {};
+window.allComments = window.allComments || [];
 window.filteredComments = window.filteredComments || [];
 
 async function loadAllData() {
@@ -45,7 +46,8 @@ async function loadAllData() {
         
         // Comments
         if (commentsRes) {
-            window.filteredComments = commentsRes.comments || [];
+            window.allComments = commentsRes.comments || [];
+            window.filteredComments = [...window.allComments];
         }
 
         return true;
@@ -57,8 +59,49 @@ async function loadAllData() {
 }
 
 async function addToInspiration(trendId) {
+    console.log(`addToInspiration called for ${trendId}`);
     const data = window.crawledData[trendId];
-    if (!data) return;
+    if (!data) {
+        console.error(`Data not found in window.crawledData for ${trendId}`);
+        // Fallback: Check questData if it was a fallback item
+        if (window.questData[trendId]) {
+             console.log("Found in questData, adding as inspiration...");
+             // logic to add from questData if needed, but usually we add from crawledData
+             // If the user clicked "Hot", but it's actually a questData item (fallback), 
+             // we should probably allow adding it too?
+             // But 'source' is 'xhs_hot'. 
+             // Let's use questData if crawledData is missing
+             const qData = window.questData[trendId];
+             try {
+                const response = await fetch(QUESTS_API, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: trendId,
+                        ...qData,
+                        source: 'xhs_hot_fallback'
+                    })
+                });
+                if (response.ok) {
+                    alert('已添加至灵感岛！(Added to Inspiration Island!)');
+                    if (window.closeModal) window.closeModal();
+                    await loadAllData(); 
+                    if (window.renderInspirationGrid) window.renderInspirationGrid();
+                    if (window.switchTab) {
+                        const btn = document.querySelector('button[onclick*="inspiration"]');
+                        if (btn) window.switchTab('inspiration', btn);
+                        const hub = document.querySelector('.hub-section');
+                        if (hub) hub.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    alert('添加失败 (Failed to add)');
+                }
+             } catch(e) { console.error(e); alert('添加出错'); }
+             return;
+        }
+        alert('Data not found for adding.');
+        return;
+    }
     
     try {
         const response = await fetch(QUESTS_API, {
@@ -67,15 +110,27 @@ async function addToInspiration(trendId) {
             body: JSON.stringify({
                 id: trendId,
                 ...data,
-                source: 'xhs_hot'
+                source: 'xhs_hot',
+                // Preserve category info if available
+                category: data.category || '',
+                days: data.days || ''
             })
         });
         
         if (response.ok) {
             alert('已添加至灵感岛！(Added to Inspiration Island!)');
-            // Close modal if open? We don't have access to closeModal here easily unless it's global.
+            // Close modal if open
             if (window.closeModal) window.closeModal();
-            loadAllData(); // Refresh
+            
+            // Refresh Data
+            await loadAllData(); 
+            
+            // Refresh UI if functions exist
+            if (window.renderInspirationGrid) window.renderInspirationGrid();
+            
+            // No longer switch to inspiration tab, as it is hidden.
+            // Maybe notify user where it went?
+            // For now, just stay on current view or hot tab.
         } else {
             alert('添加失败 (Failed to add)');
         }
@@ -96,7 +151,17 @@ async function removeFromInspiration(questId) {
         if (response.ok) {
             alert('已删除 (Deleted)');
             if (window.closeModal) window.closeModal();
-            loadAllData(); // Refresh
+            
+            await loadAllData(); // Refresh
+            
+            // Remove the specific card from DOM if visible
+            const card = document.querySelector(`.card[data-id="${questId}"]`);
+            if (card) {
+                card.remove();
+                // We should re-init pagination to fix layout
+                if (window.initPagination) window.initPagination();
+            }
+            
         } else {
             alert('删除失败 (Failed to delete)');
         }

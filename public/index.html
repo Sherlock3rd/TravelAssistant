@@ -690,6 +690,7 @@
                 <h2 class="section-title">💡 灵感岛</h2>
                 <p style="font-size: 0.9rem;">Select Type:</p>
             </div>
+            <!-- <button class="tab-btn" onclick="switchTab('inspiration', this)">💡 我的灵感 (My Inspiration)</button> -->
             <!-- <button class="tab-btn" onclick="switchTab('hot', this)" style="color: #ff2442; border-color: #ff2442;">🔥 小红书热门 (Hot)</button> -->
             <button class="tab-btn active" onclick="switchTab(1, this)">🚗 单日往返 (1d)</button>
             <button class="tab-btn" onclick="switchTab(2, this)">🚙 周末短途 (2d)</button>
@@ -711,6 +712,14 @@
                     <option value="price_asc">💰 价格 (Lowest)</option>
                     <option value="price_desc">💰 价格 (Highest)</option>
                 </select>
+            </div>
+
+            <!-- Category: Inspiration Island (Hidden) -->
+            <div id="tab-inspiration" class="tab-content" style="display:none;">
+                <h3 class="category-header">💡 灵感岛 (Inspiration Island)</h3>
+                <div class="gacha-grid">
+                    <!-- JS will fill this via renderInspirationGrid -->
+                </div>
             </div>
 
             <!-- Category 1: Single Day (1d) -->
@@ -923,11 +932,10 @@
     const API_URL = window.location.protocol === 'file:' ? 'http://localhost:8080/api/comments' : '/api/comments';
     
     // Global State
-    let allComments = [];
-    let filteredComments = [];
-    let crawledData = {}; // Store crawled data
-    let inspirationData = {}; // Inspiration Island Data
-    // categoryFillData is defined in data.js
+    // questData is defined in data.js or window.questData
+    // crawledData, inspirationData, filteredComments are managed by data-loader.js
+    
+    // Local UI State
     let currentCommentPage = 1;
     const COMMENTS_PER_PAGE = 5;
 
@@ -1429,7 +1437,8 @@
 
             if (response.ok) {
                 document.getElementById('comment-form').reset();
-                loadAllData();
+                await loadAllData();
+                renderComments();
                 alert('留言成功！(Comment added successfully!)');
             } else {
                 alert('Error posting comment');
@@ -2078,8 +2087,14 @@
     // Pagination Logic
     const ITEMS_PER_PAGE = 6;
     
-    function initPagination() {
-        const tabs = document.querySelectorAll('.tab-content');
+    function initPagination(specificTabId = null) {
+        let tabs;
+        if (specificTabId) {
+            const t = document.getElementById(specificTabId);
+            tabs = t ? [t] : [];
+        } else {
+            tabs = document.querySelectorAll('.tab-content');
+        }
         
         tabs.forEach((tab, tabIndex) => {
             const grid = tab.querySelector('.gacha-grid');
@@ -2158,21 +2173,42 @@
     // --- New Data Loading & Interoperability Logic ---
     // API and Data Loading moved to data-loader.js
 
-    function renderInspirationGrid() {
-        const grid = document.querySelector('#tab-inspiration .gacha-grid');
-        if (!grid) return;
-        grid.innerHTML = '';
-        
+    function distributeInspirationToTabs() {
         const ids = Object.keys(inspirationData);
-        if (ids.length === 0) {
-            grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #888;">暂无灵感，快去小红书热门添加吧！(No inspiration yet, add from Hot Trends!)</div>';
-            return;
-        }
-        
-        const currentSeason = typeof updateSeasonDisplay === 'function' ? updateSeasonDisplay() : '';
+        if (ids.length === 0) return;
 
         ids.forEach(key => {
             const data = inspirationData[key];
+            // Determine category
+            // 1d, weekend, drive, flight, long, secret
+            // We need to parse 'days' or 'category' if available
+            // If from crawled data, it might not have clear category.
+            
+            let tabId = 'tab-1'; // Default
+            let days = data.days || '';
+            let cat = data.category || '';
+            let title = data.title || '';
+            let location = data.location || ''; // Not always available
+            
+            // Logic to guess category
+            if (cat === '1d' || days.includes('1') || days.match(/单日|1d|1 Day/i)) tabId = 'tab-1';
+            else if (cat === 'weekend' || days.includes('2') || days.match(/Weekend|2d|2 Days/i)) tabId = 'tab-2';
+            else if (cat === 'drive' || days.match(/3-5|Drive|自驾/i)) tabId = 'tab-3';
+            else if (cat === 'flight' || days.match(/Flight|高铁|High Speed/i)) tabId = 'tab-4';
+            else if (cat === 'long' || days.match(/5\+|Long/i)) tabId = 'tab-5';
+            else if (cat === 'secret' || location.match(/川西|Secret/i)) tabId = 'tab-6';
+            else {
+                 // Fallback based on text analysis if needed
+                 if (title.includes('川西')) tabId = 'tab-6';
+                 else if (title.includes('自驾')) tabId = 'tab-3';
+            }
+
+            const grid = document.querySelector(`#${tabId} .gacha-grid`);
+            if (!grid) return;
+            
+            // Check for duplicates
+            if (grid.querySelector(`[data-id="${key}"]`)) return;
+
             const card = document.createElement('div');
             card.className = 'card';
             card.dataset.id = key;
@@ -2195,8 +2231,20 @@
                 <div class="card-highlight">${data.desc}</div>
                 <div class="card-meta"><span>💡 灵感点</span></div>
             `;
+            // Insert at beginning or end? 
+            // User might want to see new things easily. Let's prepend? 
+            // But static cards are first usually. Let's append for now to not break layout flow too much.
             grid.appendChild(card);
         });
+        
+        // Re-init pagination for all affected tabs
+        // Simpler to just re-init all
+        initPagination();
+    }
+
+    // Deprecated but kept for compatibility if needed (hidden)
+    function renderInspirationGrid() {
+        distributeInspirationToTabs();
     }
 
     // Add/Remove functions are now in data-loader.js
