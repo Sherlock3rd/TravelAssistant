@@ -199,85 +199,90 @@
     </div>
 
     <script src="data.js"></script>
+    <script src="data-loader.js"></script>
     <script>
-        // Get ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const questId = urlParams.get('id');
+        window.addEventListener('load', async () => {
+            await loadAllData();
 
-        if (questId && questData[questId]) {
-            const data = questData[questId];
-            document.title = data.title + " - Plan";
-            document.getElementById('plan-title').innerText = data.title;
-            
-            // Season Tag Logic
-            const seasonTag = document.getElementById('season-tag');
-            const seasonSwitcher = document.getElementById('season-switcher');
+            // Get ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const questId = urlParams.get('id');
 
-            if (data.season) {
-                seasonTag.innerText = data.season;
-                seasonTag.style.display = 'inline-block';
-                // Dynamic styling based on season
-                if (data.season.includes('Winter') || data.season.includes('冬')) {
-                    seasonTag.style.background = '#e1f5fe'; seasonTag.style.color = '#01579b'; seasonTag.style.borderColor = '#0288d1';
-                } else if (data.season.includes('Summer') || data.season.includes('夏')) {
-                    seasonTag.style.background = '#fff3e0'; seasonTag.style.color = '#e65100'; seasonTag.style.borderColor = '#ef6c00';
-                } else if (data.season.includes('Spring') || data.season.includes('春')) {
-                    seasonTag.style.background = '#f1f8e9'; seasonTag.style.color = '#33691e'; seasonTag.style.borderColor = '#558b2f';
-                } else if (data.season.includes('Autumn') || data.season.includes('秋')) {
-                    seasonTag.style.background = '#fbe9e7'; seasonTag.style.color = '#bf360c'; seasonTag.style.borderColor = '#d84315';
-                }
-            } else {
-                seasonTag.style.display = 'none';
-            }
+            if (questId && questData[questId]) {
+                const data = questData[questId];
+                document.title = data.title + " - Plan";
+                document.getElementById('plan-title').innerText = data.title;
+                
+                // Season Tag Logic
+                const seasonTag = document.getElementById('season-tag');
+                const seasonSwitcher = document.getElementById('season-switcher');
 
-            // Seasonal Switcher Logic
-            if (data.seasonal_variants) {
-                seasonSwitcher.style.display = 'inline-block';
-                let switchHtml = '';
-                for (const [key, variantId] of Object.entries(data.seasonal_variants)) {
-                    if (variantId !== questId) { // Only show other seasons
-                        let btnText = key.charAt(0).toUpperCase() + key.slice(1);
-                        let icon = '🔄';
-                        if (key === 'winter') icon = '❄️';
-                        if (key === 'summer') icon = '🌿';
-                        
-                        switchHtml += `<button onclick="window.location.search='?id=${variantId}'" style="
-                            background: white; 
-                            border: 1px solid var(--ink-color); 
-                            border-radius: 15px; 
-                            padding: 2px 10px; 
-                            font-size: 0.8rem; 
-                            cursor: pointer; 
-                            margin-left: 5px;
-                            font-family: inherit;
-                        ">${icon} Switch to ${btnText}</button>`;
+                if (data.season) {
+                    seasonTag.innerText = data.season;
+                    seasonTag.style.display = 'inline-block';
+                    // Dynamic styling based on season
+                    if (data.season.includes('Winter') || data.season.includes('冬')) {
+                        seasonTag.style.background = '#e1f5fe'; seasonTag.style.color = '#01579b'; seasonTag.style.borderColor = '#0288d1';
+                    } else if (data.season.includes('Summer') || data.season.includes('夏')) {
+                        seasonTag.style.background = '#fff3e0'; seasonTag.style.color = '#e65100'; seasonTag.style.borderColor = '#ef6c00';
+                    } else if (data.season.includes('Spring') || data.season.includes('春')) {
+                        seasonTag.style.background = '#f1f8e9'; seasonTag.style.color = '#33691e'; seasonTag.style.borderColor = '#558b2f';
+                    } else if (data.season.includes('Autumn') || data.season.includes('秋')) {
+                        seasonTag.style.background = '#fbe9e7'; seasonTag.style.color = '#bf360c'; seasonTag.style.borderColor = '#d84315';
                     }
+                } else {
+                    seasonTag.style.display = 'none';
                 }
-                seasonSwitcher.innerHTML = switchHtml;
-            } else {
-                seasonSwitcher.style.display = 'none';
-            }
+
+                // Seasonal Switcher Logic
+                if (data.seasonal_variants) {
+                    seasonSwitcher.style.display = 'inline-block';
+                    let switchHtml = '';
+                    for (const [key, variantId] of Object.entries(data.seasonal_variants)) {
+                        if (variantId !== questId) { // Only show other seasons
+                            let btnText = key.charAt(0).toUpperCase() + key.slice(1);
+                            let icon = '🔄';
+                            if (key === 'winter') icon = '❄️';
+                            if (key === 'summer') icon = '🌿';
+                            
+                            switchHtml += `<button onclick="window.location.search='?id=${variantId}'" style="
+                                background: white; 
+                                border: 1px solid var(--ink-color); 
+                                border-radius: 15px; 
+                                padding: 2px 10px; 
+                                font-size: 0.8rem; 
+                                cursor: pointer; 
+                                margin-left: 5px;
+                                font-family: inherit;
+                            ">${icon} Switch to ${btnText}</button>`;
+                        }
+                    }
+                    seasonSwitcher.innerHTML = switchHtml;
+                } else {
+                    seasonSwitcher.style.display = 'none';
+                }
 
 
-            if (data.hasPlan) {
-                document.getElementById('plan-body').innerHTML = data.content;
+                if (data.hasPlan) {
+                    document.getElementById('plan-body').innerHTML = data.content;
+                } else {
+                    document.getElementById('plan-body').innerHTML = `
+                        <div style="text-align: center; padding: 50px;">
+                            <h2>🚧 施工中 (Under Construction)</h2>
+                            <p>该目的地的详细攻略正在绘制中，请稍后再来！</p>
+                            <p>Detailed plan is being drawn by our comic artists...</p>
+                        </div>
+                    `;
+                }
             } else {
                 document.getElementById('plan-body').innerHTML = `
-                    <div style="text-align: center; padding: 50px;">
-                        <h2>🚧 施工中 (Under Construction)</h2>
-                        <p>该目的地的详细攻略正在绘制中，请稍后再来！</p>
-                        <p>Detailed plan is being drawn by our comic artists...</p>
+                    <div style="text-align: center; color: red;">
+                        <h2>❌ Error 404</h2>
+                        <p>Quest not found!</p>
                     </div>
                 `;
             }
-        } else {
-            document.getElementById('plan-body').innerHTML = `
-                <div style="text-align: center; color: red;">
-                    <h2>❌ Error 404</h2>
-                    <p>Quest not found!</p>
-                </div>
-            `;
-        }
+        });
     </script>
 </body>
 </html>

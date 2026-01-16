@@ -917,7 +917,8 @@
 </div>
 
 <script src="data.js"></script>
-<script>
+    <script src="data-loader.js"></script>
+    <script>
     // --- Comment System ---
     const API_URL = window.location.protocol === 'file:' ? 'http://localhost:8080/api/comments' : '/api/comments';
     
@@ -925,42 +926,12 @@
     let allComments = [];
     let filteredComments = [];
     let crawledData = {}; // Store crawled data
+    let inspirationData = {}; // Inspiration Island Data
     // categoryFillData is defined in data.js
     let currentCommentPage = 1;
     const COMMENTS_PER_PAGE = 5;
 
-    async function loadComments() {
-        try {
-            // Render Hot Tab immediately if data is available (unlikely on first load but good practice)
-            renderHotTab(); 
-
-            const response = await fetch(API_URL);
-            if (!response.ok) throw new Error('Network response was not ok');
-            const data = await response.json();
-            
-            // Store global
-            allComments = data.comments || [];
-            crawledData = data.crawled_data || {}; // Store crawled data
-            if (data.category_fill && Object.keys(data.category_fill).length > 0) {
-                categoryFillData = data.category_fill;
-            }
-            
-            // Initial: all comments are filtered comments (no filter applied)
-            applyCommentFilter(); 
-            
-            // Update cards with heat info
-            updateCardsWithHeat();
-            renderHotTab(); // Render the Hot Tab
-            renderAllTabs(); // Re-render tabs to include filled data
-            
-            // Re-sort and re-paginate to include new data
-            const sortVal = document.getElementById('sort-select').value || 'score_desc';
-            sortCards(sortVal);
-        } catch (error) {
-            console.error('Error loading comments:', error);
-            document.getElementById('comment-list').innerHTML = '<p style="text-align:center; color:red;">Failed to load comments. (Ensure server.py is running)</p>';
-        }
-    }
+    // loadComments removed in favor of loadAllData
 
     function applyCommentFilter() {
         const dateInput = document.getElementById('comment-date-filter');
@@ -1050,7 +1021,14 @@
             // Create Card
             const card = document.createElement('div');
             card.className = 'card';
-            card.onclick = function() { openModal(id); };
+            card.dataset.id = id;
+            card.onclick = function() { 
+                if (questData[id] && questData[id].hasPlan) {
+                    window.location.href = `detail.html?id=${id}`;
+                } else {
+                    openModal(id); 
+                }
+            };
             
             // Random or Generic Icon
             const iconSvg = `<svg width="60" height="60" viewBox="0 0 100 100">
@@ -1063,7 +1041,7 @@
                 <div class="icon-box">${iconSvg}</div>
                 <div class="card-title">${q.title}</div>
                 <div class="location-text">🇨🇳 推荐目的地</div>
-                <div class="card-highlight">${q.desc.substring(0, 30)}...</div>
+                <div class="card-highlight">${(q.desc || "").substring(0, 30)}...</div>
                 <div class="card-meta"><span>📅 ${q.season || '全年'}</span><span>💰 ${q.cost || '¥500+'}</span></div>
             `;
             
@@ -1108,6 +1086,7 @@
                      // Create Card
                      const card = document.createElement('div');
                      card.className = 'card';
+                     card.dataset.id = item.id;
                      card.onclick = function() { 
                          // Ensure it's in questData for modal
                          if (!questData[item.id]) {
@@ -1120,7 +1099,11 @@
                                  days: 'Plan'
                              };
                          }
-                         openModal(item.id); 
+                         if (questData[item.id] && questData[item.id].hasPlan) {
+                            window.location.href = `detail.html?id=${item.id}`;
+                        } else {
+                            openModal(item.id); 
+                        }
                      };
                      
                      // Random or Generic Icon
@@ -1134,7 +1117,7 @@
                         <div class="icon-box">${iconSvg}</div>
                         <div class="card-title">${item.title}</div>
                         <div class="location-text">🇨🇳 推荐目的地</div>
-                        <div class="card-highlight">${item.desc.substring(0, 30)}...</div>
+                        <div class="card-highlight">${(item.desc || "").substring(0, 30)}...</div>
                         <div class="card-meta">
                             <span>📅 全年</span>
                             <span class="heat-badge" style="margin-left:auto;">🔥 ${item.heat}</span>
@@ -1174,8 +1157,21 @@
         const grid = document.getElementById('featured-grid');
         if (!grid) return;
         grid.innerHTML = '';
+        
+        const currentSeason = updateSeasonDisplay(); // Ensure season is updated
+        
+        const getSeasonTag = (s) => {
+            let color = '#e0f7fa', text = '#006064', border = '#0097a7', label = s;
+            if (s.match(/Winter|冬/i)) { color='#e1f5fe'; text='#01579b'; border='#0288d1'; label='❄️ 冬季'; }
+            else if (s.match(/Summer|夏/i)) { color='#fff3e0'; text='#e65100'; border='#ef6c00'; label='🌿 夏季'; }
+            else if (s.match(/Spring|春/i)) { color='#f1f8e9'; text='#33691e'; border='#558b2f'; label='🌸 春季'; }
+            else if (s.match(/Autumn|秋/i)) { color='#fbe9e7'; text='#bf360c'; border='#d84315'; label='🍂 秋季'; }
+            
+            if (label === s && s.includes(' ')) label = s.split(' ')[0]; 
+            return `<span style="background:${color};color:${text};border:1px dashed ${border};padding:2px 6px;border-radius:4px;font-size:0.8rem;margin-left:5px;">${label}</span>`;
+        };
 
-        const featuredIds = Object.keys(questData).filter(id => questData[id].hasPlan);
+        const featuredIds = Object.keys(questData).filter(id => questData[id].hasPlan && !questData[id].isVariant);
         
         if (featuredIds.length === 0) {
              grid.innerHTML = '<p style="text-align:center; width:100%; color:#888;">More detailed guides coming soon!</p>';
@@ -1183,24 +1179,41 @@
         }
 
         featuredIds.forEach(id => {
-            const q = questData[id];
+            const data = questData[id];
             const card = document.createElement('div');
             card.className = 'card';
-            card.onclick = function() { openModal(id); };
+            card.dataset.id = id;
+            card.onclick = function() { window.location.href = `detail.html?id=${id}`; };
             
             // Icon logic
-            const iconSvg = `<svg width="60" height="60" viewBox="0 0 100 100">
-                <rect x="20" y="20" width="60" height="60" rx="10" fill="none" stroke="var(--ink-color)" stroke-width="2"/>
-                <path d="M30 30 H70 M30 50 H70 M30 70 H50" stroke="var(--ink-color)" stroke-width="2"/>
-            </svg>`;
+            let iconSvg = '<svg width="60" height="60" viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="none" stroke="black" stroke-width="2"/><text x="30" y="60" font-size="40">⭐</text></svg>';
+
+            let seasonHtml = '';
+            let isSeasonal = false;
+
+            if (data.seasonal_variants) {
+                Object.keys(data.seasonal_variants).forEach(k => {
+                    seasonHtml += getSeasonTag(k);
+                    if (isQuestInSeason(k, currentSeason)) isSeasonal = true;
+                });
+            } else if (data.season) {
+                seasonHtml = getSeasonTag(data.season);
+                if (isQuestInSeason(data.season, currentSeason)) isSeasonal = true;
+            }
+
+            let badgeHtml = '';
+            if (isSeasonal) {
+                badgeHtml = `<div class="card-tag" style="top: 35px; background-color: #ff6b6b; color: white; border-color: #c0392b;">🔥 正当季</div>`;
+            }
 
             card.innerHTML = `
-                <div class="card-tag tag-med">Featured</div>
+                <div class="card-tag tag-long" style="background:gold;">${data.days || 'Detailed Plan'}</div>
+                ${badgeHtml}
                 <div class="icon-box">${iconSvg}</div>
-                <div class="card-title">${q.title}</div>
+                <div class="card-title">${data.title}</div>
                 <div class="location-text">🇨🇳 推荐攻略</div>
-                <div class="card-highlight">${q.desc.substring(0, 30)}...</div>
-                <div class="card-meta"><span>📅 ${q.days || 'Plan'}</span><span>💰 ${q.cost || 'N/A'}</span></div>
+                <div class="card-highlight">${data.desc}</div>
+                <div class="card-meta"><span>📜 含详细行程${seasonHtml}</span></div>
             `;
             grid.appendChild(card);
         });
@@ -1273,24 +1286,10 @@
             const div = document.createElement('div');
             div.className = 'hot-list-item';
             div.onclick = function() {
-                // If it's a real crawled item (not in questData), we might not have a detail page
-                // But we can still open the modal if we add it to questData dynamically or just handle it here
-                if (questData[item.id]) {
+                if (questData[item.id] && questData[item.id].hasPlan) {
                     window.location.href = `detail.html?id=${item.id}`;
                 } else {
-                    // For now, just open the modal with available info
-                    // We need to temporarily add it to questData so openModal works, 
-                    // or just alert. Let's try to mock it into questData for the modal.
-                    if (!questData[item.id]) {
-                        questData[item.id] = {
-                            title: title,
-                            desc: desc,
-                            days: daysDisplay,
-                            heat: item.heat,
-                            category: item.category || 'other'
-                        };
-                    }
-                    openModal(item.id);
+                    openModal(item.id, 'xhs_hot');
                 }
             };
 
@@ -1430,7 +1429,7 @@
 
             if (response.ok) {
                 document.getElementById('comment-form').reset();
-                loadComments();
+                loadAllData();
                 alert('留言成功！(Comment added successfully!)');
             } else {
                 alert('Error posting comment');
@@ -1441,7 +1440,7 @@
         }
     }
 
-    window.addEventListener('load', loadComments);
+    // window.addEventListener('load', loadComments);
 
 </script>
 <script>
@@ -1691,8 +1690,72 @@
         container.innerHTML = svg;
     }
 
+    function highlightStaticCards() {
+        const currentSeason = updateSeasonDisplay();
+        // Highlight static cards in tabs
+        const cards = document.querySelectorAll('.tab-content .card');
+        cards.forEach(card => {
+             let id = card.dataset.id;
+             if (!id) {
+                 const onclick = card.getAttribute('onclick');
+                 if (onclick) {
+                     const match = onclick.match(/'([^']+)'/);
+                     if (match) {
+                         id = match[1];
+                     }
+                 }
+             }
+
+             if (id) {
+                 const data = questData[id];
+                 let isSeasonal = false;
+                 
+                 if (data) {
+                      if (data.season && isQuestInSeason(data.season, currentSeason)) isSeasonal = true;
+                      if (data.seasonal_variants && data.seasonal_variants[currentSeason.toLowerCase()]) isSeasonal = true;
+                 } else {
+                      // Check DOM
+                      const metaSpan = card.querySelector('.card-meta span:first-child');
+                      if (metaSpan && isQuestInSeason(metaSpan.innerText, currentSeason)) isSeasonal = true;
+                 }
+
+                 if (isSeasonal) {
+                     if (card.querySelector('.seasonal-badge')) return;
+                     const badge = document.createElement('div');
+                     badge.className = 'card-tag seasonal-badge';
+                     badge.style.top = '35px'; 
+                     badge.style.backgroundColor = '#ff6b6b';
+                     badge.style.color = 'white';
+                     badge.style.borderColor = '#c0392b';
+                     badge.innerHTML = '🔥 正当季';
+                     card.appendChild(badge);
+                 }
+                 
+                 // Update Click Handler for Detailed Guides
+                 if (data && data.hasPlan) {
+                     card.onclick = function() {
+                         window.location.href = `detail.html?id=${id}`;
+                     };
+                     // Visual cue
+                     if (!card.querySelector('.plan-indicator')) {
+                         const ind = document.createElement('div');
+                         ind.className = 'plan-indicator';
+                         ind.innerHTML = '📜';
+                         ind.style.position = 'absolute';
+                         ind.style.bottom = '10px';
+                         ind.style.right = '10px';
+                         ind.style.fontSize = '1.2rem';
+                         ind.title = 'Detailed Plan Available';
+                         card.appendChild(ind);
+                     }
+                 }
+             }
+         });
+    }
+
     // Populate Featured Tab & Init Season
-    window.onload = function() {
+    // window.onload = function() {
+    const _unused_onload = function() {
         const currentSeason = updateSeasonDisplay();
         const featuredGrid = document.getElementById('featured-grid');
 
@@ -1784,9 +1847,8 @@
         }
         
         // Load Comments & Crawled Data
-        if (typeof loadComments === 'function') {
-            loadComments();
-        }
+        // loadComments removed
+
     };
 
     function generateScene(title, desc) {
@@ -1849,12 +1911,30 @@
         return `<svg width="100%" height="100%" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice">${svgContent}</svg>`;
     }
 
-    function openModal(questId) {
+    function openModal(questId, source) {
         const modal = document.getElementById('modal-template');
-        const data = questData[questId];
         
-        document.getElementById('modal-title').innerText = data.title;
-        document.getElementById('modal-desc').innerText = data.desc;
+        // Resolve Data Source
+        let data = null;
+        if (source === 'xhs_hot') {
+            data = crawledData[questId];
+        } else if (source === 'inspiration') {
+            data = inspirationData[questId];
+        } else {
+            // Default/Plan or unknown
+            data = questData[questId];
+        }
+        
+        // Fallback lookup
+        if (!data) data = questData[questId] || inspirationData[questId] || crawledData[questId];
+        
+        if (!data) {
+            console.error("Data not found for", questId);
+            return;
+        }
+        
+        document.getElementById('modal-title').innerText = data.title || "No Title";
+        document.getElementById('modal-desc').innerText = data.desc || "No Description";
         document.getElementById('modal-route').innerText = data.route || "暂无路线信息 (Route info not available)";
         
         // Scoring & Radar Chart
@@ -1885,13 +1965,13 @@
             if (data.static_scores) {
                 const radarScores = { ...data.static_scores };
                 radarScores.season = isSeasonal ? 5 : 1;
-                // Wait for modal to be visible for correct sizing? No, SVG uses viewBox.
                 renderRadarChart('modal-radar-chart', radarScores);
             }
         }
 
         const visualContainer = document.getElementById('modal-visual');
-        visualContainer.innerHTML = generateScene(data.title, data.desc);
+        // generateScene might fail if title/desc are missing
+        visualContainer.innerHTML = generateScene(data.title || "", data.desc || "");
         
         const featureList = document.getElementById('modal-features');
         featureList.innerHTML = "";
@@ -1908,10 +1988,12 @@
         const newsListEl = document.getElementById('modal-news-list');
         
         if (newsSection) {
-            if (crawledData && crawledData[questId]) {
-                const cData = crawledData[questId];
+            // Use data itself if it has news (crawled data), or look it up in crawledData
+            // If we opened from plan, we might still want to show related news if available in crawledData
+            const cData = data.news ? data : (crawledData && crawledData[questId] ? crawledData[questId] : null);
+            
+            if (cData) {
                 newsSection.style.display = 'block';
-                
                 heatScoreEl.innerText = cData.heat || 0;
                 newsTimeEl.innerText = cData.last_updated || '-';
                 
@@ -1920,7 +2002,9 @@
                     cData.news.forEach(newsItem => {
                         const li = document.createElement('li');
                         li.style.marginBottom = '5px';
-                        li.innerHTML = `<a href="${newsItem.url}" target="_blank" style="color:#0277bd; text-decoration:none;">${newsItem.title}</a> <span style="color:#666; font-size:0.8rem;">- ${newsItem.snippet.substring(0, 50)}...</span>`;
+                        // Safety check for snippet
+                        const snippet = newsItem.snippet ? newsItem.snippet : "";
+                        li.innerHTML = `<a href="${newsItem.url}" target="_blank" style="color:#0277bd; text-decoration:none;">${newsItem.title}</a> <span style="color:#666; font-size:0.8rem;">- ${snippet.substring(0, 50)}...</span>`;
                         newsListEl.appendChild(li);
                     });
                 } else {
@@ -1943,35 +2027,45 @@
             if (data.hasPlan) {
                 planBtn.style.display = 'block';
                 planBtn.innerText = '📜 查看详细方案 (View Detailed Plan)';
-                // Direct show logic instead of navigation if desired, or keep navigation
-                // For "detailed guide is empty" issue:
-                // User said "detailed plan point in is empty".
-                // If they mean clicking this button leads to detail.html and it's empty, or
-                // if they mean the modal itself is empty?
-                // Assuming they mean the modal content.
-                // But wait, user said "detailed攻略点进去为空了" -> likely means clicking the card opens modal,
-                // and then clicking "View Detailed Plan" goes to a new page (detail.html) which is empty?
-                // OR the modal content is empty?
-                // If detail.html is empty, I should check detail.html.
-                // If they mean the modal shows no content, I see code above filling modal content.
-                
-                // Let's assume for a moment the user might want to see plan in modal directly for some reason,
-                // OR detail.html is broken.
-                // Let's check detail.html.
                 planBtn.onclick = function() {
-                     // Check if we can show it in-place or navigate
                      if (data.content) {
                         planDiv.innerHTML = data.content;
                         planDiv.style.display = 'block';
-                        planBtn.style.display = 'none'; // Hide button after showing
+                        planBtn.style.display = 'none';
                      } else {
-                        // Fallback to detail.html if content not in data.js (which shouldn't happen for restored plans)
                         window.location.href = `detail.html?id=${questId}`;
                      }
                 };
             } else {
                 planBtn.style.display = 'none';
             }
+        }
+
+        // --- Interoperability Buttons ---
+        let actionContainer = document.getElementById('modal-actions');
+        if (!actionContainer) {
+            actionContainer = document.createElement('div');
+            actionContainer.id = 'modal-actions';
+            // Try to append to modal-right
+            const right = document.querySelector('.modal-right');
+            if (right) right.appendChild(actionContainer);
+        }
+        actionContainer.innerHTML = ''; 
+        
+        if (source === 'xhs_hot') {
+            const addBtn = document.createElement('button');
+            addBtn.className = 'action-btn';
+            addBtn.style.background = '#e91e63'; 
+            addBtn.innerText = '➕ 添加至灵感岛 (Add to Inspiration)';
+            addBtn.onclick = () => addToInspiration(questId);
+            actionContainer.appendChild(addBtn);
+        } else if (source === 'inspiration') {
+            const delBtn = document.createElement('button');
+            delBtn.className = 'action-btn';
+            delBtn.style.background = '#d32f2f'; 
+            delBtn.innerText = '🗑️ 从灵感岛删除 (Delete)';
+            delBtn.onclick = () => removeFromInspiration(questId);
+            actionContainer.appendChild(delBtn);
         }
 
         modal.style.display = "flex";
@@ -2060,6 +2154,64 @@
             modal.style.display = "none";
         }
     }
+
+    // --- New Data Loading & Interoperability Logic ---
+    // API and Data Loading moved to data-loader.js
+
+    function renderInspirationGrid() {
+        const grid = document.querySelector('#tab-inspiration .gacha-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        
+        const ids = Object.keys(inspirationData);
+        if (ids.length === 0) {
+            grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #888;">暂无灵感，快去小红书热门添加吧！(No inspiration yet, add from Hot Trends!)</div>';
+            return;
+        }
+        
+        const currentSeason = typeof updateSeasonDisplay === 'function' ? updateSeasonDisplay() : '';
+
+        ids.forEach(key => {
+            const data = inspirationData[key];
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.id = key;
+            card.onclick = () => {
+                if (questData[key] && questData[key].hasPlan) {
+                    window.location.href = `detail.html?id=${key}`;
+                } else {
+                    openModal(key, 'inspiration');
+                }
+            };
+            
+            // Icon
+            let iconSvg = '<svg width="60" height="60" viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="none" stroke="black" stroke-width="2"/><text x="30" y="60" font-size="40">💡</text></svg>';
+            
+            card.innerHTML = `
+                <div class="card-tag tag-short" style="background:#a8e6cf;">Inspiration</div>
+                <div class="icon-box">${iconSvg}</div>
+                <div class="card-title">${data.title}</div>
+                <div class="location-text">📍 灵感收藏</div>
+                <div class="card-highlight">${data.desc}</div>
+                <div class="card-meta"><span>💡 灵感点</span></div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // Add/Remove functions are now in data-loader.js
+
+    window.addEventListener('load', async () => {
+        await loadAllData();
+        renderFeatured();
+        renderAllTabs();
+        highlightStaticCards();
+        renderInspirationGrid();
+        renderHotTab();
+        renderComments();
+        initScoring();
+        initPagination();
+    });
 </script>
 
 </body>
