@@ -2240,31 +2240,29 @@ const questData = {
         <div class="module-box">
             <div class="module-title">⏳ 3. 时间轴 (Timeline - 4 Days)</div>
             <div class="day-block">
-                <div class="time-slot"><strong>Day 1:</strong> 初识敦煌</div>
+                <div class="time-slot"><strong>Day 1 (4月4日):</strong> 抵达 & 文化初体验</div>
                 <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 敦煌市区 | 🌡️ 气温: 15°C</div>
-                <p><strong>🌞 上午:</strong> 抵达敦煌，入住酒店。</p>
-                <p><strong>☕ 下午:</strong> 前往【敦煌博物馆】预习历史，看1:1复原特窟。博物馆免票但需预约。</p>
-                <p><strong>🌙 晚上:</strong> 逛【沙洲夜市】，品尝驴肉黄面和杏皮水。</p>
+                <p><strong>🌞 下午:</strong> 抵达敦煌，入住酒店后，直奔【敦煌博物馆】（免费）。从4月1日起，博物馆执行夏季开放时间：周二至周日9:00-18:30（17:30停止入馆），时间完全来得及。</p>
+                <p><strong>🌙 晚上:</strong> 去【沙州夜市】品尝驴肉黄面等地道美食。</p>
+                <p><em>💡 Charlie's Tip: 建议提前通过“敦煌博物馆”官方微信公众号预约。</em></p>
             </div>
             <div class="day-block">
-                <div class="time-slot"><strong>Day 2:</strong> 千年信仰与大漠日落</div>
-                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 莫高窟 -> 鸣沙山 | 🌡️ 气温: 18°C</div>
-                <p><strong>🌞 上午:</strong> 前往【莫高窟】（需预留4-5小时），先看两部震撼的数字电影，再进入实体洞窟。</p>
-                <p><strong>☕ 下午:</strong> 4点后进入【鸣沙山·月牙泉】，骑骆驼，爬沙山等候绝美日落。</p>
-                <p><strong>🌙 晚上:</strong> 推荐观看《又见敦煌》情景剧。</p>
+                <div class="time-slot"><strong>Day 2 (4月5日):</strong> 西线全景游</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 敦煌古城 -> 阳关 -> 玉门关 -> 雅丹魔鬼城 | 🌡️ 气温: 18°C</div>
+                <p><strong>🌞 全天:</strong> 包车或拼车游览西线，感受戈壁苍茫。经典路线为：【敦煌古城】→【阳关】→【玉门关】→【雅丹国家地质公园】（魔鬼城）。</p>
+                <p><em>💡 Charlie's Tip: 5座轿车或SUV包车费用通常在400-800元/天之间。西线路途远，请备足干粮和水；春季日落时间约19:00-19:30，记得在雅丹魔鬼城守候壮丽日落。</em></p>
             </div>
             <div class="day-block">
-                <div class="time-slot"><strong>Day 3:</strong> 西线探秘·苍凉戈壁</div>
-                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 敦煌古城 -> 阳关 -> 玉门关 -> 雅丹魔鬼城 | 🌡️ 气温: 20°C</div>
-                <p><strong>🌞 上午:</strong> 包车西线一日游。途径【敦煌古城】可租西域服饰旅拍，前往【阳关遗址】办理通关文牒。</p>
-                <p><strong>☕ 下午:</strong> 游览【玉门关】，傍晚抵达【雅丹魔鬼城】看震撼的风蚀地貌日落。</p>
-                <p><strong>🌙 晚上:</strong> 返回市区，西线往返300多公里，请自备干粮。</p>
+                <div class="time-slot"><strong>Day 3 (4月6日):</strong> 沙漠大片日</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 鸣沙山月牙泉 | 🌡️ 气温: 20°C</div>
+                <p><strong>🌞 全天:</strong> 前往【鸣沙山月牙泉】。上午可租盔甲或飞天服拍照，下午体验骑骆驼、滑沙。</p>
+                <p><em>💡 Charlie's Tip: 门票110元/人，购票后三天内有效，非常适合反复进园。</em></p>
             </div>
             <div class="day-block">
-                <div class="time-slot"><strong>Day 4:</strong> 悠闲慢时光与返程</div>
-                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 敦煌市区 -> 机场/高铁站</div>
-                <p><strong>🌞 上午:</strong> 可前往唐风古刹【雷音寺】清心，或在市区采购伴手礼（李广杏干、鸣山大枣）。</p>
-                <p><strong>☕ 下午:</strong> 根据航班/列车时间返程。</p>
+                <div class="time-slot"><strong>Day 4 (4月7日):</strong> 莫高窟 & 返程</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 莫高窟 -> 机场/高铁站</div>
+                <p><strong>🌞 上午:</strong> 参观【莫高窟】。门票务必提前在“莫高窟参观预约网”小程序预约。4月已进入旅游旺季，建议至少提前7天购票。</p>
+                <p><strong>☕ 下午:</strong> 根据航班时间，结束愉快的敦煌之旅。</p>
             </div>
         </div>
 
