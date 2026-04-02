@@ -1872,32 +1872,44 @@
         let svgContent = `<rect width="100%" height="100%" fill="${skyColor}" fill-opacity="0.3"/>`;
         
         const t = (title + desc).toLowerCase();
+
+        // Define Character SVG (Foreground)
+        const characterSvg = `<g transform="translate(300, 700) scale(1.5)">
+            <circle cx="0" cy="0" r="15" fill="white" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="15" x2="0" y2="60" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="30" x2="-20" y2="50" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="30" x2="20" y2="10" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="60" x2="-15" y2="100" stroke="black" stroke-width="2"/>
+            <line x1="0" y1="60" x2="15" y2="100" stroke="black" stroke-width="2"/>
+        </g>`;
         
         if (t.includes('雪') || t.includes('snow') || t.includes('winter') || t.includes('ice') || t.includes('北海道') || t.includes('冰岛') || t.includes('冷') || t.includes('川西') || t.includes('mountain') || t.includes('glacier') || t.includes('冰川')) {
             // Snow/Mountain theme
             svgContent = `<rect width="100%" height="100%" fill="#E0F7FA"/>`;
+            // Sun (Background)
+            svgContent += `<circle cx="500" cy="100" r="40" fill="#FFEB3B" stroke="black" stroke-width="2"/>`;
+            // Mountains
             svgContent += `<path d="M0 900 L300 400 L600 900" fill="white" stroke="#90A4AE" stroke-width="2"/>`;
             svgContent += `<path d="M-100 900 L200 500 L500 900" fill="#F5F5F5" stroke="#90A4AE" stroke-width="2"/>`;
-            // Sun
-            svgContent += `<circle cx="500" cy="100" r="40" fill="#FFEB3B" stroke="black" stroke-width="2"/>`;
         } else if (t.includes('海') || t.includes('sea') || t.includes('beach') || t.includes('island') || t.includes('ocean') || t.includes('水') || t.includes('湖')) {
             // Ocean theme
             svgContent = `<rect width="100%" height="100%" fill="#E1F5FE"/>`;
+            // Sun (Background)
+            svgContent += `<circle cx="100" cy="100" r="50" fill="#FFEB3B" stroke="black" stroke-width="2"/>`;
+            // Ocean
             svgContent += `<rect x="0" y="500" width="100%" height="400" fill="#4FC3F7"/>`;
-            // Waves
             svgContent += `<path d="M0 500 Q 150 450, 300 500 T 600 500" fill="none" stroke="white" stroke-width="5"/>`;
             svgContent += `<path d="M0 600 Q 150 550, 300 600 T 600 600" fill="none" stroke="white" stroke-width="5"/>`;
-            // Sun
-            svgContent += `<circle cx="100" cy="100" r="50" fill="#FFEB3B" stroke="black" stroke-width="2"/>`;
         } else if (t.includes('草') || t.includes('forest') || t.includes('tree') || t.includes('park') || t.includes('林') || t.includes('自然')) {
             // Nature theme
             svgContent = `<rect width="100%" height="100%" fill="#F1F8E9"/>`;
             svgContent += `<path d="M0 900 Q 300 600, 600 900" fill="#C5E1A5" stroke="black" stroke-width="2"/>`;
-            // Trees
-            svgContent += `<path d="M100 700 L150 600 L200 700 Z" fill="#558B2F" stroke="black" stroke-width="2"/>`;
+            // Trees: Trunk FIRST, then Leaves
             svgContent += `<rect x="140" y="700" width="20" height="40" fill="#795548" stroke="black" stroke-width="2"/>`;
-            svgContent += `<path d="M400 800 L450 700 L500 800 Z" fill="#558B2F" stroke="black" stroke-width="2"/>`;
+            svgContent += `<path d="M100 700 L150 600 L200 700 Z" fill="#558B2F" stroke="black" stroke-width="2"/>`;
+            
             svgContent += `<rect x="440" y="800" width="20" height="40" fill="#795548" stroke="black" stroke-width="2"/>`;
+            svgContent += `<path d="M400 800 L450 700 L500 800 Z" fill="#558B2F" stroke="black" stroke-width="2"/>`;
         } else {
             // City/Generic theme
             svgContent = `<rect width="100%" height="100%" fill="${skyColor}" fill-opacity="0.2"/>`;
@@ -1907,15 +1919,7 @@
             svgContent += `<rect x="500" y="500" width="100" height="400" fill="#B0BEC5" stroke="black" stroke-width="2"/>`;
         }
 
-        // Add a simple character (Stick figure)
-        svgContent += `<g transform="translate(300, 700) scale(1.5)">
-            <circle cx="0" cy="0" r="15" fill="white" stroke="black" stroke-width="2"/>
-            <line x1="0" y1="15" x2="0" y2="60" stroke="black" stroke-width="2"/>
-            <line x1="0" y1="30" x2="-20" y2="50" stroke="black" stroke-width="2"/>
-            <line x1="0" y1="30" x2="20" y2="10" stroke="black" stroke-width="2"/>
-            <line x1="0" y1="60" x2="-15" y2="100" stroke="black" stroke-width="2"/>
-            <line x1="0" y1="60" x2="15" y2="100" stroke="black" stroke-width="2"/>
-        </g>`;
+        svgContent += characterSvg;
 
         return `<svg width="100%" height="100%" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice">${svgContent}</svg>`;
     }

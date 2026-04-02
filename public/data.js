@@ -2164,6 +2164,143 @@ const questData = {
         hasPlan: false,
         features: ["网红打卡 (Instagrammable)", "拍照神地 (Photography)", "亲子游 (Family)"],
         route: "成都 -> 阆中古镇 -> 成都"
+    },
+    'quest125': {
+        category: "flight",
+        hasPlan: true,
+        title: "敦煌 (Dunhuang)",
+        season: "🌸 春季 (Spring)",
+        days: "4 Days",
+        desc: "清明假期的最佳选择。避开人海，探秘千年石窟与大漠戈壁。",
+        features: ["莫高窟特窟 (Mogao Caves)", "鸣沙山日落 (Desert Sunset)", "大漠古城 (Ancient City)"],
+        route: "出发地 -> 敦煌市区 -> 莫高窟 -> 鸣沙山 -> 雅丹魔鬼城 -> 返程",
+        content: `
+        <div class="module-box">
+            <div class="module-title">📋 1. 基本情报 (Briefing)</div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>🚗 出行方式:</strong> 飞机直达 (Flight) 或 高铁至柳园转车</li>
+                <li><strong>💰 预算范围:</strong> 4000 - 6000 RMB</li>
+                <li><strong>⏱️ 预期时间:</strong> 4 Days</li>
+                <li><strong>🌡️ 气温推测:</strong> 5°C ~ 20°C (昼夜温差大)</li>
+                <li><strong>✈️ 飞行参考:</strong> 飞敦煌 (Dunhuang)</li>
+            </ul>
+            <p>清明小长假是错峰游敦煌的绝佳时机。没有盛夏的酷暑和国庆的人海，你可以静静站在莫高窟前，感受跨越千年的文化震撼。大漠孤烟，长河落日，都在这里等你。</p>
+            <div style="background-color: #fee; border-left: 5px solid #e74c3c; padding: 10px; margin-top: 10px; color: #c0392b;">
+                <strong>Warning:</strong> 莫高窟门票极其紧俏 (Sell out fast)! 必须提前通过官方小程序抢A类票。春季风沙大，务必带好防风沙装备。
+            </div>
+        </div>
+
+        <div class="module-box">
+            <div class="module-title">🗺️ 2. 抽象地图 (Abstract Map)</div>
+            <div class="map-container">
+                <svg width="100%" height="300" viewBox="0 0 600 300" style="font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;">
+                    <defs>
+                        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
+                        </marker>
+                    </defs>
+                    <rect x="250" y="20" width="330" height="260" rx="20" fill="#f0f8ff" stroke="#bdc3c7" stroke-dasharray="5,5" />
+                    <text x="415" y="270" text-anchor="middle" font-size="14" fill="#95a5a6" font-weight="bold">敦煌区域</text>
+                    <g transform="translate(60, 150)">
+                        <circle r="6" fill="#e74c3c" />
+                        <text x="0" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">出发地</text>
+                    </g>
+                    <path d="M60,150 Q200,50 350,230" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="8,4" />
+                    <text x="200" y="110" text-anchor="middle" font-size="12" fill="#7f8c8d">直飞/高铁</text>
+                    
+                    <g transform="translate(350, 230)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">敦煌市区</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">沙洲夜市</text>
+                    </g>
+                    <g transform="translate(500, 130)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">莫高窟</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">千年信仰</text>
+                    </g>
+                    <g transform="translate(350, 60)">
+                        <circle r="8" fill="white" stroke="#2980b9" stroke-width="3"/>
+                        <text x="0" y="-20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">鸣沙山</text>
+                        <text x="0" y="-35" text-anchor="middle" font-size="12" fill="#7f8c8d">大漠日落</text>
+                    </g>
+                    
+                    <path d="M350,230 Q420,200 500,130" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    <text x="430" y="180" text-anchor="middle" font-size="12" fill="#7f8c8d">东线游</text>
+                    
+                    <path d="M500,130 Q420,90 350,60" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    
+                    <path d="M350,60 Q300,150 350,230" fill="none" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+                    
+                    <path d="M350,230 Q200,280 60,150" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)" />
+                    <text x="200" y="250" text-anchor="middle" font-size="12" fill="#7f8c8d">返程</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="module-box">
+            <div class="module-title">⏳ 3. 时间轴 (Timeline - 4 Days)</div>
+            <div class="day-block">
+                <div class="time-slot"><strong>Day 1:</strong> 初识敦煌</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 敦煌市区 | 🌡️ 气温: 15°C</div>
+                <p><strong>🌞 上午:</strong> 抵达敦煌，入住酒店。</p>
+                <p><strong>☕ 下午:</strong> 前往【敦煌博物馆】预习历史，看1:1复原特窟。博物馆免票但需预约。</p>
+                <p><strong>🌙 晚上:</strong> 逛【沙洲夜市】，品尝驴肉黄面和杏皮水。</p>
+            </div>
+            <div class="day-block">
+                <div class="time-slot"><strong>Day 2:</strong> 千年信仰与大漠日落</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 莫高窟 -> 鸣沙山 | 🌡️ 气温: 18°C</div>
+                <p><strong>🌞 上午:</strong> 前往【莫高窟】（需预留4-5小时），先看两部震撼的数字电影，再进入实体洞窟。</p>
+                <p><strong>☕ 下午:</strong> 4点后进入【鸣沙山·月牙泉】，骑骆驼，爬沙山等候绝美日落。</p>
+                <p><strong>🌙 晚上:</strong> 推荐观看《又见敦煌》情景剧。</p>
+            </div>
+            <div class="day-block">
+                <div class="time-slot"><strong>Day 3:</strong> 西线探秘·苍凉戈壁</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 敦煌古城 -> 阳关 -> 玉门关 -> 雅丹魔鬼城 | 🌡️ 气温: 20°C</div>
+                <p><strong>🌞 上午:</strong> 包车西线一日游。途径【敦煌古城】可租西域服饰旅拍，前往【阳关遗址】办理通关文牒。</p>
+                <p><strong>☕ 下午:</strong> 游览【玉门关】，傍晚抵达【雅丹魔鬼城】看震撼的风蚀地貌日落。</p>
+                <p><strong>🌙 晚上:</strong> 返回市区，西线往返300多公里，请自备干粮。</p>
+            </div>
+            <div class="day-block">
+                <div class="time-slot"><strong>Day 4:</strong> 悠闲慢时光与返程</div>
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">📍 地点: 敦煌市区 -> 机场/高铁站</div>
+                <p><strong>🌞 上午:</strong> 可前往唐风古刹【雷音寺】清心，或在市区采购伴手礼（李广杏干、鸣山大枣）。</p>
+                <p><strong>☕ 下午:</strong> 根据航班/列车时间返程。</p>
+            </div>
+        </div>
+
+        <div class="module-box">
+            <div class="module-title">💰 4. 金币消耗 (Cost Breakdown)</div>
+            <table class="cost-table">
+                <tr><th>项目 (Item)</th><th>预算 (Budget)</th><th>备注 (Note)</th></tr>
+                <tr><td>交通 (Transport)</td><td>800 - 1200</td><td>西线包车/市区打车</td></tr>
+                <tr><td>住宿 (Lodging)</td><td>1000 - 2000</td><td>市区酒店或沙漠民宿</td></tr>
+                <tr><td>餐饮 (Food)</td><td>600 - 1000</td><td>西北面食/烤肉</td></tr>
+                <tr><td>门票 (Ticket)</td><td>1000 - 1500</td><td>莫高窟/鸣沙山/又见敦煌演出等</td></tr>
+                <tr><td><strong>总计 (Total)</strong></td><td><strong>~3400 - 5700</strong></td><td>不含往返大交通 (Flights not included)</td></tr>
+            </table>
+        </div>
+        <div class="module-box">
+            <div class="module-title">🎒 5. 装备 (Loadout)</div>
+            <div class="pros-cons">
+                <div class="pros" style="color: #27ae60;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #27ae60;">✅ 必带装备 (Must Have)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>防沙装备:</strong> 墨镜、口罩、魔术头巾（防风沙）。</li>
+                        <li><strong>保湿用品:</strong> 西北极度干燥，带好高倍防晒霜、润唇膏、身体乳。</li>
+                        <li><strong>厚外套:</strong> 早晚温差极大，带上冲锋衣或薄羽绒服。</li>
+                        <li><strong>防沙鞋套:</strong> 去鸣沙山必备（也可在景区租）。</li>
+                    </ul>
+                </div>
+                <div class="cons" style="color: #c0392b;">
+                    <h4 style="margin-top: 0; border-bottom: 2px dashed #c0392b;">❌ 没必要 (Don't Bring)</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>无人机:</strong> 莫高窟等文物保护区和西线多处禁飞。</li>
+                        <li><strong>过多夏装:</strong> 虽然中午热，但早晚冷，且风沙大不适合暴露皮肤。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        `
     }
 };
 // --- Auto-generated Scores ---
